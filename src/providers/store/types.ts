@@ -1,9 +1,9 @@
 import { rtkApi } from "shared/api";
 
-import { ICatalogState } from "./models";
+import { ICarsState } from "./models";
 
 export interface IStateSchema {
-	catalog: ICatalogState;
+	cars: ICarsState;
 	[rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
 }
 

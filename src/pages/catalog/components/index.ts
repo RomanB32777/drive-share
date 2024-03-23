@@ -1,2 +1,2 @@
 export * from "./card";
-export * from "./period-filter";
+export * from "./catalog-filter";

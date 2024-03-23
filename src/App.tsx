@@ -12,11 +12,14 @@ import { pathRoutes } from "./shared/constants";
 import { ERoutes, TRoutes } from "./shared/types";
 
 const routes: TRoutes = {
-	[ERoutes.Main]: { ...pathRoutes.main, element: <MainPage /> },
-	[ERoutes.Admin]: { ...pathRoutes.admin, element: <AdminPage /> },
-	[ERoutes.Auth]: { ...pathRoutes.auth, element: <AuthPage /> },
-	[ERoutes.Catalog]: { ...pathRoutes.catalog, element: <CatalogPage /> },
-	[ERoutes.Car]: { ...pathRoutes.car, element: <CarPage /> },
+	[ERoutes.Main]: { ...pathRoutes.main, element: <MainPage modificator={styles.container} /> },
+	[ERoutes.Admin]: { ...pathRoutes.admin, element: <AdminPage modificator={styles.container} /> },
+	[ERoutes.Auth]: { ...pathRoutes.auth, element: <AuthPage modificator={styles.container} /> },
+	[ERoutes.Catalog]: {
+		...pathRoutes.catalog,
+		element: <CatalogPage modificator={styles.container} />,
+	},
+	[ERoutes.Car]: { ...pathRoutes.car, element: <CarPage modificator={styles.container} /> },
 };
 
 const App: FC = () => {
@@ -24,15 +27,17 @@ const App: FC = () => {
 		<BrowserRouter basename={pathRoutes.main.path}>
 			<Provider store={store}>
 				<div className={styles.app}>
-					<Header modificator={styles.container} />
-					<main className={classNames(styles.container, styles.main)}>
+					<Header modificator={classNames(styles.container, styles.header)} />
+
+					<main>
 						<Routes>
 							{Object.entries(routes).map(([route, { path, element }]) => (
 								<Route key={route} path={path} element={element} />
 							))}
 						</Routes>
 					</main>
-					<Footer modificator={styles.container} />
+
+					<Footer modificator={classNames(styles.container, styles.footer)} />
 				</div>
 			</Provider>
 		</BrowserRouter>

@@ -6,47 +6,20 @@
 	line-height: 20px;
 }
 
-.picker {
-	:global {
-		.ant-picker {
-			padding: 0;
-			background: none;
-		}
+.pickers {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 30px;
+}
 
-		.ant-picker-input > input {
-			padding: 15px 22px;
+.arrow {
+	svg {
+		color: #000;
+		transition-duration: 0.2s;
+	}
 
-			// border: none;
-			// border-radius: 30px;
-			// background: var(--black-transparent-color);
-			// color: var(--white-color);
-			// font-family: var(--pt-font);
-			// font-size: 17px;
-			// font-style: normal;
-			// font-weight: 600;
-			// line-height: 22px;
-			// text-align: center;
-		}
-
-		// .ant-picker-range-separator {
-		// 	background: transparent
-		// }
-
-		// .ant-picker-separator {
-		// 	display: none;
-		// }
-
-		// .ant-picker-active-bar {
-		// 	display: none;
-		// }
-
-		// .ant-picker-suffix {
-		// 	display: none;
-		// }
-
-		// .ant-picker-clear {
-		// 	background: none;
-		// 	color: var(--white-color);
-		// }
+	&.arrowUp svg {
+		transform: rotate(180deg);
 	}
 }

@@ -1,21 +1,25 @@
 import { configureStore, ReducersMapObject } from "@reduxjs/toolkit";
 import { rtkApi } from "shared/api";
 
-import { catalogActions, catalogReducer } from "./models";
+import { carsActions, carsReducer } from "./models";
 import { IStateSchema } from "./types";
 
 const rootReducers: ReducersMapObject<IStateSchema> = {
-	catalog: catalogReducer,
+	cars: carsReducer,
 	[rtkApi.reducerPath]: rtkApi.reducer,
 };
 
 export const store = configureStore({
 	reducer: rootReducers,
 	devTools: true,
+	middleware: (getDefaultMiddleware) =>
+		getDefaultMiddleware({
+			serializableCheck: false,
+		}).concat(rtkApi.middleware),
 });
 
 export const rootActions = {
-	...catalogActions,
+	...carsActions,
 };
 
 export type TRootState = ReturnType<typeof store.getState>;

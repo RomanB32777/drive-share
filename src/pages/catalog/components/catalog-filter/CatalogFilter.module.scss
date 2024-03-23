@@ -1,0 +1,40 @@
+.filter {
+	display: flex;
+	max-width: 1200px;
+	align-items: center;
+	justify-content: space-between;
+	padding: 20px;
+	padding-left: 50px;
+	border-radius: 50px;
+	margin: 0 auto 55px;
+	background-color: #e2e2e296;
+}
+
+.items {
+	display: flex;
+	align-items: center;
+}
+
+.item {
+	padding: 0 30px;
+	border-right: 1px solid #878787;
+
+	&:last-child {
+		padding-right: 0;
+		border-right: none;
+	}
+
+	&:first-child {
+		padding-left: 0;
+	}
+}
+
+.select {
+	width: 300px;
+}
+
+button.button {
+	width: 62px;
+	height: 62px;
+	border-radius: 50%;
+}

@@ -1,5 +1,7 @@
 import { FC } from "react";
 
-export const AdminPage: FC = () => {
-	return <></>;
+import { IComponentWithModificator } from "shared/interfaces";
+
+export const AdminPage: FC<IComponentWithModificator> = ({ modificator }) => {
+	return <div className={modificator}></div>;
 };

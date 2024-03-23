@@ -1,5 +1,7 @@
 import { FC } from "react";
 
-export const AuthPage: FC = () => {
-	return <></>;
+import { IComponentWithModificator } from "shared/interfaces";
+
+export const AuthPage: FC<IComponentWithModificator> = ({ modificator }) => {
+	return <div className={modificator}></div>;
 };

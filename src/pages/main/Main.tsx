@@ -1,11 +1,13 @@
 import { FC } from "react";
 
+import { IComponentWithModificator } from "shared/interfaces";
+
 import bg from "./bg.png";
 import styles from "./Main.module.scss";
 
-export const MainPage: FC = () => {
+export const MainPage: FC<IComponentWithModificator> = ({ modificator }) => {
 	return (
-		<>
+		<div className={modificator}>
 			<div>
 				<img className={styles.bg} src={bg} alt="бэкграунд" />
 				<p className={styles.title}>Арендуйте автомобиль</p>
@@ -17,6 +19,6 @@ export const MainPage: FC = () => {
 					<div className={styles.cards}>cards</div>
 				</div>
 			</div>
-		</>
+		</div>
 	);
 };

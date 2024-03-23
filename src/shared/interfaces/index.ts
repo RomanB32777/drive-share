@@ -1,3 +1,5 @@
+export * from "./forms";
+
 export interface IComponentWithChildren {
 	children?: React.ReactNode;
 }

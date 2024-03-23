@@ -1,39 +1,32 @@
 import { FC } from "react";
 
-import { DatePicker, DatePickerProps, TimePicker } from "antd";
-import dayjs from "dayjs";
+import { DatePickerProps, TimePickerProps } from "antd";
+import classNames from "classnames";
+import { ArrowIcon } from "shared/assets/icons";
 
+import { DatePicker } from "../date-picker";
+import { TimePicker } from "../time-picker";
 import styles from "./DatePeriod.module.scss";
 
-const timeFormat = "HH:mm";
-const dateFormat = "DD/MM/YYYY";
-
-interface IDatePeriod {
+export interface IDatePeriod {
 	label?: string;
-	defaultDateValue?: dayjs.Dayjs | null | undefined;
-	defaultTimeValue?: dayjs.Dayjs | null | undefined;
+	datePickerProps?: DatePickerProps;
+	timePickerProps?: TimePickerProps;
 }
 
-export const DatePeriod: FC<IDatePeriod> = ({ label, defaultDateValue, defaultTimeValue }) => {
-	const onChange: DatePickerProps["onChange"] = (date, dateString) => {
-		console.log(date, dateString);
-	};
+export const DatePeriod: FC<IDatePeriod> = ({ label, datePickerProps, timePickerProps }) => {
+	const renderSuffixIcon = (isFocus: boolean) => (
+		<span className={classNames(styles.arrow, { [styles.arrowUp]: isFocus })}>
+			<ArrowIcon />
+		</span>
+	);
 
 	return (
 		<div>
 			{label && <p className={styles.label}>{label}</p>}
-			<div>
-				<DatePicker
-					defaultValue={defaultDateValue || dayjs()}
-					format={dateFormat}
-					onChange={onChange}
-					rootClassName={styles.picker}
-				/>
-				<TimePicker
-					defaultValue={defaultTimeValue || dayjs()}
-					format={timeFormat}
-					rootClassName={styles.picker}
-				/>
+			<div className={styles.pickers}>
+				<DatePicker allowClear={false} renderSuffixIcon={renderSuffixIcon} {...datePickerProps} />
+				<TimePicker allowClear={false} renderSuffixIcon={renderSuffixIcon} {...timePickerProps} />
 			</div>
 		</div>
 	);
