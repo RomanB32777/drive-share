@@ -7,13 +7,13 @@ const carsApi = rtkApi.enhanceEndpoints({ addTagTypes: ["cars"] }).injectEndpoin
 	endpoints: (build) => ({
 		fetchCars: build.query<ICar[], ICarsQueryParams>({
 			query: (query) => ({
-				url: "car",
+				url: "todos",
 				params: query,
 			}),
 			providesTags: ["cars"],
 		}),
 		fetchCar: build.query<ICar, string>({
-			query: (id) => `car/${id}`,
+			query: (id) => `todos/${id}`,
 		}),
 		createRent: build.mutation<ICar, Omit<IRentData, "id">>({
 			query: (data) => ({

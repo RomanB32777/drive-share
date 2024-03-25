@@ -1,49 +1,22 @@
-import { FC, useMemo } from "react";
+import { FC } from "react";
 
 import classNames from "classnames";
 import { useFetchCarQuery } from "providers/store/models";
 import { useParams } from "react-router-dom";
-import { StarIcon } from "shared/assets/icons";
 import { Carousel, ContentLayout } from "shared/components";
 import { useAppSelector } from "shared/hooks";
 import { IComponentWithModificator } from "shared/interfaces";
 
-import styles from "./Car.module.scss";
-import { Owner, RentForm } from "./components";
-
-const STARS_NUMBER = 5;
+import { Owner, Rating, RentForm } from "./components";
+import styles from "./Csar.module.scss";
 
 export const CarPage: FC<IComponentWithModificator> = ({ modificator }) => {
 	const { id = "" } = useParams();
 	const {
-		car: { model, rating, photo },
+		car: { model, photo },
 	} = useAppSelector(({ cars }) => cars);
 
 	const { isLoading } = useFetchCarQuery(id, { skip: !id });
-
-	const ratingStars = useMemo(() => {
-		const stars = [];
-
-		const emptyStars = STARS_NUMBER - rating;
-
-		for (let i = 0; i < rating; i++) {
-			stars.push(
-				<span className={styles.activeStar}>
-					<StarIcon />
-				</span>
-			);
-		}
-
-		for (let i = 0; i < emptyStars; i++) {
-			stars.push(
-				<span>
-					<StarIcon />
-				</span>
-			);
-		}
-
-		return stars;
-	}, [rating]);
 
 	return (
 		<ContentLayout isLoading={isLoading}>
@@ -59,13 +32,8 @@ export const CarPage: FC<IComponentWithModificator> = ({ modificator }) => {
 				<div className={styles.content}>
 					<div className={styles.topBlock}>
 						<h1 className={styles.title}>{model}</h1>
-						<div className={styles.ratingRow}>
-							<div className={styles.rating}>
-								<span className={styles.ratingValue}>{rating}</span>
-								<div className={styles.stars}>{ratingStars}</div>
-							</div>
-							<span className={styles.reviews}>11 отзывов</span>
-						</div>
+
+						<Rating />
 					</div>
 
 					<div className={styles.info}>
@@ -115,6 +83,7 @@ export const CarPage: FC<IComponentWithModificator> = ({ modificator }) => {
 						</div>
 					</div>
 				</div>
+
 				<div className={styles.sidebar}>
 					<RentForm />
 				</div>

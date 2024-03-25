@@ -17,10 +17,12 @@
 		"ecmaVersion": "latest",
 		"sourceType": "module"
 	},
-	"plugins": ["react", "import", "@typescript-eslint", "css-modules"],
+	"plugins": ["react", "import", "@typescript-eslint", "react-hooks", "css-modules"],
 	"rules": {
 		"react/react-in-jsx-scope": "off",
 		"prettier/prettier": ["warn"],
+		"react-hooks/rules-of-hooks": "error",
+		"react-hooks/exhaustive-deps": "error",
 		"css-modules/no-unused-class": "error",
 		"css-modules/no-undef-class": "error",
 		"import/no-cycle": ["error", { "ignoreExternal": true, "maxDepth": 1 }],

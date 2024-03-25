@@ -4,7 +4,6 @@ export * from "./button";
 export * from "./content-layout";
 export * from "./date-picker";
 export * from "./time-picker";
-export * from "./date-period";
 export * from "./search-select";
 export * from "./carousel";
-export * from "./period-filter";
+export * from "./period-form";

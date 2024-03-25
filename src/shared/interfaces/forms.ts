@@ -1,4 +1,3 @@
-import { Dayjs } from "dayjs";
 import { Control, FieldValue, FieldValues, Path, RegisterOptions } from "react-hook-form";
 
 export interface IFormElement<FormControl extends FieldValues> {
@@ -12,13 +11,10 @@ export interface IFormElement<FormControl extends FieldValues> {
 	value?: FieldValue<FormControl>;
 }
 
-export interface IPeriodValues {
-	date: Dayjs;
-	time: Dayjs;
-}
-
 export interface IPeriodFilterValues {
 	city: string;
-	from: IPeriodValues;
-	to: IPeriodValues;
+	from: string;
+	to: string;
 }
+
+export type TFilterDateKeys = Exclude<keyof IPeriodFilterValues, "city">;

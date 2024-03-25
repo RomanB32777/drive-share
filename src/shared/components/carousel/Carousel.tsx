@@ -5,7 +5,7 @@ import { ArrowIcon } from "shared/assets/icons";
 
 import styles from "./Carousel.module.scss";
 
-const CarouselArrow = () => (
+const CarouselArrow: FC = () => (
 	<div className={styles.arrow}>
 		<ArrowIcon />
 	</div>

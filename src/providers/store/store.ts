@@ -1,5 +1,5 @@
 import { configureStore, ReducersMapObject } from "@reduxjs/toolkit";
-import { rtkApi } from "shared/api";
+import { rtkApi, rtkQueryErrorLogger } from "shared/api";
 
 import { carsActions, carsReducer } from "./models";
 import { IStateSchema } from "./types";
@@ -15,7 +15,7 @@ export const store = configureStore({
 	middleware: (getDefaultMiddleware) =>
 		getDefaultMiddleware({
 			serializableCheck: false,
-		}).concat(rtkApi.middleware),
+		}).concat([rtkQueryErrorLogger, rtkApi.middleware]),
 });
 
 export const rootActions = {
