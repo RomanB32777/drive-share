@@ -7,8 +7,8 @@ import { Carousel, ContentLayout } from "shared/components";
 import { useAppSelector } from "shared/hooks";
 import { IComponentWithModificator } from "shared/interfaces";
 
+import styles from "./Car.module.scss";
 import { Owner, Rating, RentForm } from "./components";
-import styles from "./Csar.module.scss";
 
 export const CarPage: FC<IComponentWithModificator> = ({ modificator }) => {
 	const { id = "" } = useParams();
