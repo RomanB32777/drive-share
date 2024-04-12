@@ -1,0 +1,112 @@
+@import "app/styles/index";
+
+.card {
+	display: flex;
+	flex-direction: column;
+	border-radius: 20px;
+	background-color: $white-color;
+}
+
+.image {
+	overflow: hidden;
+	height: 240px;
+	border-radius: 20px 20px 0 0;
+
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center;
+	}
+}
+
+.content {
+	display: flex;
+	flex: 1 1 0%;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: 28px 24px;
+}
+
+.link {
+	animation-duration: 0.2s;
+	color: $black-color;
+}
+
+.title {
+	padding-bottom: 14px;
+	border-bottom: 1px solid $grey-color-light;
+	font-weight: 700;
+
+	@include textBase;
+
+	@include mediaBreakpointMd {
+		@include textXl;
+	}
+
+	@include mediaBreakpointXl {
+		padding-bottom: 28px;
+
+		@include text2Xl;
+	}
+}
+
+.info {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-top: 14px;
+
+	@include mediaBreakpointXl {
+		padding-top: 28px;
+	}
+}
+
+.price {
+	color: $black-color;
+	font-weight: 500;
+
+	@include text3Xl;
+
+	span {
+		color: $grey-color;
+		font-weight: 500;
+
+		@include textXl;
+
+		@include mediaBreakpointMd {
+			@include textSm;
+		}
+
+		@include mediaBreakpointXl {
+			@include text3Xl;
+		}
+	}
+
+	@include mediaBreakpointMd {
+		@include textXl;
+	}
+
+	@include mediaBreakpointXl {
+		@include text4Xl;
+	}
+}
+
+.badge {
+	padding: 7px 14px;
+	border-radius: 20px;
+	background-color: $orange-color-opacity;
+	color: $orange-color;
+	font-weight: 600;
+	text-align: left;
+
+	@include textXs;
+
+	@include mediaBreakpointMd {
+		@include textSm;
+	}
+
+	@include mediaBreakpointXl {
+		@include textBase;
+	}
+}

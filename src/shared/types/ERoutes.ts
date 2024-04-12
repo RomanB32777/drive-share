@@ -1,7 +1,7 @@
 export enum ERoutes {
 	Main = "main",
 
-	Admin = "admin",
+	Profile = "profile",
 
 	Auth = "auth",
 

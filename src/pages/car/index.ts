@@ -1,1 +1,1 @@
-export * from "./Car";
+export { CarPage } from "./ui/CarPage";

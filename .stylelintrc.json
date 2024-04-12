@@ -13,8 +13,14 @@
 		"value-keyword-case": null,
 		"no-descending-specificity": null,
 		"selector-class-pattern": null,
-		"max-nesting-depth": [2, { "ignore": ["pseudo-classes"] }],
+		"max-nesting-depth": [2, { "ignore": ["pseudo-classes", "blockless-at-rules"] }],
 		"selector-pseudo-class-no-unknown": [true, { "ignorePseudoClasses": ["global", "export"] }],
+		"property-no-unknown": [
+			true,
+			{
+				"ignoreProperties": ["primaryColor", "primaryFontFamily"]
+			}
+		],
 		"at-rule-no-unknown": null,
 		"declaration-block-trailing-semicolon": null
 	}

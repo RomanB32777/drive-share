@@ -1,0 +1,83 @@
+@import "app/styles/index";
+
+.banner {
+	position: relative;
+	isolation: isolate;
+
+	@include mediaBreakpointMd {
+		padding-bottom: 250px;
+	}
+}
+
+.bannerImage {
+	position: absolute;
+	z-index: -10;
+	width: 100%;
+	height: 100%;
+	inset: 0;
+	object-fit: cover;
+	object-position: center;
+}
+
+.bannerContent {
+	position: relative;
+
+	.filter {
+		background-color: $white-color-opacity;
+	}
+}
+
+div.titleWrapper {
+	padding-top: 18px;
+	padding-bottom: 20px;
+	text-align: center;
+
+	@include mediaBreakpointMd {
+		padding-top: 40px;
+		padding-bottom: 50px;
+	}
+}
+
+.title {
+	margin: 0;
+	font-family: $font-family-philosopher;
+	font-weight: 700;
+
+	@include text2Xl;
+
+	@include mediaBreakpointMd {
+		@include text5Xl;
+	}
+
+	@include mediaBreakpointXl {
+		@include text7Xl;
+	}
+}
+
+.subtitle {
+	font-family: $font-family-mulish;
+	font-weight: 600;
+
+	@include textXl;
+
+	@include mediaBreakpointMd {
+		@include text3Xl;
+	}
+
+	@include mediaBreakpointXl {
+		@include text5Xl;
+	}
+}
+
+.content {
+	border-radius: 20px 20px 0 0;
+	background-color: $white-color-light;
+
+	@include mediaBreakpointMd {
+		border-radius: 35px 35px 0 0;
+	}
+
+	@include mediaBreakpointXl {
+		border-radius: 50px 50px 0 0;
+	}
+}

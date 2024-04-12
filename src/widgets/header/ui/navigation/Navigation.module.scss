@@ -1,0 +1,16 @@
+@import "app/styles/index";
+
+.menuWrapper {
+	.menu {
+		&:global > .ant-menu-item a {
+			color: $black-color;
+			font-weight: 500;
+
+			@include textXl;
+		}
+
+		&:global > .ant-menu-item-selected a {
+			color: $primary-color;
+		}
+	}
+}

@@ -1,0 +1,9 @@
+@import "reset";
+@import "variables.module";
+@import "mixins/media";
+@import "mixins/typography";
+
+* {
+	font-family: $font-family-primary;
+	font-style: normal;
+}

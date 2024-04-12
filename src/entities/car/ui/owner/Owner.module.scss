@@ -1,0 +1,59 @@
+@import "app/styles/index";
+
+.owner {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+
+	@include mediaBreakpointMd {
+		gap: 14px;
+	}
+
+	@include mediaBreakpointXl {
+		gap: 16px;
+	}
+}
+
+.icon {
+	display: flex;
+	width: 42px;
+	height: 42px;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	background-color: $white-color-dark;
+	color: $grey-color-dark;
+
+	@include mediaBreakpointMd {
+		width: 50px;
+		height: 50px;
+	}
+}
+
+.userInfo {
+	display: flex;
+	column-gap: 15px;
+
+	@include mediaBreakpointMd {
+		flex-direction: column;
+	}
+}
+
+.name,
+.description {
+	font-weight: 500;
+
+	@include textXs;
+
+	@include mediaBreakpointMd {
+		@include textSm;
+	}
+
+	@include mediaBreakpointXl {
+		@include textXl;
+	}
+}
+
+.description {
+	color: $grey-color-brightest;
+}

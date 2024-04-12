@@ -1,0 +1,54 @@
+@mixin textXs {
+	font-size: 12px;
+	line-height: 16px;
+}
+
+@mixin textSm {
+	font-size: 14px;
+	line-height: 20px;
+}
+
+@mixin textBase {
+	font-size: 16px;
+	line-height: 24px;
+}
+
+@mixin textLg {
+	font-size: 18px;
+	line-height: 28px;
+}
+
+@mixin textXl {
+	font-size: 20px;
+	line-height: 28px;
+}
+
+@mixin text2Xl {
+	font-size: 24px;
+	line-height: 32px;
+}
+
+@mixin text3Xl {
+	font-size: 30px;
+	line-height: 36px;
+}
+
+@mixin text4Xl {
+	font-size: 36px;
+	line-height: 40px;
+}
+
+@mixin text5Xl {
+	font-size: 48px;
+	line-height: 1;
+}
+
+@mixin text6Xl {
+	font-size: 60px;
+	line-height: 1;
+}
+
+@mixin text7Xl {
+	font-size: 72px;
+	line-height: 1;
+}

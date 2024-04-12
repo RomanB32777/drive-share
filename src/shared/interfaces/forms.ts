@@ -3,10 +3,7 @@ import { Control, FieldValue, FieldValues, Path, RegisterOptions } from "react-h
 export interface IFormElement<FormControl extends FieldValues> {
 	name: Path<FormControl>;
 	control: Control<FormControl>;
-	rules?: Omit<
-		RegisterOptions<FormControl, Path<FormControl>>,
-		"disabled" | "valueAsNumber" | "valueAsDate" | "setValueAs"
-	>;
+	rules?: RegisterOptions<FormControl, Path<FormControl>>;
 	error?: string | null;
 	value?: FieldValue<FormControl>;
 }

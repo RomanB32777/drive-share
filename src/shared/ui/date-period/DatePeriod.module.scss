@@ -1,0 +1,68 @@
+@import "app/styles/index";
+
+.label {
+	margin-bottom: 4px;
+	color: $grey-color;
+	font-weight: 700;
+
+	@include textXs;
+
+	@include mediaBreakpointMd {
+		margin-bottom: 8px;
+
+		@include textSm;
+	}
+
+	@include mediaBreakpointXl {
+		margin-bottom: 12px;
+
+		@include textBase;
+	}
+}
+
+.pickers {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 20px;
+
+	@include mediaBreakpointMd {
+		gap: 30px;
+	}
+}
+
+.datePicker {
+	width: 65%;
+
+	@include mediaBreakpointMd {
+		width: auto;
+	}
+}
+
+.timePicker {
+	width: 35%;
+
+	@include mediaBreakpointMd {
+		width: auto;
+	}
+}
+
+.arrow {
+	svg {
+		width: 8px;
+		color: $black-color;
+		transition-duration: 0.2s;
+
+		@include mediaBreakpointMd {
+			width: 10px;
+		}
+
+		@include mediaBreakpointXl {
+			width: 20px;
+		}
+	}
+
+	&.arrowUp svg {
+		transform: rotate(180deg);
+	}
+}

@@ -1,0 +1,153 @@
+@import "app/styles/index";
+
+.rent {
+	padding: 12px 10px;
+	border-radius: 10px;
+	background-color: $white-color-light;
+
+	@include mediaBreakpointMd {
+		padding: 15px;
+	}
+
+	@include mediaBreakpointXl {
+		padding: 35px;
+		border-radius: 20px;
+	}
+}
+
+.title {
+	color: $black-color;
+	font-weight: 600;
+
+	@include textBase;
+
+	@include mediaBreakpointMd {
+		@include textXl;
+	}
+
+	@include mediaBreakpointXl {
+		@include text4Xl;
+	}
+}
+
+.form {
+	padding-bottom: 15px;
+	border-bottom: 1px solid $grey-color-brightest;
+
+	@include mediaBreakpointMd {
+		padding-bottom: 30px;
+	}
+}
+
+.filters {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 12px 0;
+	gap: 15px;
+
+	@include mediaBreakpointMd {
+		flex-direction: column;
+		padding: 15px 0;
+	}
+
+	@include mediaBreakpointXl {
+		padding: 30px 0;
+	}
+}
+
+.item {
+	flex: 1 1 0%;
+	padding: 0;
+
+	@include mediaBreakpointMd {
+		flex: none;
+		padding: 8px 12px;
+		border-radius: 10px;
+		background-color: $white-color-dark;
+	}
+
+	@include mediaBreakpointXl {
+		padding: 16px 24px;
+		border-radius: 20px;
+	}
+}
+
+div.select {
+	width: 100%;
+	flex: none;
+}
+
+.button {
+	padding: 8px 0;
+	border-radius: 10px;
+
+	@include textXs;
+
+	@include mediaBreakpointMd {
+		padding: 15px 0;
+
+		@include textBase;
+	}
+
+	@include mediaBreakpointXl {
+		border-radius: 20px;
+
+		@include textXl;
+	}
+}
+
+.arrow {
+	display: flex;
+	width: 15px;
+	height: 15px;
+	align-items: center;
+	justify-content: center;
+	padding: 2px;
+	border: 1px solid $white-color;
+	border-radius: 50%;
+
+	@include mediaBreakpointMd {
+		width: 25px;
+		height: 25px;
+		padding: 5px;
+	}
+
+	@include mediaBreakpointXl {
+		width: 35px;
+		height: 35px;
+		padding: 0;
+	}
+}
+
+.price {
+	margin-top: 15px;
+	color: $black-color;
+	font-weight: 500;
+
+	@include textBase;
+
+	span {
+		color: $grey-color;
+		font-weight: 500;
+
+		@include textXs;
+
+		@include mediaBreakpointMd {
+			@include textSm;
+		}
+
+		@include mediaBreakpointXl {
+			@include textXl;
+		}
+	}
+
+	@include mediaBreakpointMd {
+		margin-top: 30px;
+
+		@include textXl;
+	}
+
+	@include mediaBreakpointXl {
+		@include text4Xl;
+	}
+}

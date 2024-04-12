@@ -5,24 +5,5 @@
 	"useTabs": true,
 	"tabWidth": 2,
 	"singleQuote": false,
-	"endOfLine": "auto",
-	"plugins": ["@ianvs/prettier-plugin-sort-imports"],
-	"importOrder": [
-		"<BUILTIN_MODULES>",
-		"^react$",
-
-		"",
-
-		"<THIRD_PARTY_MODULES>",
-
-		"",
-
-		"^../(.*)$",
-		"^./(.*)[^(.scss)]$",
-		"^[.]",
-
-		"",
-
-		"(.scss)$"
-	]
+	"endOfLine": "auto"
 }

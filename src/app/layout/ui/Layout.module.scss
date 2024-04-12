@@ -1,0 +1,38 @@
+@import "app/styles/index";
+
+.layout {
+	position: relative;
+}
+
+.container {
+	max-width: 1920px;
+	padding: 55px 16px;
+	margin: 0 auto;
+	overflow-x: hidden;
+
+	@include mediaBreakpointSm {
+		padding: 55px 24px;
+	}
+
+	@include mediaBreakpointXl {
+		padding: 55px 118px;
+	}
+}
+
+.paddingContent {
+	padding-top: 75px;
+
+	@include mediaBreakpointMd {
+		padding-top: 90px;
+	}
+
+	@include mediaBreakpointXl {
+		padding-top: 105px;
+	}
+}
+
+div.header,
+div.footer {
+	padding-top: 0;
+	padding-bottom: 0;
+}

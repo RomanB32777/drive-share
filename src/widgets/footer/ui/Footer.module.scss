@@ -1,0 +1,29 @@
+@import "app/styles/index";
+
+.footer {
+	padding: 48px 0;
+	background-color: $white-color;
+}
+
+.menu {
+	display: flex;
+	max-height: 160px;
+	flex-flow: column wrap;
+	margin-bottom: 48px;
+	gap: 20px 50px;
+
+	li a {
+		color: $black-color;
+		font-weight: 500;
+
+		@include textSm;
+	}
+}
+
+.copyright {
+	color: $grey-color-dark;
+	font-weight: 600;
+	text-align: center;
+
+	@include textBase;
+}

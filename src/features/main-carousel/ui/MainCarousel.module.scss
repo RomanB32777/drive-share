@@ -1,0 +1,60 @@
+@import "app/styles/index";
+
+.head {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 35px;
+}
+
+.arrows {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+
+	@include mediaBreakpointXl {
+		gap: 30px;
+	}
+}
+
+.arrowLeft {
+	transform: rotate(90deg);
+}
+
+.arrowRight {
+	transform: rotate(-90deg);
+}
+
+.title {
+	font-weight: 600;
+
+	@include textBase;
+
+	@include mediaBreakpointMd {
+		@include textXl;
+	}
+
+	@include mediaBreakpointXl {
+		@include text3Xl;
+	}
+}
+
+.carouselWrapper {
+	overflow: hidden;
+}
+
+.head,
+.slide {
+	margin-right: 0;
+	margin-left: 0;
+
+	@include mediaBreakpointSm {
+		margin-right: 10px;
+		margin-left: 10px;
+	}
+
+	@include mediaBreakpointLg {
+		margin-right: 15px;
+		margin-left: 15px;
+	}
+}

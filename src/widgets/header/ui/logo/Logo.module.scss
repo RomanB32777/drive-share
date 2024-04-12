@@ -1,0 +1,12 @@
+@import "app/styles/index";
+
+.logo {
+	color: $primary-color;
+	font-family: $font-family-audiowide;
+
+	@include textLg;
+
+	@include mediaBreakpointXl {
+		@include text4Xl;
+	}
+}

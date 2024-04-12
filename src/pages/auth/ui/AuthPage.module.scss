@@ -1,0 +1,41 @@
+@import "app/styles/index";
+
+.title {
+	font-family: $font-family-philosopher;
+	font-weight: 700;
+	text-align: center;
+
+	@include textXl;
+
+	@include mediaBreakpointMd {
+		@include text3Xl;
+	}
+
+	@include mediaBreakpointXl {
+		@include text5Xl;
+	}
+}
+
+.form {
+	max-width: 670px;
+	margin: 0 auto;
+}
+
+.redirect {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 20px;
+}
+
+.question {
+	font-weight: 500;
+
+	@include textLg;
+}
+
+.button {
+	width: auto;
+	padding: 12px 25px;
+	border-radius: 10px;
+}

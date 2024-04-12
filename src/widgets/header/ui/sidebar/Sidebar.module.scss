@@ -1,0 +1,27 @@
+@import "app/styles/index";
+
+.sider,
+.overlay {
+	@include mediaBreakpointXl {
+		display: none;
+	}
+}
+
+.sider {
+	position: fixed;
+	z-index: 10;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	overflow: auto;
+	height: 100vh;
+	background-color: $white-color;
+}
+
+.overlay {
+	position: absolute;
+	z-index: 5;
+	background: $black-color;
+	inset: 0;
+	opacity: 0.5;
+}

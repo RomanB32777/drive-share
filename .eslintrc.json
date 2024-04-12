@@ -9,7 +9,9 @@
 		"plugin:react/recommended",
 		"plugin:@typescript-eslint/recommended",
 		"plugin:prettier/recommended",
-		"plugin:css-modules/recommended"
+		"plugin:css-modules/recommended",
+		"plugin:@conarti/feature-sliced/recommended",
+		"plugin:@conarti/feature-sliced/import-order/with-newlines-and-type-group"
 	],
 	"overrides": [],
 	"parser": "@typescript-eslint/parser",
@@ -19,6 +21,8 @@
 	},
 	"plugins": ["react", "import", "@typescript-eslint", "react-hooks", "css-modules"],
 	"rules": {
+		"no-shadow": "off",
+		"@typescript-eslint/no-shadow": "warn",
 		"react/react-in-jsx-scope": "off",
 		"prettier/prettier": ["warn"],
 		"react-hooks/rules-of-hooks": "error",
@@ -26,22 +30,6 @@
 		"css-modules/no-unused-class": "error",
 		"css-modules/no-undef-class": "error",
 		"import/no-cycle": ["error", { "ignoreExternal": true, "maxDepth": 1 }],
-		"import/order": [
-			"error",
-			{
-				"pathGroups": [
-					{
-						"pattern": "react",
-						"group": "external",
-						"position": "before"
-					}
-				],
-				"groups": ["builtin", "external", "internal", ["parent", "sibling"], "index"],
-				"newlines-between": "always-and-inside-groups",
-				"distinctGroup": false,
-				"pathGroupsExcludedImportTypes": ["builtin"]
-			}
-		],
 		"import/no-duplicates": ["error", { "prefer-inline": true }],
 		"import/no-unresolved": "off",
 		"@typescript-eslint/naming-convention": [

@@ -1,0 +1,77 @@
+@import "app/styles/index";
+
+.headerWrapper {
+	position: fixed;
+	z-index: 20;
+	right: 0;
+	left: 0;
+	background-color: $white-color;
+}
+
+.content {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 12px 0;
+	column-gap: 50px;
+
+	@include mediaBreakpointMd {
+		padding: 20px 0;
+	}
+
+	@include mediaBreakpointXl {
+		padding: 30px 0;
+	}
+}
+
+.navigation {
+	display: none;
+	flex: 1 1 0%;
+	align-items: center;
+	column-gap: 50px;
+
+	@include mediaBreakpointXl {
+		display: flex;
+	}
+}
+
+.menuWrapper {
+	flex: 1 1 0%;
+
+	.menu {
+		justify-content: flex-end;
+		border-bottom: none;
+	}
+}
+
+.mobileMenuWrapper .mobileMenu {
+	&:global > .ant-menu-item-selected,
+	&:global > .ant-menu-item:not(.ant-menu-item-selected):active {
+		background-color: rgba($primary-color, 0.1);
+	}
+}
+
+button.authButton {
+	width: auto;
+	padding: 12px 18px;
+	border-radius: 10px;
+	font-weight: 500;
+
+	@include textXl;
+}
+
+.hamburgerWrapper {
+	button.hamburger {
+		padding: 10px;
+
+		svg {
+			width: 32px;
+			height: 32px;
+		}
+	}
+
+	@include mediaBreakpointXl {
+		display: none;
+	}
+}

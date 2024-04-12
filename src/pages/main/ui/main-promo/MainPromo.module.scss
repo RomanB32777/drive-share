@@ -1,0 +1,110 @@
+@import "app/styles/index";
+
+.promo {
+	display: flex;
+	flex-direction: column-reverse;
+	align-items: center;
+	margin-top: 100px;
+	row-gap: 45px;
+
+	@include mediaBreakpointMd {
+		flex-direction: row;
+		margin-top: 150px;
+		gap: 75px;
+	}
+
+	@include mediaBreakpointXl {
+		gap: 150px;
+	}
+}
+
+.content {
+	max-width: none;
+	text-align: center;
+
+	@include mediaBreakpointMd {
+		max-width: 350px;
+		text-align: left;
+	}
+
+	@include mediaBreakpointXl {
+		max-width: 500px;
+	}
+}
+
+.imageWrapper {
+	position: relative;
+	text-align: right;
+
+	&::before {
+		position: absolute;
+		top: -7%;
+		left: 0;
+		width: 90%;
+		height: 90%;
+		background-color: $grey-color-light;
+		content: "";
+	}
+}
+
+.image {
+	position: relative;
+	width: 95%;
+	margin-left: auto;
+	object-fit: contain;
+}
+
+.title {
+	margin-bottom: 15px;
+	font-weight: 600;
+
+	@include textXl;
+
+	@include mediaBreakpointMd {
+		margin-bottom: 20px;
+
+		@include text3Xl;
+	}
+
+	@include mediaBreakpointXl {
+		@include text4Xl;
+	}
+}
+
+.description {
+	margin-bottom: 25px;
+	font-weight: 500;
+
+	@include textBase;
+
+	@include mediaBreakpointMd {
+		margin-bottom: 40px;
+
+		@include textXl;
+	}
+
+	@include mediaBreakpointXl {
+		@include text2Xl;
+	}
+}
+
+.button {
+	width: auto;
+	padding: 12px 15px;
+	border-radius: 10px;
+	margin: 0 auto;
+	font-weight: 500;
+
+	@include textSm;
+
+	@include mediaBreakpointMd {
+		padding: 15px 20px;
+		margin: 0;
+
+		@include textBase;
+	}
+
+	@include mediaBreakpointXl {
+		@include textXl;
+	}
+}

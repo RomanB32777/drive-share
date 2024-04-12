@@ -1,0 +1,103 @@
+@import "app/styles/index";
+
+.filter {
+	display: flex;
+	max-width: 1200px;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 20px;
+	border-radius: 18px;
+	margin: 0 auto 55px;
+	background-color: $grey-color-opacity;
+	row-gap: 20px;
+
+	@include mediaBreakpointXl {
+		justify-content: space-between;
+		padding-left: 50px;
+		border-radius: 50px;
+	}
+}
+
+.items {
+	display: flex;
+	width: 100%;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 20px;
+
+	@include mediaBreakpointXl {
+		width: auto;
+	}
+}
+
+.item {
+	flex: 1 1 0%;
+
+	@include mediaBreakpointMd {
+		flex: none;
+	}
+
+	@include mediaBreakpointXl {
+		padding: 0 30px;
+		border-right: 1px solid $grey-color;
+
+		&:last-child {
+			padding-right: 0;
+			border-right: none;
+		}
+
+		&:first-child {
+			padding-left: 0;
+		}
+	}
+}
+
+div.select {
+	width: 100%;
+	flex: none;
+	padding-bottom: 12px;
+	border-bottom: 1px solid $grey-color;
+
+	@include mediaBreakpointXl {
+		width: 300px;
+		padding-bottom: 0;
+		border-bottom: none;
+	}
+}
+
+.button {
+	width: 100%;
+	padding: 8px 0;
+	border-radius: 50px;
+
+	@include textXs;
+
+	@include mediaBreakpointMd {
+		padding: 15px 0;
+
+		@include textBase;
+	}
+
+	@include mediaBreakpointXl {
+		width: 62px;
+		height: 62px;
+		padding: 0;
+
+		@include textXl;
+	}
+}
+
+.buttonIcon {
+	display: none;
+
+	@include mediaBreakpointXl {
+		display: block;
+	}
+}
+
+.buttonText {
+	@include mediaBreakpointXl {
+		display: none;
+	}
+}

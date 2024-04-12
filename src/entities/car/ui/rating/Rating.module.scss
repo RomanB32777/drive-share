@@ -1,0 +1,87 @@
+@import "app/styles/index";
+
+.row {
+	display: flex;
+	gap: 18px;
+}
+
+.rating,
+.reviews {
+	@include textXs;
+
+	@include mediaBreakpointMd {
+		@include textSm;
+	}
+
+	@include mediaBreakpointXl {
+		@include textXl;
+	}
+}
+
+.rating {
+	display: flex;
+	align-items: center;
+	font-weight: 700;
+}
+
+.stars {
+	margin-left: 8px;
+
+	:global {
+		@include textXs;
+
+		.ant-rate-star {
+			width: 12px;
+			height: 12px;
+
+			@include mediaBreakpointMd {
+				width: 14px;
+				height: 14px;
+			}
+
+			@include mediaBreakpointXl {
+				width: 16px;
+				height: 16px;
+			}
+		}
+
+		.ant-rate-star:not(:last-child) {
+			margin-inline-end: 2px;
+
+			@include mediaBreakpointMd {
+				margin-inline-end: 4px;
+			}
+
+			@include mediaBreakpointXl {
+				margin-inline-end: 8px;
+			}
+		}
+
+		.ant-rate-star svg {
+			width: 100%;
+			height: 100%;
+		}
+
+		.ant-rate-star.ant-rate-star-full,
+		.ant-rate-star.ant-rate-star-half.ant-rate-star-active {
+			color: $primary-color;
+		}
+
+		@include mediaBreakpointMd {
+			@include textSm;
+		}
+
+		@include mediaBreakpointXl {
+			@include textBase;
+		}
+	}
+}
+
+.ratingValue {
+	color: $primary-color;
+}
+
+.reviews {
+	color: $grey-color-brightest;
+	font-weight: 500;
+}

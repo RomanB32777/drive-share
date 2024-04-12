@@ -1,0 +1,19 @@
+@import "app/styles/index";
+
+.catalog {
+	background-color: $white-color-light;
+}
+
+.cards {
+	display: grid;
+	gap: 30px;
+	grid-template-columns: repeat(1, minmax(0, 1fr));
+
+	@include mediaBreakpointMd {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	@include mediaBreakpointXl {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+}

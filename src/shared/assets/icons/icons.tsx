@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { IComponentWithModificator } from "shared/interfaces";
+import { IComponentWithModificator } from "../../interfaces";
 
 export const SearchIcon: FC<IComponentWithModificator> = ({ modificator }) => (
 	<svg
@@ -79,5 +79,22 @@ export const UserIcon: FC<IComponentWithModificator> = ({ modificator }) => (
 			d="M4.19956 15.5208C6.65789 14.5208 9.01206 14.0208 11.2621 14.0208C13.5121 14.0208 15.8454 14.5208 18.2621 15.5208C20.7204 16.4792 21.9496 17.75 21.9496 19.3333V22.0208H0.574558V19.3333C0.574558 17.75 1.78289 16.4792 4.19956 15.5208ZM15.0121 9.77084C13.9704 10.8125 12.7204 11.3333 11.2621 11.3333C9.80372 11.3333 8.55372 10.8125 7.51206 9.77084C6.47039 8.72918 5.94956 7.47918 5.94956 6.02084C5.94956 4.56251 6.47039 3.31251 7.51206 2.27084C8.55372 1.18751 9.80372 0.645844 11.2621 0.645844C12.7204 0.645844 13.9704 1.18751 15.0121 2.27084C16.0537 3.31251 16.5746 4.56251 16.5746 6.02084C16.5746 7.47918 16.0537 8.72918 15.0121 9.77084Z"
 			fill="currentColor"
 		/>
+	</svg>
+);
+
+export const HamburgerIcon: FC<IComponentWithModificator> = ({ modificator }) => (
+	<svg
+		className={modificator}
+		fill="none"
+		viewBox="0 0 24 24"
+		strokeWidth="1.5"
+		stroke="currentColor"
+		aria-hidden="true"
+	>
+		<path
+			strokeLinecap="round"
+			strokeLinejoin="round"
+			d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+		></path>
 	</svg>
 );
