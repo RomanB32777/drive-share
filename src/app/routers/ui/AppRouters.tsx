@@ -25,7 +25,7 @@ export const AppRouters: FC<IComponentWithModificator> = ({
 			...pathRoutes.profile,
 			element: (
 				<ProtectedRoute>
-					<ProfilePage modificator={containerModificator} />{" "}
+					<ProfilePage modificator={containerModificator} />
 				</ProtectedRoute>
 			),
 		},

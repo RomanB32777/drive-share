@@ -37,7 +37,7 @@ export const AccountForm: FC<IComponentWithModificator> = ({ modificator }) => {
 					<div>
 						<h3 className={styles.title}>Ваше фото</h3>
 
-						<Upload control={control} name="avatar" />
+						<Upload control={control} name="avatar" accept={["image/*"]} />
 					</div>
 
 					<div>

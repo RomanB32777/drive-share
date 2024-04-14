@@ -43,13 +43,6 @@ export const Upload = <TFieldValues extends FieldValues>({
 					const fileObj = file as RcFile;
 					const { type, size } = fileObj;
 
-					const isValidAccept = accept ? accept.includes(type) : true;
-
-					if (!isValidAccept) {
-						message.error(`You can only upload ${accept?.join(", ")} file!`);
-						return;
-					}
-
 					const isValidSize = size / 1024 / 1024 <= maxSize;
 
 					if (!isValidSize) {
