@@ -2,6 +2,7 @@
 @import "variables.module";
 @import "mixins/media";
 @import "mixins/typography";
+@import "mixins/error";
 
 * {
 	font-family: $font-family-primary;

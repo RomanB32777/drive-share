@@ -14,8 +14,8 @@ export const useLocalParams = <T>(data?: URLSearchParamsInit): TReturnType<T> =>
 		}
 
 		for (const entry of searchParams.entries()) {
+			// eslint-disable-next-line @typescript-eslint/no-unused-vars
 			const [param, value] = entry;
-			console.log(param, value);
 		}
 	}, [searchParams]);
 

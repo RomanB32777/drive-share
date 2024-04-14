@@ -18,7 +18,7 @@
 		"property-no-unknown": [
 			true,
 			{
-				"ignoreProperties": ["primaryColor", "primaryFontFamily"]
+				"ignoreProperties": ["inputBorderColor", "primaryColor", "primaryFontFamily"]
 			}
 		],
 		"at-rule-no-unknown": null,

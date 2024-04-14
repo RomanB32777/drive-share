@@ -6,9 +6,10 @@ import { CarPage } from "pages/car";
 import { CatalogPage } from "pages/catalog";
 import { MainPage } from "pages/main";
 import { ProfilePage } from "pages/profile";
-import { pathRoutes } from "shared/const";
+import { ERoutes, TRoutes, pathRoutes } from "shared/config/routing";
 import { IComponentWithModificator } from "shared/interfaces";
-import { ERoutes, TRoutes } from "shared/types";
+
+import { ProtectedRoute } from "./ProtectedRoute";
 
 export const AppRouters: FC<IComponentWithModificator> = ({
 	modificator: containerModificator,
@@ -20,7 +21,11 @@ export const AppRouters: FC<IComponentWithModificator> = ({
 		},
 		[ERoutes.Profile]: {
 			...pathRoutes.profile,
-			element: <ProfilePage modificator={containerModificator} />,
+			element: (
+				<ProtectedRoute>
+					<ProfilePage modificator={containerModificator} />{" "}
+				</ProtectedRoute>
+			),
 		},
 		[ERoutes.Auth]: {
 			...pathRoutes.auth,

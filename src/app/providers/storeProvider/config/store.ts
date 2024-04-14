@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-import { rtkApi, rtkQueryErrorLogger } from "shared/api";
+import { hhRtkApi, rtkApi, queryErrorLogger } from "shared/api";
 
 import { rootReducers } from "./reducerManager";
 
@@ -10,8 +10,5 @@ export const store = configureStore({
 	middleware: (getDefaultMiddleware) =>
 		getDefaultMiddleware({
 			serializableCheck: false,
-		}).concat([rtkQueryErrorLogger, rtkApi.middleware]),
+		}).concat([queryErrorLogger, rtkApi.middleware, hhRtkApi.middleware]),
 });
-
-export type TRootState = ReturnType<typeof store.getState>;
-export type TAppDispatch = typeof store.dispatch;

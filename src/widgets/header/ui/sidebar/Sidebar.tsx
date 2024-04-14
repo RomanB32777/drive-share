@@ -1,13 +1,11 @@
 import { Layout as AntdLayout } from "antd";
-import { FC } from "react";
-
-import { IComponentWithChildren } from "shared/interfaces";
+import { FC, PropsWithChildren } from "react";
 
 import styles from "./Sidebar.module.scss";
 
 const { Sider } = AntdLayout;
 
-interface ISidebar extends IComponentWithChildren {
+interface ISidebar extends PropsWithChildren {
 	collapsed: boolean;
 	onCollapsed?: () => void;
 }

@@ -1,10 +1,8 @@
-import { FC } from "react";
+import { FC, PropsWithChildren } from "react";
 import { Provider } from "react-redux";
-
-import { IComponentWithChildren } from "shared/interfaces";
 
 import { store } from "../config/store";
 
-export const StoreProvider: FC<IComponentWithChildren> = ({ children }) => {
+export const StoreProvider: FC<PropsWithChildren> = ({ children }) => {
 	return <Provider store={store}>{children}</Provider>;
 };

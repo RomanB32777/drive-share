@@ -30,12 +30,12 @@
 	}
 }
 
-.form {
-	padding-bottom: 15px;
-	border-bottom: 1px solid $grey-color-brightest;
+.form,
+.auth {
+	margin-bottom: 15px;
 
 	@include mediaBreakpointMd {
-		padding-bottom: 30px;
+		margin-bottom: 30px;
 	}
 }
 
@@ -119,8 +119,18 @@ div.select {
 	}
 }
 
+.authButton {
+	padding: 12px 18px;
+	border-radius: 10px;
+	margin-top: 12px;
+	font-weight: 500;
+
+	@include textXl;
+}
+
 .price {
-	margin-top: 15px;
+	padding-top: 15px;
+	border-top: 1px solid $grey-color-light;
 	color: $black-color;
 	font-weight: 500;
 

@@ -12,3 +12,10 @@ export interface IRentData {
 	renter: number;
 	seller: number;
 }
+
+export interface IArea {
+	id: string;
+	parent_id: string | null;
+	name: string;
+	areas: IArea[];
+}

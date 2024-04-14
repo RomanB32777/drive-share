@@ -1,1 +1,2 @@
-export { Input } from "./Input";
+export { Input } from "./ui/input";
+export { FormInput } from "./ui/form-input";

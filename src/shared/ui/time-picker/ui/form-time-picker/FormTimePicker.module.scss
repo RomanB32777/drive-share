@@ -1,0 +1,24 @@
+@import "app/styles/index";
+
+.label {
+	display: inline-block;
+	margin-bottom: 5px;
+	color: $black-color;
+	font-weight: 600;
+
+	@include textXs;
+
+	@include mediaBreakpointMd {
+		margin-bottom: 10px;
+
+		@include textSm;
+	}
+
+	@include mediaBreakpointXl {
+		@include textBase;
+	}
+}
+
+.error {
+	@include errorStyles;
+}

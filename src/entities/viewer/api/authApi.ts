@@ -1,13 +1,13 @@
+import { EHttpMethods } from "shared/api";
 import { rtkApi } from "shared/api/rtkApi";
-import { EHttpMethods } from "shared/types";
 
-import { IViewer, TSignInViewer, TSignUpViewer } from "../model/types";
+import { IViewer, TAuthByEmail, TSignUpViewer } from "../model/types";
 
 const apiPath = "auth";
 
 export const authApi = rtkApi.injectEndpoints({
 	endpoints: (build) => ({
-		signIn: build.mutation<IViewer, TSignInViewer>({
+		signIn: build.mutation<IViewer, TAuthByEmail>({
 			query: (viewerInfo) => ({
 				url: `${apiPath}/sign-in`,
 				method: EHttpMethods.POST,
@@ -22,14 +22,6 @@ export const authApi = rtkApi.injectEndpoints({
 				body: viewerInfo,
 			}),
 		}),
-
-		// checkToken: build.query<IUserWithToken, string>({
-		// 	query: (tokenId) => `/${apiPath}/check/${tokenId}`,
-		// }),
-
-		// verifyToken: build.query<IUserTokenPayload, string>({
-		// 	query: (token) => `/${apiPath}/verify/${token}`,
-		// }),
 	}),
 });
 

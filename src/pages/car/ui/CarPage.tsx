@@ -4,8 +4,9 @@ import { useParams } from "react-router-dom";
 
 import { RecommendedCarousel } from "widgets/recommended-carousel";
 import { RentForm } from "widgets/rent-form";
-import { CarOwner, CarRating, useFetchCarQuery } from "entities/car";
-import { pathRoutes } from "shared/const";
+import { CarRating, useFetchCarQuery } from "entities/car";
+import { CarOwner, useFetchUserQuery } from "entities/user";
+import { pathRoutes } from "shared/config/routing";
 import { IComponentWithModificator } from "shared/interfaces";
 import { usePageTitle } from "shared/lib/hooks";
 import { Carousel, ContentLayout } from "shared/ui";
@@ -16,11 +17,12 @@ export const CarPage: FC<IComponentWithModificator> = ({ modificator }) => {
 	const { id = "" } = useParams();
 
 	const { data: car, isLoading } = useFetchCarQuery(id, { skip: !id });
+	const { data: owner } = useFetchUserQuery(car?.owner || 0, { skip: !car?.owner });
 
 	usePageTitle(car?.model ?? pathRoutes.catalog.title);
 
 	return (
-		<ContentLayout modificator="" isLoading={isLoading}>
+		<ContentLayout isLoading={isLoading}>
 			<Carousel autoplaySpeed={10000} autoplay>
 				{[car?.photo].map((slide, index) => (
 					<div key={index} className={styles.slide}>
@@ -38,7 +40,7 @@ export const CarPage: FC<IComponentWithModificator> = ({ modificator }) => {
 					</div>
 
 					<div className={styles.info}>
-						<CarOwner />
+						{owner && <CarOwner {...owner} />}
 
 						<div>
 							<h5 className={styles.descriptionTitle}>Описание от владельца</h5>

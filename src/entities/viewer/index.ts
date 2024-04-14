@@ -1,6 +1,23 @@
-export { viewerApi, useFetchViewerQuery, useLazyFetchViewerQuery } from "./api/viewerApi";
+export { useSignInMutation, useSignUpMutation } from "./api/authApi";
+export {
+	useFetchViewerQuery,
+	useLazyFetchViewerQuery,
+	useUpdateViewerMutation,
+} from "./api/viewerApi";
 
-export { type IViewer, EAuthTypes, type TSignInViewer, type TSignUpViewer } from "./model/types";
-export { authTypeTitles } from "./model/constants";
+export {
+	EAuthTypes,
+	EProfileTabs,
+	type IViewer,
+	type TAuthByEmail,
+	type TSignUpViewer,
+	type TViewerProfile,
+} from "./model/types";
+
+export { authTitles } from "./config/constants";
+
+export { tokenService } from "./lib/tokenService";
+
+export { selectBase as selectViewer, isAuthorizedViewer } from "./model/selectors";
 
 export { viewerActions, viewerReducer } from "./model/viewerSlice";

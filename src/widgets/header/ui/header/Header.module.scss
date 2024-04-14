@@ -52,7 +52,7 @@
 	}
 }
 
-button.authButton {
+.button {
 	width: auto;
 	padding: 12px 18px;
 	border-radius: 10px;
@@ -61,14 +61,13 @@ button.authButton {
 	@include textXl;
 }
 
-.hamburgerWrapper {
-	button.hamburger {
-		padding: 10px;
+.hamburger {
+	width: auto;
+	padding: 10px;
 
-		svg {
-			width: 32px;
-			height: 32px;
-		}
+	svg {
+		width: 32px;
+		height: 32px;
 	}
 
 	@include mediaBreakpointXl {

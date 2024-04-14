@@ -1,6 +1,6 @@
-import { rtkApi } from "shared/api";
+import { EHttpMethods, adapterFormData, rtkApi } from "shared/api";
 
-import { IViewer } from "../model/types";
+import { IViewer, TViewerProfile } from "../model/types";
 
 const apiPath = "user";
 
@@ -10,7 +10,14 @@ export const viewerApi = rtkApi.enhanceEndpoints({ addTagTypes: ["viewer"] }).in
 			query: (id) => `${apiPath}/${id}`,
 			providesTags: ["viewer"],
 		}),
+		updateViewer: build.mutation<IViewer, Partial<TViewerProfile>>({
+			query: (data) => ({
+				url: apiPath,
+				method: EHttpMethods.PUT,
+				body: adapterFormData(data),
+			}),
+		}),
 	}),
 });
 
-export const { useFetchViewerQuery, useLazyFetchViewerQuery } = viewerApi;
+export const { useFetchViewerQuery, useLazyFetchViewerQuery, useUpdateViewerMutation } = viewerApi;

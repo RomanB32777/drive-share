@@ -29,16 +29,17 @@ $black-color: #000;
 
 // grey
 $grey-color: #878787;
-$grey-color-light: #e2e2e2;
-$grey-color-brightest: #b9b7b7;
+$grey-color-light: #b9b7b7;
+$grey-color-brightest: #e2e2e2;
 $grey-color-dark: #6c6c6c;
-$grey-color-opacity: rgba($grey-color-light, 0.6);
+$grey-color-opacity: rgba($grey-color-brightest, 0.6);
 
 // orange
 $orange-color: #f19e48;
 $orange-color-opacity: #fdf5ee;
 
 :export {
+	inputBorderColor: $grey-color-light;
 	primaryColor: $primary-color;
 	primaryFontFamily: $font-family-primary;
 }

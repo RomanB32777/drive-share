@@ -19,7 +19,7 @@ export const CatalogFilter: FC<ICatalogFilter> = ({ isLoading, modificator, ...p
 			classes={{
 				form: classNames(styles.filter, modificator),
 				itemsWrapper: styles.items,
-				items: styles.item,
+				item: styles.item,
 				select: styles.select,
 				button: styles.button,
 			}}

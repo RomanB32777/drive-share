@@ -10,3 +10,8 @@ declare module "*.scss" {
 	const classNames: IClassNames;
 	export = classNames;
 }
+
+declare type TRootState = ReturnType<
+	typeof import("../providers/storeProvider/config/store").store.getState
+>;
+declare type TAppDispatch = typeof import("../providers/storeProvider/config/store").store.dispatch;

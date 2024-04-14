@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Link, generatePath } from "react-router-dom";
 
-import { pathRoutes } from "shared/const";
+import { pathRoutes } from "shared/config/routing";
 
 import { ICar } from "../../model/types";
 

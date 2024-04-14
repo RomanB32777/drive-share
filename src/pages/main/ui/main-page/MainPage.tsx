@@ -7,7 +7,8 @@ import { CatalogFilter } from "widgets/catalog-filter";
 import { CategoriesCarousel } from "widgets/categories-carousel";
 import { RecommendedCarousel } from "widgets/recommended-carousel";
 import bannerImage from "shared/assets/images/banner.png";
-import { breakpoints, pathRoutes } from "shared/const";
+import { pathRoutes } from "shared/config/routing";
+import { breakpoints } from "shared/const";
 import { IComponentWithModificator, IPeriodFilterValues } from "shared/interfaces";
 import { usePageTitle } from "shared/lib/hooks";
 

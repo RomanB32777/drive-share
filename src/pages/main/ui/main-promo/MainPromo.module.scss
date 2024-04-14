@@ -4,12 +4,12 @@
 	display: flex;
 	flex-direction: column-reverse;
 	align-items: center;
-	margin-top: 100px;
+	margin: 100px 0 50px;
 	row-gap: 45px;
 
 	@include mediaBreakpointMd {
 		flex-direction: row;
-		margin-top: 150px;
+		margin: 150px 0 100px;
 		gap: 75px;
 	}
 
@@ -42,7 +42,7 @@
 		left: 0;
 		width: 90%;
 		height: 90%;
-		background-color: $grey-color-light;
+		background-color: $grey-color-brightest;
 		content: "";
 	}
 }

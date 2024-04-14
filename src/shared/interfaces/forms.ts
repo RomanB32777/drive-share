@@ -1,13 +1,15 @@
-import { Control, FieldValue, FieldValues, Path, RegisterOptions } from "react-hook-form";
+import { AriaAttributes, ReactNode } from "react";
+import { FieldValues, UseControllerProps } from "react-hook-form";
 
-export interface IFormElement<FormControl extends FieldValues> {
-	name: Path<FormControl>;
-	control: Control<FormControl>;
-	rules?: RegisterOptions<FormControl, Path<FormControl>>;
-	error?: string | null;
-	value?: FieldValue<FormControl>;
-}
+export type TFormElement<
+	FormControl extends FieldValues,
+	IElementProps extends AriaAttributes = AriaAttributes,
+> = UseControllerProps<FormControl> &
+	Omit<IElementProps, "value" | "onChange"> & {
+		label?: ReactNode;
+	};
 
+// убрать из shared в слайс models в features
 export interface IPeriodFilterValues {
 	city: string;
 	from: string;

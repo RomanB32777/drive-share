@@ -1,1 +1,2 @@
-export * from "./ui/AppRouters";
+export { ScrollToTop } from "./ui/ScrollToTop";
+export { AppRouters } from "./ui/AppRouters";

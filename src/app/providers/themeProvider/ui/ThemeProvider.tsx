@@ -1,12 +1,10 @@
 import { ConfigProvider } from "antd";
 import ruLocale from "antd/lib/locale/ru_RU";
-import { FC } from "react";
-
-import { IComponentWithChildren } from "shared/interfaces";
+import { FC, PropsWithChildren } from "react";
 
 import styleVars from "../../../styles/variables.module.scss";
 
-export const ThemeProvider: FC<IComponentWithChildren> = ({ children }) => (
+export const ThemeProvider: FC<PropsWithChildren> = ({ children }) => (
 	<ConfigProvider
 		locale={ruLocale}
 		theme={{
@@ -15,6 +13,7 @@ export const ThemeProvider: FC<IComponentWithChildren> = ({ children }) => (
 				colorLink: styleVars.primaryColor,
 				colorPrimaryText: styleVars.primaryColor,
 				fontFamily: styleVars.primaryFontFamily,
+				colorBorder: styleVars.inputBorderColor,
 			},
 		}}
 	>

@@ -1,0 +1,87 @@
+@import "app/styles/index";
+
+.sections {
+	display: flex;
+	flex-direction: column;
+	gap: 50px;
+}
+
+.fields {
+	display: flex;
+	flex-direction: column;
+	gap: 25px;
+}
+
+.title {
+	margin-bottom: 35px;
+	font-weight: 600;
+
+	@include textBase;
+
+	@include mediaBreakpointMd {
+		@include textXl;
+	}
+
+	@include mediaBreakpointXl {
+		@include text2Xl;
+	}
+}
+
+.datePicker {
+	:global {
+		width: 100%;
+		padding: 0;
+		border: 1px solid;
+		border-radius: 10px;
+
+		.ant-picker-input {
+			max-width: none;
+		}
+
+		.ant-picker-input input {
+			padding: 15px 12px;
+			font-weight: 600;
+
+			@include textXs;
+
+			@include mediaBreakpointMd {
+				@include textSm;
+			}
+
+			@include mediaBreakpointXl {
+				@include textBase;
+			}
+		}
+	}
+
+	// &.focused {
+	// 	:global .ant-picker-input {
+	// 		border: 1px solid;
+	// 		border-radius: 10px;
+	// 	}
+	// }
+
+	// &:hover {
+	// 	:global .ant-picker-input {
+	// 		border: 1px solid;
+	// 		border-radius: 10px;
+	// 	}
+	// }
+}
+
+.spinHidden {
+	&:global(.ant-input) {
+		&::-webkit-outer-spin-button,
+		&::-webkit-inner-spin-button {
+			margin: 0;
+			-webkit-appearance: none;
+		}
+	}
+}
+
+.button {
+	width: auto;
+	padding: 20px 25px;
+	border-radius: 10px;
+	margin-top: 50px;
+}

@@ -7,7 +7,6 @@ import { IViewer } from "./types";
 
 const defaultUser: IViewer = {
 	id: 0,
-	username: "",
 	email: "",
 	name: "",
 	password: "",
@@ -27,6 +26,11 @@ export const viewerSlice = createSlice({
 		});
 
 		builder.addMatcher(authApi.endpoints.signIn.matchFulfilled, (state, { payload }) => {
+			state = payload;
+			return state;
+		});
+
+		builder.addMatcher(authApi.endpoints.signUp.matchFulfilled, (state, { payload }) => {
 			state = payload;
 			return state;
 		});

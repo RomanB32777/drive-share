@@ -4,7 +4,7 @@ import classNames from "classnames";
 import { FC } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 
-import { pathRoutes } from "shared/const";
+import { pathRoutes } from "shared/config/routing";
 import { IComponentWithModificator } from "shared/interfaces";
 
 import styles from "./Navigation.module.scss";

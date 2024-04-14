@@ -2,8 +2,8 @@ import { FC } from "react";
 import { useSearchParams } from "react-router-dom";
 
 import { CatalogFilter } from "widgets/catalog-filter";
-import { CarCard, useFetchCarsQuery, useLazyFetchCarsQuery } from "entities/car";
-import { pathRoutes } from "shared/const";
+import { CarCard, selectCars, useFetchCarsQuery, useLazyFetchCarsQuery } from "entities/car";
+import { pathRoutes } from "shared/config/routing";
 import { IComponentWithModificator, IPeriodFilterValues } from "shared/interfaces";
 import { useAppSelector, usePageTitle } from "shared/lib/hooks";
 import { ContentLayout } from "shared/ui";
@@ -13,7 +13,7 @@ import styles from "./CatalogPage.module.scss";
 export const CatalogPage: FC<IComponentWithModificator> = ({ modificator }) => {
 	const [searchParams] = useSearchParams();
 
-	const { items } = useAppSelector(({ cars }) => cars);
+	const items = useAppSelector(selectCars);
 
 	const defaultValues: IPeriodFilterValues = {
 		city: searchParams.get("city") || undefined,

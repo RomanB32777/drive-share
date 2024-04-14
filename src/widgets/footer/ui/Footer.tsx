@@ -1,25 +1,12 @@
 import { FC } from "react";
 import { NavLink } from "react-router-dom";
 
-import { pathRoutes } from "shared/const";
+import { pathRoutes } from "shared/config/routing";
 import { IComponentWithModificator } from "shared/interfaces";
 
 import styles from "./Footer.module.scss";
 
-const menuLinks = [
-	pathRoutes.main,
-	pathRoutes.catalog,
-	pathRoutes.main,
-	pathRoutes.catalog,
-	pathRoutes.main,
-	pathRoutes.catalog,
-	pathRoutes.main,
-	pathRoutes.catalog,
-	pathRoutes.main,
-	pathRoutes.catalog,
-	pathRoutes.main,
-	pathRoutes.catalog,
-];
+const menuLinks = [pathRoutes.main, pathRoutes.catalog];
 
 export const Footer: FC<IComponentWithModificator> = ({ modificator }) => {
 	return (

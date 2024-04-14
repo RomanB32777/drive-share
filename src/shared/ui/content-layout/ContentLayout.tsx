@@ -1,12 +1,12 @@
 import { Spin } from "antd";
 import classNames from "classnames";
-import { FC } from "react";
+import { FC, PropsWithChildren } from "react";
 
-import { IComponentWithChildren, IComponentWithModificator } from "../../interfaces";
+import { IComponentWithModificator } from "../../interfaces";
 
 import styles from "./ContentLayout.module.scss";
 
-interface IContentLayout extends IComponentWithModificator, IComponentWithChildren {
+interface IContentLayout extends IComponentWithModificator, PropsWithChildren {
 	isLoading?: boolean;
 }
 

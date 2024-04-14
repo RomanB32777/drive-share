@@ -1,6 +1,7 @@
 @import "app/styles/index";
 
 .label {
+	display: inline-block;
 	margin-bottom: 2px;
 	color: $grey-color;
 	font-weight: 700;

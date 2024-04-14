@@ -1,11 +1,16 @@
-import { rtkApi } from "shared/api";
-import { EHttpMethods } from "shared/types";
+import { EHttpMethods, hhRtkApi, rtkApi } from "shared/api";
 
 import { ICar, ICarCategory } from "../model/types";
 
-import { ICarsQueryParams, IRentData } from "./types";
+import { IArea, ICarsQueryParams, IRentData } from "./types";
 
-const carsApiPath = "todos";
+const carsApiPath = "car";
+
+const areasApi = hhRtkApi.injectEndpoints({
+	endpoints: (build) => ({
+		fetchAreas: build.query<IArea, string>({ query: (areaId) => `areas/${areaId}` }),
+	}),
+});
 
 export const carsApi = rtkApi.enhanceEndpoints({ addTagTypes: ["cars"] }).injectEndpoints({
 	endpoints: (build) => ({
@@ -22,7 +27,7 @@ export const carsApi = rtkApi.enhanceEndpoints({ addTagTypes: ["cars"] }).inject
 		fetchCategories: build.query<ICarCategory[], void>({
 			query: () => `categories`,
 		}),
-		createRent: build.mutation<ICar, Omit<IRentData, "id">>({
+		createRent: build.mutation<IRentData, Omit<IRentData, "id">>({
 			query: (data) => ({
 				url: "rent/new",
 				method: EHttpMethods.POST,
@@ -41,3 +46,5 @@ export const {
 	useLazyFetchCategoriesQuery,
 	useCreateRentMutation,
 } = carsApi;
+
+export const { useFetchAreasQuery, useLazyFetchAreasQuery } = areasApi;

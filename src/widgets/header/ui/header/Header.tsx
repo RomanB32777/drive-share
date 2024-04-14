@@ -1,10 +1,11 @@
 import { FC, useState } from "react";
 import { generatePath, useNavigate } from "react-router-dom";
 
-import { EAuthTypes } from "entities/viewer";
+import { EAuthTypes, isAuthorizedViewer } from "entities/viewer";
 import { HamburgerIcon } from "shared/assets/icons";
-import { pathRoutes } from "shared/const";
+import { pathRoutes } from "shared/config/routing";
 import { IComponentWithModificator } from "shared/interfaces";
+import { useAppSelector } from "shared/lib/hooks";
 import { Button } from "shared/ui";
 
 import { Logo } from "../logo";
@@ -21,10 +22,17 @@ export const Header: FC<IHeader> = ({ modificator, mobileModificator }) => {
 	const navigate = useNavigate();
 	const [collapsed, setCollapsed] = useState(true);
 
+	const isAuthorized = useAppSelector(isAuthorizedViewer);
+
 	const handleCollapsed = () => setCollapsed((prev) => !prev);
 
-	const handleAuthButton = () =>
-		navigate(generatePath(pathRoutes.auth.path, { type: EAuthTypes.SignIn }));
+	const handleButtonClick = () => {
+		const navigateUrl = isAuthorized
+			? pathRoutes.profile.path
+			: generatePath(pathRoutes.auth.path, { type: EAuthTypes.SignIn });
+
+		navigate(navigateUrl);
+	};
 
 	return (
 		<>
@@ -33,17 +41,15 @@ export const Header: FC<IHeader> = ({ modificator, mobileModificator }) => {
 					<div className={styles.content}>
 						<Logo />
 
-						<div className={styles.hamburgerWrapper}>
-							<Button style="transparent" modificator={styles.hamburger} onClick={handleCollapsed}>
-								<HamburgerIcon />
-							</Button>
-						</div>
+						<Button style="transparent" modificator={styles.hamburger} onClick={handleCollapsed}>
+							<HamburgerIcon />
+						</Button>
 
 						<nav className={styles.navigation}>
 							<Navigation modificator={styles.menuWrapper} className={styles.menu} />
 
-							<Button style="outline" modificator={styles.authButton} onClick={handleAuthButton}>
-								Войти
+							<Button style="outline" modificator={styles.button} onClick={handleButtonClick}>
+								{isAuthorized ? "Профиль" : "Войти"}
 							</Button>
 						</nav>
 					</div>

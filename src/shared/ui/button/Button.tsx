@@ -1,14 +1,14 @@
 import classNames from "classnames";
 
-import type { ButtonHTMLAttributes, FC, MouseEvent } from "react";
+import type { ButtonHTMLAttributes, FC, MouseEvent, PropsWithChildren } from "react";
 
-import { IComponentWithChildren, IComponentWithModificator } from "../..//interfaces";
+import { IComponentWithModificator } from "../..//interfaces";
 
 import styles from "./Button.module.scss";
 
 type TButtonStyles = "primary" | "transparent" | "outline" | "outlinePrimary";
 
-interface IButton extends IComponentWithChildren, IComponentWithModificator {
+interface IButton extends PropsWithChildren, IComponentWithModificator {
 	disabled?: boolean;
 	style?: TButtonStyles;
 	type?: ButtonHTMLAttributes<HTMLButtonElement>["type"];

@@ -66,3 +66,9 @@
 		transform: rotate(180deg);
 	}
 }
+
+.error {
+	max-width: 300px;
+
+	@include errorStyles;
+}

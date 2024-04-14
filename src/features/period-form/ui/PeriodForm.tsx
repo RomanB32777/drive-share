@@ -3,10 +3,12 @@ import dayjs from "dayjs";
 import { FC, ReactNode } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
-import { cityOptions, validFromDateMessage, validToDateMessage } from "shared/const";
-import { IPeriodFilterValues, TFilterDateKeys } from "shared/interfaces";
+import { useFetchAreasQuery } from "entities/car";
+import { IPeriodFilterValues } from "shared/interfaces";
 import { Button, SearchSelect } from "shared/ui";
 import { DatePeriod } from "shared/ui/date-period";
+
+import { validation } from "../model/validation";
 
 import styles from "./PeriodForm.module.scss";
 
@@ -16,7 +18,7 @@ interface IPeriodForm {
 	classes?: {
 		form?: string;
 		itemsWrapper?: string;
-		items?: string;
+		item?: string;
 		select?: string;
 		button?: string;
 	};
@@ -24,11 +26,12 @@ interface IPeriodForm {
 	onSubmit: (values: IPeriodFilterValues) => Promise<unknown> | void;
 }
 
-const defaultFormValues: IPeriodFilterValues = {
-	city: cityOptions[0].value,
+const defaultFormValues: Partial<IPeriodFilterValues> = {
 	from: dayjs().toISOString(),
 	to: dayjs().add(1, "day").toISOString(),
 };
+
+const RU_ID = "113";
 
 export const PeriodForm: FC<IPeriodForm> = ({
 	disabled,
@@ -37,76 +40,46 @@ export const PeriodForm: FC<IPeriodForm> = ({
 	defaultValues = defaultFormValues,
 	onSubmit,
 }) => {
-	const {
-		setValue,
-		setError,
-		clearErrors,
-		handleSubmit,
-		watch,
-		formState: { errors },
-	} = useForm<IPeriodFilterValues>({
-		defaultValues,
+	const { areas } = useFetchAreasQuery(RU_ID, {
+		selectFromResult: ({ data }) => ({
+			areas: data?.areas.map(({ name }) => ({ value: name, label: name })),
+		}),
 	});
 
-	const { city, to, from } = watch();
-
-	const handleSelectChange = (selected: string) => setValue("city", selected);
-
-	const handleDateChange = (filterKey: TFilterDateKeys) => (date: string) => {
-		setValue(filterKey, date);
-
-		if (filterKey === "from" && !dayjs(date).isBefore(to)) {
-			setError("from", {
-				type: "custom",
-				message: validFromDateMessage,
-			});
-		} else if (filterKey === "to" && !dayjs(from).isBefore(date)) {
-			setError("to", { type: "custom", message: validToDateMessage });
-		} else {
-			clearErrors();
-		}
-	};
+	const {
+		control,
+		handleSubmit,
+		formState: { isValid },
+	} = useForm<IPeriodFilterValues>({
+		defaultValues,
+		disabled,
+		mode: "onChange",
+		reValidateMode: "onChange",
+	});
 
 	const handleSubmitForm: SubmitHandler<IPeriodFilterValues> = (values) => {
 		onSubmit(values);
 	};
 
-	const isValid = !Object.keys(errors).length;
-
 	return (
 		<form onSubmit={handleSubmit(handleSubmitForm)} className={classes?.form}>
 			<div className={classNames(styles.itemsWrapper, classes?.itemsWrapper)}>
-				<div className={classNames(classes?.items, classes?.select)}>
+				<div className={classNames(classes?.item, classes?.select)}>
 					<SearchSelect
+						control={control}
+						name="city"
 						label="Город"
-						value={city}
-						placeholder="Город"
-						onChange={handleSelectChange}
-						options={cityOptions}
-						disabled={disabled}
+						placeholder="Выберите город"
+						options={areas}
 					/>
 				</div>
 
-				<div className={classes?.items}>
-					<DatePeriod
-						label="Начало"
-						value={from}
-						defaultValue={defaultValues.from}
-						onChange={handleDateChange("from")}
-						disabled={disabled}
-					/>
-					{errors.from && <p className={styles.error}>{errors.from.message}</p>}
+				<div className={classes?.item}>
+					<DatePeriod control={control} name="from" label="Начало" rules={validation.from} />
 				</div>
 
-				<div className={classes?.items}>
-					<DatePeriod
-						label="Завершение"
-						value={to}
-						defaultValue={defaultValues.to}
-						onChange={handleDateChange("to")}
-						disabled={disabled}
-					/>
-					{errors.to && <p className={styles.error}>{errors.to.message}</p>}
+				<div className={classes?.item}>
+					<DatePeriod control={control} name="to" label="Завершение" rules={validation.to} />
 				</div>
 			</div>
 
