@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import { FC, useState } from "react";
 import { generatePath, useNavigate } from "react-router-dom";
 
@@ -34,6 +35,12 @@ export const Header: FC<IHeader> = ({ modificator, mobileModificator }) => {
 		navigate(navigateUrl);
 	};
 
+	const linkButton = (
+		<Button style="outline" modificator={styles.button} onClick={handleButtonClick}>
+			{isAuthorized ? "Профиль" : "Войти"}
+		</Button>
+	);
+
 	return (
 		<>
 			<header className={styles.headerWrapper}>
@@ -48,22 +55,22 @@ export const Header: FC<IHeader> = ({ modificator, mobileModificator }) => {
 						<nav className={styles.navigation}>
 							<Navigation modificator={styles.menuWrapper} className={styles.menu} />
 
-							<Button style="outline" modificator={styles.button} onClick={handleButtonClick}>
-								{isAuthorized ? "Профиль" : "Войти"}
-							</Button>
+							{linkButton}
 						</nav>
 					</div>
 				</div>
 			</header>
 
 			<Sidebar collapsed={collapsed} onCollapsed={handleCollapsed}>
-				<div className={mobileModificator}>
+				<div className={classNames(styles.sidebarContent, mobileModificator)}>
 					<Navigation
 						mode="inline"
 						modificator={styles.mobileMenuWrapper}
 						className={styles.mobileMenu}
 						onClick={handleCollapsed}
 					/>
+
+					{linkButton}
 				</div>
 			</Sidebar>
 		</>

@@ -46,6 +46,10 @@
 }
 
 .mobileMenuWrapper .mobileMenu {
+	&:global(.ant-menu-root) {
+		border-inline-end: none;
+	}
+
 	&:global > .ant-menu-item-selected,
 	&:global > .ant-menu-item:not(.ant-menu-item-selected):active {
 		background-color: rgba($primary-color, 0.1);
@@ -73,4 +77,14 @@
 	@include mediaBreakpointXl {
 		display: none;
 	}
+}
+
+.sidebarContent {
+	display: flex;
+	height: 100%;
+	flex-direction: column;
+	justify-content: space-between;
+	padding-right: 10px;
+	padding-bottom: 25px;
+	padding-left: 10px;
 }
