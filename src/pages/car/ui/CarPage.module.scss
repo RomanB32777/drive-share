@@ -8,11 +8,11 @@ div.wrapper {
 	padding-top: 20px;
 	gap: 50px;
 
-	@include mediaBreakpointMd {
+	@include media-breakpoint-md {
 		flex-direction: row;
 	}
 
-	@include mediaBreakpointXl {
+	@include media-breakpoint-xl {
 		padding-top: 45px;
 	}
 }
@@ -21,11 +21,11 @@ div.wrapper {
 	height: 148px;
 	background-color: $white-color-light;
 
-	@include mediaBreakpointMd {
+	@include media-breakpoint-md {
 		height: 348px;
 	}
 
-	@include mediaBreakpointXl {
+	@include media-breakpoint-xl {
 		height: 450px;
 	}
 }
@@ -46,7 +46,7 @@ div.wrapper {
 	border-bottom: 1px solid $grey-color;
 	margin-bottom: 30px;
 
-	@include mediaBreakpointXl {
+	@include media-breakpoint-xl {
 		padding-bottom: 30px;
 	}
 }
@@ -57,16 +57,16 @@ div.wrapper {
 	color: $black-color;
 	font-weight: 600;
 
-	@include textXl;
+	@include text-xl;
 
-	@include mediaBreakpointMd {
+	@include media-breakpoint-md {
 		margin-bottom: 20px;
 
-		@include text3Xl;
+		@include text-3xl;
 	}
 
-	@include mediaBreakpointXl {
-		@include text5Xl;
+	@include media-breakpoint-xl {
+		@include text-5xl;
 	}
 }
 
@@ -75,11 +75,11 @@ div.wrapper {
 	flex-direction: column;
 	gap: 35px;
 
-	@include mediaBreakpointMd {
+	@include media-breakpoint-md {
 		gap: 45px;
 	}
 
-	@include mediaBreakpointXl {
+	@include media-breakpoint-xl {
 		gap: 60px;
 	}
 }
@@ -88,14 +88,14 @@ div.wrapper {
 	color: $black-color;
 	font-weight: 600;
 
-	@include textBase;
+	@include text-base;
 
-	@include mediaBreakpointMd {
-		@include textXl;
+	@include media-breakpoint-md {
+		@include text-xl;
 	}
 
-	@include mediaBreakpointXl {
-		@include text4Xl;
+	@include media-breakpoint-xl {
+		@include text-4xl;
 	}
 }
 
@@ -103,14 +103,14 @@ div.wrapper {
 	color: $black-color;
 	font-weight: 500;
 
-	@include textXs;
+	@include text-xs;
 
-	@include mediaBreakpointMd {
-		@include textSm;
+	@include media-breakpoint-md {
+		@include text-sm;
 	}
 
-	@include mediaBreakpointXl {
-		@include textXl;
+	@include media-breakpoint-xl {
+		@include text-xl;
 	}
 }
 
@@ -118,14 +118,14 @@ div.wrapper {
 	color: $black-color;
 	font-weight: 600;
 
-	@include textBase;
+	@include text-base;
 
-	@include mediaBreakpointMd {
-		@include textXl;
+	@include media-breakpoint-md {
+		@include text-xl;
 	}
 
-	@include mediaBreakpointXl {
-		@include text2Xl;
+	@include media-breakpoint-xl {
+		@include text-2xl;
 	}
 }
 
@@ -142,7 +142,7 @@ div.wrapper {
 	font-weight: 500;
 	gap: 20px;
 
-	@include textXs;
+	@include text-xs;
 
 	span {
 		flex: none;
@@ -156,12 +156,12 @@ div.wrapper {
 		margin-bottom: 0;
 	}
 
-	@include mediaBreakpointMd {
-		@include textSm;
+	@include media-breakpoint-md {
+		@include text-sm;
 	}
 
-	@include mediaBreakpointXl {
-		@include textXl;
+	@include media-breakpoint-xl {
+		@include text-xl;
 	}
 }
 
@@ -176,11 +176,11 @@ div.wrapper {
 	flex-direction: column;
 	row-gap: 45px;
 
-	@include mediaBreakpointMd {
+	@include media-breakpoint-md {
 		max-width: 250px;
 	}
 
-	@include mediaBreakpointXl {
+	@include media-breakpoint-xl {
 		max-width: 500px;
 	}
 }

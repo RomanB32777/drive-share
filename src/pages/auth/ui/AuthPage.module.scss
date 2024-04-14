@@ -5,14 +5,14 @@
 	font-weight: 700;
 	text-align: center;
 
-	@include textXl;
+	@include text-xl;
 
-	@include mediaBreakpointMd {
-		@include text3Xl;
+	@include media-breakpoint-md {
+		@include text-3xl;
 	}
 
-	@include mediaBreakpointXl {
-		@include text5Xl;
+	@include media-breakpoint-xl {
+		@include text-5xl;
 	}
 }
 
@@ -32,7 +32,7 @@
 .question {
 	font-weight: 500;
 
-	@include textLg;
+	@include text-lg;
 }
 
 .button {

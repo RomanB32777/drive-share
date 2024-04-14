@@ -6,19 +6,19 @@
 	color: $black-color;
 	font-weight: 600;
 
-	@include textXs;
+	@include text-xs;
 
-	@include mediaBreakpointMd {
+	@include media-breakpoint-md {
 		margin-bottom: 10px;
 
-		@include textSm;
+		@include text-sm;
 	}
 
-	@include mediaBreakpointXl {
-		@include textBase;
+	@include media-breakpoint-xl {
+		@include text-base;
 	}
 }
 
 .error {
-	@include errorStyles;
+	@include error-styles;
 }

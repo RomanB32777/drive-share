@@ -7,14 +7,14 @@
 
 .rating,
 .reviews {
-	@include textXs;
+	@include text-xs;
 
-	@include mediaBreakpointMd {
-		@include textSm;
+	@include media-breakpoint-md {
+		@include text-sm;
 	}
 
-	@include mediaBreakpointXl {
-		@include textXl;
+	@include media-breakpoint-xl {
+		@include text-xl;
 	}
 }
 
@@ -25,37 +25,10 @@
 }
 
 .stars {
-	margin-left: 8px;
-
 	:global {
-		@include textXs;
+		margin-left: 8px;
 
-		.ant-rate-star {
-			width: 12px;
-			height: 12px;
-
-			@include mediaBreakpointMd {
-				width: 14px;
-				height: 14px;
-			}
-
-			@include mediaBreakpointXl {
-				width: 16px;
-				height: 16px;
-			}
-		}
-
-		.ant-rate-star:not(:last-child) {
-			margin-inline-end: 2px;
-
-			@include mediaBreakpointMd {
-				margin-inline-end: 4px;
-			}
-
-			@include mediaBreakpointXl {
-				margin-inline-end: 8px;
-			}
-		}
+		@include text-xs;
 
 		.ant-rate-star svg {
 			width: 100%;
@@ -67,12 +40,39 @@
 			color: $primary-color;
 		}
 
-		@include mediaBreakpointMd {
-			@include textSm;
+		@include media-breakpoint-md {
+			@include text-sm;
 		}
 
-		@include mediaBreakpointXl {
-			@include textBase;
+		@include media-breakpoint-xl {
+			@include text-base;
+		}
+	}
+
+	&:global(> .ant-rate-star) {
+		width: 12px;
+		height: 12px;
+
+		@include media-breakpoint-md {
+			width: 14px;
+			height: 14px;
+		}
+
+		@include media-breakpoint-xl {
+			width: 16px;
+			height: 16px;
+		}
+	}
+
+	&:global(> .ant-rate-star:not(:last-child)) {
+		margin-inline-end: 2px;
+
+		@include media-breakpoint-md {
+			margin-inline-end: 4px;
+		}
+
+		@include media-breakpoint-xl {
+			margin-inline-end: 8px;
 		}
 	}
 }

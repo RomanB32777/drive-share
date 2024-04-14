@@ -1,30 +1,30 @@
 @import "../variables.module";
 
-@mixin mediaBreakpointSm {
+@mixin media-breakpoint-sm {
 	@media (width >= $breakpoint-sm) {
 		@content;
 	}
 }
 
-@mixin mediaBreakpointMd {
+@mixin media-breakpoint-md {
 	@media (width >= $breakpoint-md) {
 		@content;
 	}
 }
 
-@mixin mediaBreakpointLg {
+@mixin media-breakpoint-lg {
 	@media (width >= $breakpoint-lg) {
 		@content;
 	}
 }
 
-@mixin mediaBreakpointXl {
+@mixin media-breakpoint-xl {
 	@media (width >= $breakpoint-xl) {
 		@content;
 	}
 }
 
-@mixin mediaBreakpoint2xl {
+@mixin media-breakpoint-2xl {
 	@media (width >= $breakpoint-2xl) {
 		@content;
 	}

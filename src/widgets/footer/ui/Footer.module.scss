@@ -14,7 +14,7 @@
 	li {
 		text-align: center;
 
-		@include mediaBreakpointMd {
+		@include media-breakpoint-md {
 			&:nth-child(3n + 1) {
 				text-align: left;
 			}
@@ -33,18 +33,18 @@
 		color: $black-color;
 		font-weight: 600;
 
-		@include textXs;
+		@include text-xs;
 
-		@include mediaBreakpointMd {
-			@include textSm;
+		@include media-breakpoint-md {
+			@include text-sm;
 		}
 
-		@include mediaBreakpointXl {
-			@include textXl;
+		@include media-breakpoint-xl {
+			@include text-xl;
 		}
 	}
 
-	@include mediaBreakpointMd {
+	@include media-breakpoint-md {
 		gap: 20px 50px;
 		grid-template-columns: repeat(3, minmax(0, 1fr));
 	}
@@ -55,5 +55,5 @@
 	font-weight: 600;
 	text-align: center;
 
-	@include textBase;
+	@include text-base;
 }

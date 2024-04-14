@@ -6,7 +6,7 @@
 			color: $black-color;
 			font-weight: 500;
 
-			@include textXl;
+			@include text-xl;
 		}
 
 		&:global > .ant-menu-item-selected a {

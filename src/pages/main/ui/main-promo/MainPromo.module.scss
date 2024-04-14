@@ -7,13 +7,13 @@
 	margin: 100px 0 50px;
 	row-gap: 45px;
 
-	@include mediaBreakpointMd {
+	@include media-breakpoint-md {
 		flex-direction: row;
 		margin: 150px 0 100px;
 		gap: 75px;
 	}
 
-	@include mediaBreakpointXl {
+	@include media-breakpoint-xl {
 		gap: 150px;
 	}
 }
@@ -22,12 +22,12 @@
 	max-width: none;
 	text-align: center;
 
-	@include mediaBreakpointMd {
+	@include media-breakpoint-md {
 		max-width: 350px;
 		text-align: left;
 	}
 
-	@include mediaBreakpointXl {
+	@include media-breakpoint-xl {
 		max-width: 500px;
 	}
 }
@@ -58,16 +58,16 @@
 	margin-bottom: 15px;
 	font-weight: 600;
 
-	@include textXl;
+	@include text-xl;
 
-	@include mediaBreakpointMd {
+	@include media-breakpoint-md {
 		margin-bottom: 20px;
 
-		@include text3Xl;
+		@include text-3xl;
 	}
 
-	@include mediaBreakpointXl {
-		@include text4Xl;
+	@include media-breakpoint-xl {
+		@include text-4xl;
 	}
 }
 
@@ -75,16 +75,16 @@
 	margin-bottom: 25px;
 	font-weight: 500;
 
-	@include textBase;
+	@include text-base;
 
-	@include mediaBreakpointMd {
+	@include media-breakpoint-md {
 		margin-bottom: 40px;
 
-		@include textXl;
+		@include text-xl;
 	}
 
-	@include mediaBreakpointXl {
-		@include text2Xl;
+	@include media-breakpoint-xl {
+		@include text-2xl;
 	}
 }
 
@@ -95,16 +95,16 @@
 	margin: 0 auto;
 	font-weight: 500;
 
-	@include textSm;
+	@include text-sm;
 
-	@include mediaBreakpointMd {
+	@include media-breakpoint-md {
 		padding: 15px 20px;
 		margin: 0;
 
-		@include textBase;
+		@include text-base;
 	}
 
-	@include mediaBreakpointXl {
-		@include textXl;
+	@include media-breakpoint-xl {
+		@include text-xl;
 	}
 }

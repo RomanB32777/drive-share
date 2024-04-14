@@ -21,6 +21,7 @@ export const Footer: FC<IComponentWithModificator> = ({ modificator }) => {
 						))}
 					</ul>
 				</nav>
+
 				<p className={styles.copyright}>© 2023 ООО «Драйвшер»</p>
 			</div>
 		</footer>

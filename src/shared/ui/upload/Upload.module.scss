@@ -20,7 +20,7 @@
 	text-overflow: ellipsis;
 	white-space: break-spaces;
 
-	@include textSm;
+	@include text-sm;
 }
 
 .image {
@@ -32,5 +32,5 @@
 }
 
 .error {
-	@include errorStyles;
+	@include error-styles;
 }

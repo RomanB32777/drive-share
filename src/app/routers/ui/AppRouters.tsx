@@ -1,5 +1,5 @@
-import { FC } from "react";
-import { Route, Routes } from "react-router-dom";
+import { FC, useEffect } from "react";
+import { Route, Routes, useLocation } from "react-router-dom";
 
 import { AuthPage } from "pages/auth";
 import { CarPage } from "pages/car";
@@ -14,6 +14,8 @@ import { ProtectedRoute } from "./ProtectedRoute";
 export const AppRouters: FC<IComponentWithModificator> = ({
 	modificator: containerModificator,
 }) => {
+	const { pathname } = useLocation();
+
 	const routes: TRoutes = {
 		[ERoutes.Main]: {
 			...pathRoutes.main,
@@ -37,6 +39,14 @@ export const AppRouters: FC<IComponentWithModificator> = ({
 		},
 		[ERoutes.Car]: { ...pathRoutes.car, element: <CarPage modificator={containerModificator} /> },
 	};
+
+	useEffect(() => {
+		window.scroll({
+			top: 0,
+			left: 0,
+			behavior: "smooth",
+		});
+	}, [pathname]);
 
 	return (
 		<Routes>

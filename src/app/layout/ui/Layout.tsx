@@ -5,7 +5,7 @@ import { FC } from "react";
 import { Footer } from "widgets/footer";
 import { Header } from "widgets/header";
 
-import { AppRouters, ScrollToTop } from "../../routers";
+import { AppRouters } from "../../routers";
 
 import styles from "./Layout.module.scss";
 
@@ -21,7 +21,6 @@ export const Layout: FC = () => {
 
 			<Content className={styles.paddingContent}>
 				<AppRouters modificator={styles.container} />
-				<ScrollToTop />
 			</Content>
 
 			<Footer modificator={classNames(styles.container, styles.footer)} />

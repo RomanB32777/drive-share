@@ -13,7 +13,7 @@
 	gap: 15px;
 	transition: opacity 0.4s ease;
 
-	@include textXl;
+	@include text-xl;
 
 	&.primary {
 		background-color: $primary-color;

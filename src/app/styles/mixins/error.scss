@@ -1,17 +1,17 @@
 @import "../variables.module";
 
-@mixin errorStyles {
+@mixin error-styles {
 	margin-top: 10px;
 	color: $primary-color;
 	font-weight: 600;
 
-	@include textXs;
+	@include text-xs;
 
-	@include mediaBreakpointMd {
-		@include textSm;
+	@include media-breakpoint-md {
+		@include text-sm;
 	}
 
-	@include mediaBreakpointXl {
-		@include textBase;
+	@include media-breakpoint-xl {
+		@include text-base;
 	}
 }

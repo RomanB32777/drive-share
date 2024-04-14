@@ -70,7 +70,9 @@ export const Header: FC<IHeader> = ({ modificator, mobileModificator }) => {
 						onClick={handleCollapsed}
 					/>
 
-					{linkButton}
+					<div onClick={handleCollapsed} className={styles.sidebarButton}>
+						{linkButton}
+					</div>
 				</div>
 			</Sidebar>
 		</>

@@ -4,7 +4,7 @@
 	position: relative;
 	isolation: isolate;
 
-	@include mediaBreakpointMd {
+	@include media-breakpoint-md {
 		padding-bottom: 250px;
 	}
 }
@@ -32,7 +32,7 @@ div.titleWrapper {
 	padding-bottom: 20px;
 	text-align: center;
 
-	@include mediaBreakpointMd {
+	@include media-breakpoint-md {
 		padding-top: 40px;
 		padding-bottom: 50px;
 	}
@@ -43,14 +43,14 @@ div.titleWrapper {
 	font-family: $font-family-philosopher;
 	font-weight: 700;
 
-	@include text2Xl;
+	@include text-2xl;
 
-	@include mediaBreakpointMd {
-		@include text5Xl;
+	@include media-breakpoint-md {
+		@include text-5xl;
 	}
 
-	@include mediaBreakpointXl {
-		@include text7Xl;
+	@include media-breakpoint-xl {
+		@include text-7xl;
 	}
 }
 
@@ -58,14 +58,14 @@ div.titleWrapper {
 	font-family: $font-family-mulish;
 	font-weight: 600;
 
-	@include textXl;
+	@include text-xl;
 
-	@include mediaBreakpointMd {
-		@include text3Xl;
+	@include media-breakpoint-md {
+		@include text-3xl;
 	}
 
-	@include mediaBreakpointXl {
-		@include text5Xl;
+	@include media-breakpoint-xl {
+		@include text-5xl;
 	}
 }
 
@@ -73,11 +73,11 @@ div.titleWrapper {
 	border-radius: 20px 20px 0 0;
 	background-color: $white-color-light;
 
-	@include mediaBreakpointMd {
+	@include media-breakpoint-md {
 		border-radius: 35px 35px 0 0;
 	}
 
-	@include mediaBreakpointXl {
+	@include media-breakpoint-xl {
 		border-radius: 50px 50px 0 0;
 	}
 }

@@ -10,11 +10,11 @@
 	margin: 0 auto;
 	overflow-x: hidden;
 
-	@include mediaBreakpointSm {
+	@include media-breakpoint-sm {
 		padding: 55px 24px;
 	}
 
-	@include mediaBreakpointXl {
+	@include media-breakpoint-xl {
 		padding: 55px 118px;
 	}
 }
@@ -22,11 +22,11 @@
 .paddingContent {
 	padding-top: 75px;
 
-	@include mediaBreakpointMd {
+	@include media-breakpoint-md {
 		padding-top: 90px;
 	}
 
-	@include mediaBreakpointXl {
+	@include media-breakpoint-xl {
 		padding-top: 105px;
 	}
 }

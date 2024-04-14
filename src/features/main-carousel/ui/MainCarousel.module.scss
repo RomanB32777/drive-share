@@ -12,7 +12,7 @@
 	align-items: center;
 	gap: 15px;
 
-	@include mediaBreakpointXl {
+	@include media-breakpoint-xl {
 		gap: 30px;
 	}
 }
@@ -28,14 +28,14 @@
 .title {
 	font-weight: 600;
 
-	@include textBase;
+	@include text-base;
 
-	@include mediaBreakpointMd {
-		@include textXl;
+	@include media-breakpoint-md {
+		@include text-xl;
 	}
 
-	@include mediaBreakpointXl {
-		@include text3Xl;
+	@include media-breakpoint-xl {
+		@include text-3xl;
 	}
 }
 
@@ -48,12 +48,12 @@
 	margin-right: 0;
 	margin-left: 0;
 
-	@include mediaBreakpointSm {
+	@include media-breakpoint-sm {
 		margin-right: 10px;
 		margin-left: 10px;
 	}
 
-	@include mediaBreakpointLg {
+	@include media-breakpoint-lg {
 		margin-right: 15px;
 		margin-left: 15px;
 	}

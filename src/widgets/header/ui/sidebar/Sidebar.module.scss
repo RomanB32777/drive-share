@@ -2,7 +2,7 @@
 
 .sider,
 .overlay {
-	@include mediaBreakpointXl {
+	@include media-breakpoint-xl {
 		display: none;
 	}
 }

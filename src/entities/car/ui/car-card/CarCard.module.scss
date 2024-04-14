@@ -38,16 +38,16 @@
 	border-bottom: 1px solid $grey-color-brightest;
 	font-weight: 700;
 
-	@include textBase;
+	@include text-base;
 
-	@include mediaBreakpointMd {
-		@include textXl;
+	@include media-breakpoint-md {
+		@include text-xl;
 	}
 
-	@include mediaBreakpointXl {
+	@include media-breakpoint-xl {
 		padding-bottom: 28px;
 
-		@include text2Xl;
+		@include text-2xl;
 	}
 }
 
@@ -57,7 +57,7 @@
 	justify-content: space-between;
 	padding-top: 14px;
 
-	@include mediaBreakpointXl {
+	@include media-breakpoint-xl {
 		padding-top: 28px;
 	}
 }
@@ -66,29 +66,29 @@
 	color: $black-color;
 	font-weight: 500;
 
-	@include text3Xl;
+	@include text-3xl;
 
 	span {
 		color: $grey-color;
 		font-weight: 500;
 
-		@include textXl;
+		@include text-xl;
 
-		@include mediaBreakpointMd {
-			@include textSm;
+		@include media-breakpoint-md {
+			@include text-sm;
 		}
 
-		@include mediaBreakpointXl {
-			@include text3Xl;
+		@include media-breakpoint-xl {
+			@include text-3xl;
 		}
 	}
 
-	@include mediaBreakpointMd {
-		@include textXl;
+	@include media-breakpoint-md {
+		@include text-xl;
 	}
 
-	@include mediaBreakpointXl {
-		@include text4Xl;
+	@include media-breakpoint-xl {
+		@include text-4xl;
 	}
 }
 
@@ -100,13 +100,13 @@
 	font-weight: 600;
 	text-align: left;
 
-	@include textXs;
+	@include text-xs;
 
-	@include mediaBreakpointMd {
-		@include textSm;
+	@include media-breakpoint-md {
+		@include text-sm;
 	}
 
-	@include mediaBreakpointXl {
-		@include textBase;
+	@include media-breakpoint-xl {
+		@include text-base;
 	}
 }

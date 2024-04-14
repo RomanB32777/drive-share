@@ -15,14 +15,14 @@
 			padding: 0;
 			font-weight: 600;
 
-			@include textXs;
+			@include text-xs;
 
-			@include mediaBreakpointMd {
-				@include textSm;
+			@include media-breakpoint-md {
+				@include text-sm;
 			}
 
-			@include mediaBreakpointXl {
-				@include textXl;
+			@include media-breakpoint-xl {
+				@include text-xl;
 			}
 		}
 	}

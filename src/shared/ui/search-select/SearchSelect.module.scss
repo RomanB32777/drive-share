@@ -6,18 +6,18 @@
 	color: $grey-color;
 	font-weight: 700;
 
-	@include textXs;
+	@include text-xs;
 
-	@include mediaBreakpointMd {
+	@include media-breakpoint-md {
 		margin-bottom: 4px;
 
-		@include textSm;
+		@include text-sm;
 	}
 
-	@include mediaBreakpointXl {
+	@include media-breakpoint-xl {
 		margin-bottom: 12px;
 
-		@include textBase;
+		@include text-base;
 	}
 }
 
@@ -48,14 +48,14 @@
 		.ant-select-selection-search > input {
 			font-weight: 600;
 
-			@include textXs;
+			@include text-xs;
 
-			@include mediaBreakpointMd {
-				@include textSm;
+			@include media-breakpoint-md {
+				@include text-sm;
 			}
 
-			@include mediaBreakpointXl {
-				@include textXl;
+			@include media-breakpoint-xl {
+				@include text-xl;
 			}
 		}
 	}
@@ -67,11 +67,11 @@
 		color: $black-color;
 		transition-duration: 0.2s;
 
-		@include mediaBreakpointMd {
+		@include media-breakpoint-md {
 			width: 10px;
 		}
 
-		@include mediaBreakpointXl {
+		@include media-breakpoint-xl {
 			width: 20px;
 		}
 	}

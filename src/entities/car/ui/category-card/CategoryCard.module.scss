@@ -14,7 +14,7 @@
 	width: 75%;
 	height: 100%;
 
-	@include mediaBreakpointSm {
+	@include media-breakpoint-sm {
 		max-width: 220px;
 		height: auto;
 	}
@@ -37,12 +37,12 @@
 	margin-bottom: 8px;
 	font-weight: 500;
 
-	@include text2Xl;
+	@include text-2xl;
 }
 
 .price {
 	color: $grey-color;
 	font-weight: 500;
 
-	@include textXl;
+	@include text-xl;
 }

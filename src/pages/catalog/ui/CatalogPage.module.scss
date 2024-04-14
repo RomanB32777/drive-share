@@ -9,11 +9,11 @@
 	gap: 30px;
 	grid-template-columns: repeat(1, minmax(0, 1fr));
 
-	@include mediaBreakpointMd {
+	@include media-breakpoint-md {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
 
-	@include mediaBreakpointXl {
+	@include media-breakpoint-xl {
 		grid-template-columns: repeat(3, minmax(0, 1fr));
 	}
 }

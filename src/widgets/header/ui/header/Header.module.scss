@@ -16,11 +16,11 @@
 	padding: 12px 0;
 	column-gap: 50px;
 
-	@include mediaBreakpointMd {
+	@include media-breakpoint-md {
 		padding: 20px 0;
 	}
 
-	@include mediaBreakpointXl {
+	@include media-breakpoint-xl {
 		padding: 30px 0;
 	}
 }
@@ -31,7 +31,7 @@
 	align-items: center;
 	column-gap: 50px;
 
-	@include mediaBreakpointXl {
+	@include media-breakpoint-xl {
 		display: flex;
 	}
 }
@@ -62,7 +62,7 @@
 	border-radius: 10px;
 	font-weight: 500;
 
-	@include textXl;
+	@include text-xl;
 }
 
 .hamburger {
@@ -74,7 +74,7 @@
 		height: 32px;
 	}
 
-	@include mediaBreakpointXl {
+	@include media-breakpoint-xl {
 		display: none;
 	}
 }
@@ -87,4 +87,8 @@
 	padding-right: 10px;
 	padding-bottom: 25px;
 	padding-left: 10px;
+}
+
+.sidebarButton .button {
+	width: 100%;
 }

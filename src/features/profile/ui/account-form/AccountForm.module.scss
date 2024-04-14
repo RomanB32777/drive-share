@@ -16,14 +16,14 @@
 	margin-bottom: 35px;
 	font-weight: 600;
 
-	@include textBase;
+	@include text-base;
 
-	@include mediaBreakpointMd {
-		@include textXl;
+	@include media-breakpoint-md {
+		@include text-xl;
 	}
 
-	@include mediaBreakpointXl {
-		@include text2Xl;
+	@include media-breakpoint-xl {
+		@include text-2xl;
 	}
 }
 
@@ -42,14 +42,14 @@
 			padding: 15px 12px;
 			font-weight: 600;
 
-			@include textXs;
+			@include text-xs;
 
-			@include mediaBreakpointMd {
-				@include textSm;
+			@include media-breakpoint-md {
+				@include text-sm;
 			}
 
-			@include mediaBreakpointXl {
-				@include textBase;
+			@include media-breakpoint-xl {
+				@include text-base;
 			}
 		}
 	}

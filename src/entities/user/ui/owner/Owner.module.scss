@@ -5,11 +5,11 @@
 	align-items: center;
 	gap: 12px;
 
-	@include mediaBreakpointMd {
+	@include media-breakpoint-md {
 		gap: 14px;
 	}
 
-	@include mediaBreakpointXl {
+	@include media-breakpoint-xl {
 		gap: 16px;
 	}
 }
@@ -28,7 +28,7 @@
 	justify-content: center;
 	color: $grey-color-dark;
 
-	@include mediaBreakpointMd {
+	@include media-breakpoint-md {
 		width: 50px;
 		height: 50px;
 	}
@@ -45,7 +45,7 @@
 	display: flex;
 	column-gap: 15px;
 
-	@include mediaBreakpointMd {
+	@include media-breakpoint-md {
 		flex-direction: column;
 	}
 }
@@ -54,14 +54,14 @@
 .description {
 	font-weight: 500;
 
-	@include textXs;
+	@include text-xs;
 
-	@include mediaBreakpointMd {
-		@include textSm;
+	@include media-breakpoint-md {
+		@include text-sm;
 	}
 
-	@include mediaBreakpointXl {
-		@include textXl;
+	@include media-breakpoint-xl {
+		@include text-xl;
 	}
 }
 

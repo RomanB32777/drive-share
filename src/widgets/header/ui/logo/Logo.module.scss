@@ -4,9 +4,9 @@
 	color: $primary-color;
 	font-family: $font-family-audiowide;
 
-	@include textLg;
+	@include text-lg;
 
-	@include mediaBreakpointXl {
-		@include text4Xl;
+	@include media-breakpoint-xl {
+		@include text-4xl;
 	}
 }

@@ -5,8 +5,7 @@ import { SignInByEmail, SignUpByEmail } from "features/auth/by-email";
 import { EAuthTypes, IViewer, authTitles, isAuthorizedViewer, tokenService } from "entities/viewer";
 import { pathRoutes } from "shared/config/routing";
 import { IComponentWithModificator } from "shared/interfaces";
-import { goBack } from "shared/lib/goBack";
-import { useAppSelector, usePageTitle } from "shared/lib/hooks";
+import { useAppSelector, usePageTitle, useGoBack } from "shared/lib/hooks";
 import { Button } from "shared/ui";
 
 import styles from "./AuthPage.module.scss";
@@ -14,13 +13,13 @@ import styles from "./AuthPage.module.scss";
 export const AuthPage: FC<IComponentWithModificator> = ({ modificator }) => {
 	const { type } = useParams();
 	const navigate = useNavigate();
+	const goBack = useGoBack();
 
 	const isAuthorized = useAppSelector(isAuthorizedViewer);
 
 	useEffect(() => {
 		if (isAuthorized || !type || !Object.values(EAuthTypes).includes(type as EAuthTypes)) {
-			// TODO redirect to back/main page
-			// goBack(navigate);
+			navigate(pathRoutes.main.path);
 		}
 	}, [isAuthorized, type, navigate]);
 
@@ -36,7 +35,7 @@ export const AuthPage: FC<IComponentWithModificator> = ({ modificator }) => {
 
 	const handleAuthSuccess = (data: IViewer) => {
 		tokenService.setTokens({ confirmToken: data.confirmationToken, userToken: String(data.id) });
-		goBack(navigate);
+		goBack();
 	};
 
 	return (
