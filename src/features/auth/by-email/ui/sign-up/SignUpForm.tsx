@@ -14,11 +14,10 @@ import styles from "./SignUpForm.module.scss";
 export const SignUpForm: FC<IAuthForm> = ({ onSuccess }) => {
 	const [signUp, { isLoading }] = useSignUpMutation();
 
-	const {
-		handleSubmit,
-		control,
-		formState: { isValid },
-	} = useForm<TSignUpViewer>({ disabled: isLoading, mode: "onChange", reValidateMode: "onChange" });
+	const { handleSubmit, control } = useForm<TSignUpViewer>({
+		disabled: isLoading,
+		mode: "onSubmit",
+	});
 
 	const handleSubmitForm: SubmitHandler<TSignUpViewer> = async (values) => {
 		const res = await signUp(values);
@@ -54,7 +53,7 @@ export const SignUpForm: FC<IAuthForm> = ({ onSuccess }) => {
 				<AuthFields control={control} />
 			</div>
 
-			<Button type="submit" modificator={styles.button} disabled={!isValid || isLoading}>
+			<Button type="submit" modificator={styles.button} disabled={isLoading}>
 				Зарегистрироваться
 			</Button>
 		</form>

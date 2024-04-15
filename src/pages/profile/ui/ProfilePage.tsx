@@ -1,9 +1,7 @@
-import classNames from "classnames";
 import { FC, ReactNode } from "react";
 
 import { AccountForm } from "features/profile";
 import { EProfileTabs } from "entities/viewer";
-import { IComponentWithModificator } from "shared/interfaces";
 import { Tabs } from "shared/ui";
 
 import styles from "./ProfilePage.module.scss";
@@ -14,7 +12,7 @@ interface IProfileTab {
 	disabled?: boolean;
 }
 
-export const ProfilePage: FC<IComponentWithModificator> = ({ modificator }) => {
+export const ProfilePage: FC = () => {
 	const tabs: Record<EProfileTabs, IProfileTab> = {
 		[EProfileTabs.Account]: {
 			label: "Аккаунт",
@@ -37,7 +35,7 @@ export const ProfilePage: FC<IComponentWithModificator> = ({ modificator }) => {
 	};
 
 	return (
-		<div className={classNames(styles.wrapper, modificator)}>
+		<div className={styles.wrapper}>
 			<Tabs
 				defaultActiveKey={EProfileTabs.Account}
 				items={Object.values(EProfileTabs).map((value) => {

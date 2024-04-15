@@ -1,0 +1,33 @@
+@import "./media";
+@import "./typography";
+
+@mixin container-wrapper {
+	max-width: 1920px;
+	padding: 55px 16px;
+	margin: 0 auto;
+	overflow-x: hidden;
+
+	@include media-breakpoint-sm {
+		padding: 55px 24px;
+	}
+
+	@include media-breakpoint-xl {
+		padding: 55px 118px;
+	}
+}
+
+@mixin error-styles {
+	margin-top: 10px;
+	color: $primary-color;
+	font-weight: 600;
+
+	@include text-xs;
+
+	@include media-breakpoint-md {
+		@include text-sm;
+	}
+
+	@include media-breakpoint-xl {
+		@include text-base;
+	}
+}

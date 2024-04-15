@@ -26,7 +26,7 @@ export const DatePicker: FC<IDatePicker> = ({
 
 	return (
 		<AntdDatePicker
-			rootClassName={classNames(styles.picker, rootClassName, { [styles.focused]: isFocus })}
+			rootClassName={classNames(styles.picker, rootClassName)}
 			suffixIcon={renderSuffixIcon?.(isFocus) || suffixIcon}
 			onOpenChange={handleOpenPopup}
 			{...props}

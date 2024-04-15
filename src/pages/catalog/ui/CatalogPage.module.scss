@@ -4,6 +4,10 @@
 	background-color: $white-color-light;
 }
 
+.wrapper {
+	@include container-wrapper;
+}
+
 .cards {
 	display: grid;
 	gap: 30px;

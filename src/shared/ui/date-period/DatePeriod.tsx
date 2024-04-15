@@ -66,6 +66,7 @@ export const DatePeriod = <TFieldValues extends FieldValues>({
 								rootClassName={styles.datePicker}
 								onChange={handleChangeDate}
 								renderSuffixIcon={renderSuffixIcon}
+								variant="borderless"
 							/>
 							<TimePicker
 								value={formatValue}

@@ -2,7 +2,7 @@ import { EHttpMethods, adapterFormData, rtkApi } from "shared/api";
 
 import { IViewer, TViewerProfile } from "../model/types";
 
-const apiPath = "user";
+const apiPath = "todos";
 
 export const viewerApi = rtkApi.enhanceEndpoints({ addTagTypes: ["viewer"] }).injectEndpoints({
 	endpoints: (build) => ({

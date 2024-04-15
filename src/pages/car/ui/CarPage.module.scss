@@ -8,6 +8,8 @@ div.wrapper {
 	padding-top: 20px;
 	gap: 50px;
 
+	@include container-wrapper;
+
 	@include media-breakpoint-md {
 		flex-direction: row;
 	}

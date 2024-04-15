@@ -1,44 +1,20 @@
 @import "app/styles/index";
 
 .picker {
-	:global {
+	padding: 0;
+
+	&:global(> .ant-picker-input input) {
 		padding: 0;
-		border: none;
-		background: none;
-		box-shadow: none;
+		font-weight: 600;
 
-		.ant-picker-input {
-			max-width: 160px;
+		@include text-xs;
+
+		@include media-breakpoint-md {
+			@include text-sm;
 		}
 
-		.ant-picker-input input {
-			padding: 0;
-			font-weight: 600;
-
-			@include text-xs;
-
-			@include media-breakpoint-md {
-				@include text-sm;
-			}
-
-			@include media-breakpoint-xl {
-				@include text-xl;
-			}
-		}
-	}
-
-	&.focused {
-		:global {
-			border: none;
-			background: none;
-			box-shadow: none;
-		}
-	}
-
-	&:hover {
-		:global {
-			border: none;
-			background: none;
+		@include media-breakpoint-xl {
+			@include text-xl;
 		}
 	}
 }

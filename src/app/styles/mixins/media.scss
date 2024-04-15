@@ -1,5 +1,3 @@
-@import "../variables.module";
-
 @mixin media-breakpoint-sm {
 	@media (width >= $breakpoint-sm) {
 		@content;

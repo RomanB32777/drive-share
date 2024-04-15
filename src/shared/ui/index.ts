@@ -7,3 +7,4 @@ export * from "./carousel";
 export * from "./input";
 export * from "./upload";
 export * from "./tabs";
+export * from "./loader";

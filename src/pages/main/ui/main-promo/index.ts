@@ -1,1 +1,0 @@
-export { MainPromo } from "./MainPromo";

@@ -34,6 +34,10 @@
 .datePicker {
 	width: 65%;
 
+	&:global(> .ant-picker-input) {
+		max-width: 160px;
+	}
+
 	@include media-breakpoint-md {
 		width: auto;
 	}

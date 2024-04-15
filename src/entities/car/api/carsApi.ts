@@ -4,7 +4,7 @@ import { ICar, ICarCategory } from "../model/types";
 
 import { IArea, ICarsQueryParams, IRentData } from "./types";
 
-const carsApiPath = "car";
+const carsApiPath = "todos";
 
 const areasApi = hhRtkApi.injectEndpoints({
 	endpoints: (build) => ({

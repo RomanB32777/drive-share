@@ -1,7 +1,11 @@
+import { generatePath } from "react-router-dom";
+
+import { pathRoutes } from "shared/config/routing";
+
 import { EAuthTypes, TAuthTokenTypes } from "../model/types";
 
-export const CONFIRM_TOKEN = "confirmationToken";
-export const USER_TOKEN = "userId";
+const CONFIRM_TOKEN = "confirmationToken";
+const USER_TOKEN = "userId";
 
 export const authTitles: Record<EAuthTypes, string> = {
 	[EAuthTypes.SignIn]: "Авторизация",
@@ -12,3 +16,5 @@ export const authTokens: Record<TAuthTokenTypes, string> = {
 	confirmToken: CONFIRM_TOKEN,
 	userToken: USER_TOKEN,
 };
+
+export const signInLink = generatePath(pathRoutes.auth.path, { type: EAuthTypes.SignIn });

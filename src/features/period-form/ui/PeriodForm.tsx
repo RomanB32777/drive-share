@@ -54,7 +54,6 @@ export const PeriodForm: FC<IPeriodForm> = ({
 		defaultValues,
 		disabled,
 		mode: "onChange",
-		reValidateMode: "onChange",
 	});
 
 	const handleSubmitForm: SubmitHandler<IPeriodFilterValues> = (values) => {

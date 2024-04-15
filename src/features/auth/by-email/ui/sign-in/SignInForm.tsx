@@ -13,11 +13,10 @@ import styles from "./SignInForm.module.scss";
 export const SignInForm: FC<IAuthForm> = ({ onSuccess }) => {
 	const [signIn, { isLoading }] = useSignInMutation();
 
-	const {
-		handleSubmit,
-		control,
-		formState: { isValid },
-	} = useForm<TAuthByEmail>({ disabled: isLoading, mode: "onChange", reValidateMode: "onChange" });
+	const { handleSubmit, control } = useForm<TAuthByEmail>({
+		disabled: isLoading,
+		mode: "onSubmit",
+	});
 
 	const handleSubmitForm: SubmitHandler<TAuthByEmail> = async (values) => {
 		const res = await signIn(values);
@@ -33,7 +32,7 @@ export const SignInForm: FC<IAuthForm> = ({ onSuccess }) => {
 		<form onSubmit={handleSubmit(handleSubmitForm)}>
 			<AuthFields control={control} />
 
-			<Button type="submit" modificator={styles.button} disabled={!isValid || isLoading}>
+			<Button type="submit" modificator={styles.button} disabled={isLoading}>
 				Войти
 			</Button>
 		</form>

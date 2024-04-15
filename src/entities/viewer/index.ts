@@ -14,7 +14,7 @@ export {
 	type TViewerProfile,
 } from "./model/types";
 
-export { authTitles } from "./config/constants";
+export { authTitles, signInLink } from "./config/constants";
 
 export { tokenService } from "./lib/tokenService";
 

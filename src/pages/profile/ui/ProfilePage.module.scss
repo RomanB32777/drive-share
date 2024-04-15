@@ -1,5 +1,9 @@
+@import "app/styles/index";
+
 div.wrapper {
 	padding-top: 25px;
+
+	@include container-wrapper;
 }
 
 .content {

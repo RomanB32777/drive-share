@@ -1,4 +1,3 @@
-import classNames from "classnames";
 import { FC } from "react";
 import { useParams } from "react-router-dom";
 
@@ -7,13 +6,12 @@ import { RentForm } from "widgets/rent-form";
 import { CarRating, useFetchCarQuery } from "entities/car";
 import { CarOwner, useFetchUserQuery } from "entities/user";
 import { pathRoutes } from "shared/config/routing";
-import { IComponentWithModificator } from "shared/interfaces";
 import { usePageTitle } from "shared/lib/hooks";
 import { Carousel, ContentLayout } from "shared/ui";
 
 import styles from "./CarPage.module.scss";
 
-export const CarPage: FC<IComponentWithModificator> = ({ modificator }) => {
+export const CarPage: FC = () => {
 	const { id = "" } = useParams();
 
 	const { data: car, isLoading } = useFetchCarQuery(id, { skip: !id });
@@ -31,7 +29,7 @@ export const CarPage: FC<IComponentWithModificator> = ({ modificator }) => {
 				))}
 			</Carousel>
 
-			<div className={classNames(styles.wrapper, modificator)}>
+			<div className={styles.wrapper}>
 				<div className={styles.content}>
 					<div className={styles.topBlock}>
 						<h1 className={styles.title}>{car?.model}</h1>

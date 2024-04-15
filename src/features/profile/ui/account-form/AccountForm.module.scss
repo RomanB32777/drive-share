@@ -28,45 +28,17 @@
 }
 
 .datePicker {
-	:global {
-		width: 100%;
-		padding: 0;
-		border: 1px solid;
-		border-radius: 10px;
+	display: block;
+	padding-right: 10px;
+	border-radius: 10px;
 
-		.ant-picker-input {
-			max-width: none;
-		}
+	&:global(> .ant-picker-input input) {
+		padding: 15px 12px;
 
-		.ant-picker-input input {
-			padding: 15px 12px;
-			font-weight: 600;
-
-			@include text-xs;
-
-			@include media-breakpoint-md {
-				@include text-sm;
-			}
-
-			@include media-breakpoint-xl {
-				@include text-base;
-			}
+		@include media-breakpoint-xl {
+			@include text-base;
 		}
 	}
-
-	// &.focused {
-	// 	:global .ant-picker-input {
-	// 		border: 1px solid;
-	// 		border-radius: 10px;
-	// 	}
-	// }
-
-	// &:hover {
-	// 	:global .ant-picker-input {
-	// 		border: 1px solid;
-	// 		border-radius: 10px;
-	// 	}
-	// }
 }
 
 .spinHidden {
@@ -80,8 +52,5 @@
 }
 
 .button {
-	width: auto;
-	padding: 20px 25px;
-	border-radius: 10px;
 	margin-top: 50px;
 }

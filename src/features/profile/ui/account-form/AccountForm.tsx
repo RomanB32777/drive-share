@@ -18,12 +18,11 @@ export const AccountForm: FC<IComponentWithModificator> = ({ modificator }) => {
 	const {
 		handleSubmit,
 		control,
-		formState: { isValid, isDirty },
+		formState: { isDirty },
 	} = useForm<TViewerProfile>({
 		defaultValues: {},
 		disabled: isLoading,
-		mode: "onChange",
-		reValidateMode: "onChange",
+		mode: "onSubmit",
 	});
 
 	const handleSubmitForm: SubmitHandler<TViewerProfile> = (values) => {
@@ -58,6 +57,7 @@ export const AccountForm: FC<IComponentWithModificator> = ({ modificator }) => {
 								label="День рождения"
 								style={{ borderColor: token.colorBorder }}
 								rootClassName={styles.datePicker}
+								variant="outlined"
 							/>
 						</div>
 					</div>
@@ -109,11 +109,7 @@ export const AccountForm: FC<IComponentWithModificator> = ({ modificator }) => {
 					</div>
 				</div>
 
-				<Button
-					type="submit"
-					modificator={styles.button}
-					disabled={!isValid || !isDirty || isLoading}
-				>
+				<Button type="submit" modificator={styles.button} disabled={!isDirty || isLoading}>
 					Сохранить
 				</Button>
 			</form>

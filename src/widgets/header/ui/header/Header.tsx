@@ -1,12 +1,11 @@
 import classNames from "classnames";
 import { FC, useState } from "react";
-import { generatePath, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-import { EAuthTypes, isAuthorizedViewer } from "entities/viewer";
+import { isAuthorizedViewer, signInLink } from "entities/viewer";
 import { HamburgerIcon } from "shared/assets/icons";
-import { pathRoutes } from "shared/config/routing";
 import { IComponentWithModificator } from "shared/interfaces";
-import { useAppSelector } from "shared/lib/hooks";
+import { useActions, useAppSelector } from "shared/lib/hooks";
 import { Button } from "shared/ui";
 
 import { Logo } from "../logo";
@@ -23,21 +22,22 @@ export const Header: FC<IHeader> = ({ modificator, mobileModificator }) => {
 	const navigate = useNavigate();
 	const [collapsed, setCollapsed] = useState(true);
 
+	const { logout } = useActions();
 	const isAuthorized = useAppSelector(isAuthorizedViewer);
 
 	const handleCollapsed = () => setCollapsed((prev) => !prev);
 
 	const handleButtonClick = () => {
-		const navigateUrl = isAuthorized
-			? pathRoutes.profile.path
-			: generatePath(pathRoutes.auth.path, { type: EAuthTypes.SignIn });
-
-		navigate(navigateUrl);
+		if (isAuthorized) {
+			logout();
+		} else {
+			navigate(signInLink);
+		}
 	};
 
-	const linkButton = (
+	const navButton = (
 		<Button style="outline" modificator={styles.button} onClick={handleButtonClick}>
-			{isAuthorized ? "Профиль" : "Войти"}
+			{isAuthorized ? "Выйти" : "Войти"}
 		</Button>
 	);
 
@@ -55,7 +55,7 @@ export const Header: FC<IHeader> = ({ modificator, mobileModificator }) => {
 						<nav className={styles.navigation}>
 							<Navigation modificator={styles.menuWrapper} className={styles.menu} />
 
-							{linkButton}
+							{navButton}
 						</nav>
 					</div>
 				</div>
@@ -71,7 +71,7 @@ export const Header: FC<IHeader> = ({ modificator, mobileModificator }) => {
 					/>
 
 					<div onClick={handleCollapsed} className={styles.sidebarButton}>
-						{linkButton}
+						{navButton}
 					</div>
 				</div>
 			</Sidebar>

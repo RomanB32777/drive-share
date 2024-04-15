@@ -1,5 +1,3 @@
-import { RouteProps } from "react-router-dom";
-
 export enum ERoutes {
 	Main = "main",
 	Profile = "profile",
@@ -8,9 +6,9 @@ export enum ERoutes {
 	Car = "car",
 }
 
-interface ICustomRouteProps {
+interface IRouteProps {
 	path: string;
 	title: string;
 }
 
-export type TRoutes = Record<ERoutes, RouteProps & ICustomRouteProps>;
+export type TRoutes = Record<ERoutes, IRouteProps>;

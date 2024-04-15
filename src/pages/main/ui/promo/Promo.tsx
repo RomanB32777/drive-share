@@ -1,12 +1,11 @@
 import { FC } from "react";
 
 import promoImage from "shared/assets/images/promo.png";
-import { IComponentWithModificator } from "shared/interfaces";
 import { Button } from "shared/ui";
 
-import styles from "./MainPromo.module.scss";
+import styles from "./Promo.module.scss";
 
-export const MainPromo: FC<IComponentWithModificator> = () => {
+export const Promo: FC = () => {
 	return (
 		<div className={styles.promo}>
 			<div className={styles.content}>

@@ -78,8 +78,8 @@ div.select {
 }
 
 .button {
+	width: 100%;
 	padding: 8px 0;
-	border-radius: 10px;
 
 	@include text-xs;
 
@@ -120,8 +120,8 @@ div.select {
 }
 
 .authButton {
+	width: 100%;
 	padding: 12px 18px;
-	border-radius: 10px;
 	margin-top: 12px;
 	font-weight: 500;
 

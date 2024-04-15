@@ -1,13 +1,12 @@
 import { notification } from "antd";
 import { FC } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { PeriodForm } from "features/period-form";
 import { IRentData, selectCar, useCreateRentMutation } from "entities/car";
-import { isAuthorizedViewer, selectViewer } from "entities/viewer";
+import { isAuthorizedViewer, selectViewer, signInLink } from "entities/viewer";
 import { handleMutationResult } from "shared/api";
 import { DirectionArrowIcon } from "shared/assets/icons";
-import { pathRoutes } from "shared/config/routing";
 import { IPeriodFilterValues } from "shared/interfaces";
 import { useAppSelector } from "shared/lib/hooks";
 import { Button } from "shared/ui";
@@ -15,8 +14,6 @@ import { Button } from "shared/ui";
 import styles from "./RentForm.module.scss";
 
 export const RentForm: FC = () => {
-	const navigate = useNavigate();
-
 	const viewer = useAppSelector(selectViewer);
 	const isAuthorized = useAppSelector(isAuthorizedViewer);
 
@@ -38,8 +35,6 @@ export const RentForm: FC = () => {
 			notification.success({ message: "Success" });
 		}
 	};
-
-	const handleAuthButtonClick = () => navigate(pathRoutes.auth.path);
 
 	return (
 		<div className={styles.rent}>
@@ -70,9 +65,11 @@ export const RentForm: FC = () => {
 				<div className={styles.auth}>
 					<p>Для бронирования необходимо авторизоваться</p>
 
-					<Button style="outline" onClick={handleAuthButtonClick} modificator={styles.authButton}>
-						Войти
-					</Button>
+					<Link to={signInLink}>
+						<Button style="outline" modificator={styles.authButton}>
+							Войти
+						</Button>
+					</Link>
 				</div>
 			)}
 			<div className={styles.price}>

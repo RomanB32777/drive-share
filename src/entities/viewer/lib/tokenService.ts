@@ -1,10 +1,13 @@
-import { CONFIRM_TOKEN, USER_TOKEN, authTokens } from "../config/constants";
+import { authTokens } from "../config/constants";
 import { IAuthTokens, TAuthTokenTypes } from "../model/types";
 
 class TokenService {
 	setTokens(tokens: IAuthTokens): void {
-		localStorage.setItem(CONFIRM_TOKEN, tokens.confirmToken);
-		localStorage.setItem(USER_TOKEN, tokens.userToken);
+		Object.entries(tokens).forEach(([key, value]) => {
+			const tokenKey = authTokens[key as TAuthTokenTypes];
+
+			localStorage.setItem(tokenKey, value);
+		});
 	}
 
 	setToken(type: TAuthTokenTypes, value: string): void {
@@ -24,7 +27,9 @@ class TokenService {
 	}
 
 	deleteTokens(): void {
-		localStorage.clear();
+		Object.values(authTokens).forEach((tokenKey) => {
+			localStorage.removeItem(tokenKey);
+		});
 	}
 }
 

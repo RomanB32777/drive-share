@@ -1,2 +1,2 @@
-export { ERoutes, type TRoutes } from "./types";
+export { ERoutes } from "./types";
 export { pathRoutes } from "./paths";

@@ -4,21 +4,6 @@
 	position: relative;
 }
 
-.container {
-	max-width: 1920px;
-	padding: 55px 16px;
-	margin: 0 auto;
-	overflow-x: hidden;
-
-	@include media-breakpoint-sm {
-		padding: 55px 24px;
-	}
-
-	@include media-breakpoint-xl {
-		padding: 55px 118px;
-	}
-}
-
 .paddingContent {
 	padding-top: 75px;
 
@@ -31,8 +16,10 @@
 	}
 }
 
-div.header,
-div.footer {
-	padding-top: 0;
-	padding-bottom: 0;
+.header,
+.footer {
+	@include container-wrapper;
+
+	padding-top: 0 !important;
+	padding-bottom: 0 !important;
 }
