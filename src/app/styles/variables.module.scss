@@ -38,6 +38,10 @@ $grey-color-opacity: rgba($grey-color-brightest, 0.6);
 $orange-color: #f19e48;
 $orange-color-opacity: #fdf5ee;
 
+// blue
+$blue-color-dark: #1a4064;
+$blue-color-dark-opacity: rgba($blue-color-dark, 0.04);
+
 :export {
 	inputBorderColor: $grey-color-light;
 	primaryColor: $primary-color;

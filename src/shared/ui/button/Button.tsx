@@ -2,7 +2,7 @@ import classNames from "classnames";
 
 import type { ButtonHTMLAttributes, FC, MouseEvent, PropsWithChildren } from "react";
 
-import { IComponentWithModificator } from "../..//interfaces";
+import { IComponentWithModificator } from "../../interfaces";
 
 import styles from "./Button.module.scss";
 

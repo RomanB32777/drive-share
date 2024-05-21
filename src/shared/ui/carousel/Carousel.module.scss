@@ -28,6 +28,14 @@
 	align-items: center;
 	justify-content: center;
 	border-radius: 50%;
-	background-color: rgba($black-color, 0.7);
-	color: $white-color;
+
+	&.darkArrow {
+		background-color: rgba($black-color, 0.7);
+		color: $white-color;
+	}
+
+	&.transparentArrow {
+		background-color: transparent;
+		color: $black-color;
+	}
 }

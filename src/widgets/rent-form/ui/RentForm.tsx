@@ -53,7 +53,7 @@ export const RentForm: FC = () => {
 						disabled={isLoading}
 						buttonContent={
 							<>
-								<span>Забронировать</span>
+								Забронировать
 								<span className={styles.arrow}>
 									<DirectionArrowIcon />
 								</span>

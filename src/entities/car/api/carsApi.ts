@@ -1,6 +1,6 @@
 import { EHttpMethods, hhRtkApi, rtkApi } from "shared/api";
 
-import { ICar, ICarCategory } from "../model/types";
+import { ICar, ICarCategory, ICarIncome } from "../model/types";
 
 import { IArea, ICarsQueryParams, IRentData } from "./types";
 
@@ -25,7 +25,10 @@ export const carsApi = rtkApi.enhanceEndpoints({ addTagTypes: ["cars"] }).inject
 			query: (id) => `${carsApiPath}/${id}`,
 		}),
 		fetchCategories: build.query<ICarCategory[], void>({
-			query: () => `categories`,
+			query: () => "categories",
+		}),
+		fetchIncomeCars: build.query<ICarIncome[], void>({
+			query: () => "income",
 		}),
 		createRent: build.mutation<IRentData, Omit<IRentData, "id">>({
 			query: (data) => ({
@@ -44,6 +47,8 @@ export const {
 	useLazyFetchCarQuery,
 	useFetchCategoriesQuery,
 	useLazyFetchCategoriesQuery,
+	useFetchIncomeCarsQuery,
+	useLazyFetchIncomeCarsQuery,
 	useCreateRentMutation,
 } = carsApi;
 

@@ -1,7 +1,7 @@
 import { Controller, FieldValues } from "react-hook-form";
 
 import { TFormElement } from "../../../../interfaces";
-import { IInput, Input } from "../input/Input";
+import { type IInput, Input } from "../input";
 
 import styles from "./FormInput.module.scss";
 

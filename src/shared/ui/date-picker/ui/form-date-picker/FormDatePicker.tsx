@@ -2,7 +2,7 @@ import { useId } from "react";
 import { Controller, FieldValues } from "react-hook-form";
 
 import { TFormElement } from "../../../../interfaces";
-import { DatePicker, IDatePicker } from "../date-picker/DatePicker";
+import { DatePicker, type IDatePicker } from "../date-picker";
 
 import styles from "./FormDatePicker.module.scss";
 

@@ -1,14 +1,16 @@
 import { FC } from "react";
 import { NavLink } from "react-router-dom";
 
-import { pathRoutes } from "shared/config/routing";
+import { IRouteProps } from "shared/config/routing";
 import { IComponentWithModificator } from "shared/interfaces";
 
 import styles from "./Footer.module.scss";
 
-const menuLinks = [pathRoutes.main, pathRoutes.catalog];
+interface IFooter extends IComponentWithModificator {
+	menuLinks: IRouteProps[];
+}
 
-export const Footer: FC<IComponentWithModificator> = ({ modificator }) => {
+export const Footer: FC<IFooter> = ({ menuLinks, modificator }) => {
 	return (
 		<footer className={styles.footer}>
 			<div className={modificator}>

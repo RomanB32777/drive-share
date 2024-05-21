@@ -1,4 +1,4 @@
-import { MainCarousel } from "features/main-carousel";
+import { EntityCarousel } from "features/entity-carousel";
 import { CategoryCard, useFetchCategoriesQuery } from "entities/car";
 import { breakpoints } from "shared/const";
 
@@ -8,7 +8,7 @@ export const CategoriesCarousel = () => {
 	const { data = [], isLoading } = useFetchCategoriesQuery();
 
 	return (
-		<MainCarousel
+		<EntityCarousel
 			items={data}
 			isLoading={isLoading}
 			title="Машины для любых нужд"

@@ -1,0 +1,9 @@
+@import "app/styles/index";
+
+.layout {
+	background-color: $white-color-light;
+}
+
+.wrapper {
+	@include container-wrapper;
+}

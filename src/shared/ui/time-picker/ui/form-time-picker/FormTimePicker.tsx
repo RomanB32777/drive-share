@@ -2,7 +2,7 @@ import { useId } from "react";
 import { Controller, FieldValues } from "react-hook-form";
 
 import { TFormElement } from "../../../../interfaces";
-import { TimePicker, ITimePicker } from "../time-picker/TimePicker";
+import { TimePicker, type ITimePicker } from "../time-picker";
 
 import styles from "./FormTimePicker.module.scss";
 

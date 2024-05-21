@@ -1,4 +1,3 @@
-import classNames from "classnames";
 import { FC } from "react";
 
 import { CategoriesCarousel } from "widgets/categories-carousel";
@@ -19,7 +18,7 @@ export const MainPage: FC = () => {
 		<div>
 			<Banner />
 
-			<div className={classNames(styles.titleWrapper, styles.wrapper)}>
+			<div className={styles.titleWrapper}>
 				<h1 className={styles.title}>Арендуйте автомобиль</h1>
 				<h3 className={styles.subtitle}>в несколько кликов</h3>
 			</div>

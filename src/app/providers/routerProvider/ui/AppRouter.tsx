@@ -9,12 +9,14 @@ import {
 	createRoutesFromElements,
 } from "react-router-dom";
 
+import { AboutPage } from "pages/about";
 import { AuthPage } from "pages/auth";
 import { CarPage } from "pages/car";
 import { CatalogPage } from "pages/catalog";
 import { MainPage } from "pages/main";
 import { NotFoundPage } from "pages/not-found";
 import { ProfilePage } from "pages/profile";
+import { RentPage } from "pages/rent";
 import { ERoutes, pathRoutes } from "shared/config/routing";
 
 import { AppLayout } from "../../../layout";
@@ -47,6 +49,8 @@ export const AppRouter: FC = () => {
 			element: <CatalogPage />,
 		},
 		[ERoutes.Car]: { ...pathRoutes.car, element: <CarPage /> },
+		[ERoutes.Rent]: { ...pathRoutes.rent, element: <RentPage /> },
+		[ERoutes.About]: { ...pathRoutes.about, element: <AboutPage /> },
 	};
 
 	const createElementRoutes = (routesArray: RouteObject[]) =>

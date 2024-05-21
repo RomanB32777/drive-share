@@ -4,41 +4,36 @@ import classNames from "classnames";
 import { FC, useMemo } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 
-import { isAuthorizedViewer } from "entities/viewer";
-import { pathRoutes } from "shared/config/routing";
+import { IRouteProps } from "shared/config/routing";
 import { IComponentWithModificator } from "shared/interfaces";
-import { useAppSelector } from "shared/lib/hooks";
 
 import styles from "./Navigation.module.scss";
 
-type TNavigation = Omit<MenuProps, "selectedKeys" | "items"> & IComponentWithModificator;
+interface INavigation extends Omit<MenuProps, "selectedKeys" | "items">, IComponentWithModificator {
+	links: IRouteProps[];
+}
 
-export const Navigation: FC<TNavigation> = ({
+export const Navigation: FC<INavigation> = ({
 	mode = "horizontal",
 	modificator,
+	links,
 	className,
 	...props
 }) => {
 	const { pathname } = useLocation();
 
-	const isAuthorized = useAppSelector(isAuthorizedViewer);
-
-	const menuItems: ItemType[] = useMemo(() => {
-		const links = [pathRoutes.main, pathRoutes.catalog];
-
-		if (isAuthorized) {
-			links.push(pathRoutes.profile);
-		}
-
-		return links.map(({ path, title }) => ({
-			title,
-			key: path,
-			label: <NavLink to={path}>{title}</NavLink>,
-		}));
-	}, [isAuthorized]);
+	const menuItems: ItemType[] = useMemo(
+		() =>
+			links.map(({ path, title }) => ({
+				title,
+				key: path,
+				label: <NavLink to={path}>{title}</NavLink>,
+			})),
+		[links]
+	);
 
 	return (
-		<div className={classNames(styles.menuWrapper, modificator)}>
+		<div className={classNames(styles.wrapper, modificator)}>
 			<Menu
 				mode={mode}
 				selectedKeys={[pathname]}

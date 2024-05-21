@@ -1,0 +1,1 @@
+export { RentIncome } from "./RentIncome";

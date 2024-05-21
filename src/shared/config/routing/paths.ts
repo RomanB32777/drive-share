@@ -6,4 +6,6 @@ export const pathRoutes: TRoutes = {
 	[ERoutes.Auth]: { path: "/auth/:type", title: "Авторизация/Регистрация" },
 	[ERoutes.Catalog]: { path: "/catalog", title: "Каталог" },
 	[ERoutes.Car]: { path: "/catalog/:id", title: "Страница авто" },
+	[ERoutes.Rent]: { path: "/rent", title: "Сдать авто" },
+	[ERoutes.About]: { path: "/about", title: "О нас" },
 };

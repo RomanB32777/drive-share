@@ -9,7 +9,7 @@ export type TFormElement<
 		label?: ReactNode;
 	};
 
-// убрать из shared в слайс models в features
+// TODO убрать из shared в слайс models в features
 export interface IPeriodFilterValues {
 	city: string;
 	from: string;

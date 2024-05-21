@@ -5,13 +5,13 @@ import { ArrowIcon } from "shared/assets/icons";
 import { IComponentWithModificator } from "shared/interfaces";
 import { Button, Carousel, ContentLayout } from "shared/ui";
 
-import styles from "./MainCarousel.module.scss";
+import styles from "./EntityCarousel.module.scss";
 
 interface IBaseSlideData {
 	id: string | number;
 }
 
-export interface IMainCarousel<T extends IBaseSlideData>
+export interface IEntityCarousel<T extends IBaseSlideData>
 	extends Omit<CarouselProps, "arrows">,
 		IComponentWithModificator {
 	items: T[];
@@ -20,7 +20,7 @@ export interface IMainCarousel<T extends IBaseSlideData>
 	renderItem: (item: T) => ReactNode;
 }
 
-export const MainCarousel = <T extends IBaseSlideData>({
+export const EntityCarousel = <T extends IBaseSlideData>({
 	items,
 	title,
 	isLoading,
@@ -28,7 +28,7 @@ export const MainCarousel = <T extends IBaseSlideData>({
 	modificator,
 	renderItem,
 	...props
-}: IMainCarousel<T>) => {
+}: IEntityCarousel<T>) => {
 	const sliderRef = useRef<CarouselRef>(null);
 
 	const handlePrevClick = () => sliderRef.current?.prev();

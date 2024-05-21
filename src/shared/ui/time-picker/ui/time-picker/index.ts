@@ -1,1 +1,1 @@
-export { TimePicker } from "./TimePicker";
+export { TimePicker, type ITimePicker } from "./TimePicker";

@@ -19,6 +19,14 @@ export interface ICarCategory {
 	maxPrice?: number;
 }
 
+export interface ICarIncome {
+	id: string;
+	income: number;
+	photo: string;
+	model: string;
+	year: number;
+}
+
 export interface ICarsState {
 	items: ICar[];
 	car: ICar;

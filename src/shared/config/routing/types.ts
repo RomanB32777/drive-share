@@ -4,9 +4,11 @@ export enum ERoutes {
 	Auth = "auth",
 	Catalog = "catalog",
 	Car = "car",
+	Rent = "rent",
+	About = "about",
 }
 
-interface IRouteProps {
+export interface IRouteProps {
 	path: string;
 	title: string;
 }

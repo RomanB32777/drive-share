@@ -1,0 +1,20 @@
+@import "app/styles/index";
+
+.carouselWrapper {
+	overflow: hidden;
+}
+
+.slide {
+	margin-right: 0;
+	margin-left: 0;
+
+	@include media-breakpoint-sm {
+		margin-right: 10px;
+		margin-left: 10px;
+	}
+
+	@include media-breakpoint-lg {
+		margin-right: 15px;
+		margin-left: 15px;
+	}
+}
