@@ -12,3 +12,7 @@ export interface IPayloadActionData {
 	status: number;
 	data: unknown;
 }
+
+export interface IUserIdQueryParam {
+	userId?: number;
+}

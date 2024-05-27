@@ -1,0 +1,50 @@
+@import "app/styles/index";
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	column-gap: 5px;
+
+	@include media-breakpoint-md {
+		column-gap: 10px;
+	}
+}
+
+.label {
+	display: inline-block;
+	margin-bottom: 20px;
+	color: $black-color;
+	font-weight: 600;
+
+	@include text-xs;
+
+	@include media-breakpoint-md {
+		@include text-sm;
+	}
+
+	@include media-breakpoint-xl {
+		@include text-base;
+	}
+}
+
+.asterisk {
+	@include asterisk-styles;
+}
+
+.radioGroup {
+	display: flex;
+	flex-direction: column;
+	row-gap: 20px;
+}
+
+.item {
+	&:global(.ant-radio-wrapper) {
+		@include text-base;
+
+		@include media-breakpoint-md {
+			@include text-lg;
+		}
+	}
+}
+
+

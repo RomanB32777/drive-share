@@ -1,0 +1,55 @@
+@import "app/styles/index";
+
+.fields {
+	display: grid;
+	gap: 25px;
+	grid-template-columns: repeat(1, minmax(0, 1fr));
+
+	@include media-breakpoint-md {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+.radioFields {
+	display: grid;
+	gap: 25px;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+
+	@include media-breakpoint-md {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+
+	@include media-breakpoint-xl {
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+	}
+}
+
+.title {
+	margin-bottom: 35px;
+	font-weight: 600;
+
+	@include text-base;
+
+	@include media-breakpoint-md {
+		@include text-xl;
+	}
+
+	@include media-breakpoint-xl {
+		@include text-2xl;
+	}
+}
+
+.datePicker {
+	display: block;
+	padding-right: 10px;
+	border-radius: 10px;
+
+	&:global(> .ant-picker-input input) {
+		padding: 15px 12px;
+
+		@include media-breakpoint-xl {
+			@include text-base;
+		}
+	}
+}
+

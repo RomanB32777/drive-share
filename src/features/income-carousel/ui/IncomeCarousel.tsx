@@ -18,7 +18,13 @@ export const IncomeCarousel: FC<IIncomeCarousel> = ({
 	...props
 }) => (
 	<ContentLayout isLoading={isLoading} modificator={styles.carouselWrapper}>
-		<Carousel slidesPerRow={slidesPerRow} arrowStyle="transparent" dots={false} {...props}>
+		<Carousel
+			slidesPerRow={slidesPerRow}
+			arrowStyle="transparent"
+			arrowsPosition="outside"
+			dots={false}
+			{...props}
+		>
 			{items?.map((item) => (
 				<div key={item.id}>
 					<div className={styles.slide}>

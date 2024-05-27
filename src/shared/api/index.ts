@@ -1,4 +1,4 @@
-export { EHttpMethods } from "./model/types";
+export { EHttpMethods, type IUserIdQueryParam } from "./model/types";
 
 export { adapterFormData } from "./lib/adapterFormData";
 export { queryErrorLogger } from "./lib/errorLogger";

@@ -5,6 +5,8 @@ export * from "./time-picker";
 export * from "./search-select";
 export * from "./carousel";
 export * from "./input";
+export * from "./textarea";
 export * from "./upload";
 export * from "./tabs";
 export * from "./loader";
+export * from "./radio";

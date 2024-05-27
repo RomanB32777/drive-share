@@ -14,6 +14,7 @@ export const FormDatePicker = <TFieldValues extends FieldValues>({
 	rules,
 	label,
 	id: propId,
+	required,
 	...props
 }: TFormDatePicker<TFieldValues>) => {
 	const id = useId();
@@ -32,6 +33,7 @@ export const FormDatePicker = <TFieldValues extends FieldValues>({
 					{label && (
 						<label htmlFor={elementId} className={styles.label}>
 							{label}
+							{required && <span className={styles.asterisk}>*</span>}
 						</label>
 					)}
 

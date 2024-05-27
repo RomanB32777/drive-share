@@ -1,0 +1,115 @@
+@import "app/styles/index";
+
+.title {
+	margin-bottom: 20px;
+	font-weight: 600;
+
+	@include text-lg;
+
+	@include media-breakpoint-md {
+		@include text-xl;
+	}
+
+	@include media-breakpoint-xl {
+		@include text-2xl;
+	}
+}
+
+.description {
+	margin-bottom: 20px;
+	font-weight: 500;
+
+	@include text-base;
+
+	@include media-breakpoint-md {
+		@include text-lg;
+	}
+
+	@include media-breakpoint-xl {
+		@include text-xl;
+	}
+}
+
+.exampleImages {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	gap: 20px;
+
+	@include media-breakpoint-lg {
+		flex-direction: row;
+	}
+
+	& > div {
+		flex: 1;
+
+		p {
+			color: $grey-color;
+			text-align: center;
+		}
+	}
+}
+
+.exampleImage {
+	display: flex;
+	height: 150px;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid $grey-color-light;
+	border-radius: 10px;
+	margin-bottom: 15px;
+}
+
+.mainUpload {
+	margin-bottom: 25px;
+	
+	// TODO избавиться от глобала
+	&:global(.ant-upload-wrapper > .ant-upload.ant-upload-select) {
+		position: relative;
+		width: 100%;
+		height: 450px;
+	}
+}
+
+.tip {
+	position: absolute;
+	bottom: 25px;
+	left: 25px;
+	padding: 10px;
+	border-radius: 10px;
+	background-color: $grey-color-dark;
+	color: $white-color;
+	text-align: center;
+
+	@include text-base;
+}
+
+.descriptionSection {
+	p, li {
+		font-weight: 500;
+
+		@include text-sm;
+
+		@include media-breakpoint-md {
+			@include text-base;
+		}
+	
+		@include media-breakpoint-xl {
+			@include text-lg;
+		}
+	}
+
+	ul {
+		margin: 10px 0 20px;
+		list-style-type: disc;
+	}
+
+	ul li {
+		margin-bottom: 5px;
+		margin-left: 20px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}

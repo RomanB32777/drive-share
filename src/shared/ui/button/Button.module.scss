@@ -36,6 +36,11 @@
 		color: $primary-color;
 	}
 
+	&.whiteDark {
+		background-color: $white-color-dark;
+		color: $grey-color-dark;
+	}
+
 	&.disabled {
 		opacity: 0.7;
 		pointer-events: none;

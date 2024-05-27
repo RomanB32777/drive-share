@@ -8,16 +8,24 @@ import { ArrowIcon } from "../../assets/icons";
 import styles from "./Carousel.module.scss";
 
 type TArrowStyles = "dark" | "transparent";
+type TArrowPositions = "inside" | "outside";
 
 interface ICarouselArrow {
 	arrowStyle?: TArrowStyles;
 }
 
-type TCarousel = CarouselProps & ICarouselArrow;
+interface ICarousel extends CarouselProps, ICarouselArrow {
+	arrowsPosition?: TArrowPositions;
+}
 
 const arrowStyleClasses: Record<TArrowStyles, string> = {
 	dark: styles.darkArrow,
 	transparent: styles.transparentArrow,
+};
+
+const arrowPositionClasses: Record<TArrowPositions, string> = {
+	inside: styles.insideArrows,
+	outside: styles.outsideArrows,
 };
 
 const CarouselArrow: FC<ICarouselArrow> = ({ arrowStyle = "dark" }) => (
@@ -26,11 +34,11 @@ const CarouselArrow: FC<ICarouselArrow> = ({ arrowStyle = "dark" }) => (
 	</div>
 );
 
-export const Carousel = forwardRef<CarouselRef, TCarousel>(
-	({ children, arrowStyle, ...props }, ref) => (
+export const Carousel = forwardRef<CarouselRef, ICarousel>(
+	({ children, arrowStyle, arrowsPosition = "inside", ...props }, ref) => (
 		<AntdCarousel
 			ref={ref}
-			rootClassName={styles.carousel}
+			rootClassName={classNames(styles.carousel, arrowPositionClasses[arrowsPosition])}
 			nextArrow={
 				props.nextArrow || (
 					<div>

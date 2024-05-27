@@ -10,13 +10,37 @@
 		}
 
 		.slick-prev {
-			left: 10%;
 			transform: rotate(90deg);
 		}
 
 		.slick-next {
-			right: 10%;
 			transform: rotate(270deg);
+		}
+	}
+}
+
+// TODO перенести описание внутрь .carousel
+.carousel.insideArrows {
+	:global {
+		.slick-prev {
+			left: 10%;
+		}
+
+		.slick-next {
+			right: 10%;
+		}
+	}
+}
+
+// TODO перенести описание внутрь .carousel
+.carousel.outsideArrows {
+	:global {
+		.slick-prev {
+			left: -10%;
+		}
+
+		.slick-next {
+			right: -10%;
 		}
 	}
 }

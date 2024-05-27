@@ -1,2 +1,2 @@
-export { type IRouteProps, ERoutes } from "./types";
+export { ERoutes, EProfileRoutes, type IRouteProps } from "./types";
 export { pathRoutes } from "./paths";

@@ -6,13 +6,21 @@ import { IComponentWithModificator } from "../../../../interfaces";
 
 import styles from "./Input.module.scss";
 
-export interface IInput extends InputProps, IComponentWithModificator {
+export interface IInputProps extends InputProps, IComponentWithModificator {
 	label?: ReactNode;
 }
 
-export const Input = forwardRef<InputRef, IInput>(
+export const Input = forwardRef<InputRef, IInputProps>(
 	(
-		{ label, className, classNames: inputClassNames, modificator, id: propId, ...inputProps },
+		{
+			label,
+			className,
+			classNames: inputClassNames,
+			modificator,
+			id: propId,
+			required,
+			...inputProps
+		},
 		ref
 	) => {
 		const id = useId();
@@ -23,6 +31,7 @@ export const Input = forwardRef<InputRef, IInput>(
 				{label && (
 					<label htmlFor={elementId} className={styles.label}>
 						{label}
+						{required && <span className={styles.asterisk}>*</span>}
 					</label>
 				)}
 

@@ -1,4 +1,4 @@
-import { ValidationRule } from "react-hook-form";
+import { RegisterOptions, ValidationRule } from "react-hook-form";
 
 const MAX_INPUT_LENGTH = 255;
 const STRING_PATTERN = /^(?=.*[a-zA-Zа-яёА-ЯЁ0-9]).+$/;
@@ -17,4 +17,9 @@ export const stringRule: ValidationRule<RegExp> = {
 export const emailRule: ValidationRule<RegExp> = {
 	value: EMAIL_PATTERN,
 	message: "Неверный формат почты",
+};
+
+export const defaultStringRule: RegisterOptions = {
+	maxLength: maxLengthRule,
+	pattern: stringRule,
 };

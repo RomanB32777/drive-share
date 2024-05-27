@@ -1,0 +1,110 @@
+@import "app/styles/index";
+
+.wrapper {
+	display: flex;
+	width: 100%;
+	flex-direction: column;
+	justify-content: space-between;
+	padding-top: 20px;
+	gap: 75px;
+
+	@include media-breakpoint-xl {
+		flex-direction: row;
+		padding-top: 45px;
+	}
+}
+
+.content {
+	width: 100%;
+}
+
+.title {
+	margin-bottom: 28px;
+	font-weight: 600;
+
+	@include text-xl;
+
+	@include media-breakpoint-md {
+		@include text-3xl;
+	}
+
+	@include media-breakpoint-xl {
+		@include text-4xl;
+	}
+}
+
+.sidebar {
+	display: flex;
+	width: 100%;
+	flex-direction: column;
+	row-gap: 45px;
+
+	@include media-breakpoint-xl {
+		max-width: 420px;
+	}
+}
+
+.navigation {
+	padding: 12px 10px;
+	border-radius: 20px;
+	background-color: $white-color-light;
+
+	@include media-breakpoint-md {
+		padding: 15px;
+	}
+
+	@include media-breakpoint-xl {
+		padding: 30px 25px;
+		border-radius: 30px;
+	}
+
+	h4 {
+		margin-bottom: 30px;
+		color: $primary-color;
+		font-weight: 600;
+
+		@include text-lg;
+
+		@include media-breakpoint-md {
+			@include text-xl;
+		}
+	
+		@include media-breakpoint-xl {
+			@include text-2xl;
+		}	
+	}
+
+	ul li {
+		margin-bottom: 30px;
+		cursor: pointer;
+		font-weight: 500;
+
+		@include text-base;
+
+		@include media-breakpoint-md {
+			@include text-lg;
+		}
+	
+		@include media-breakpoint-xl {
+			@include text-xl;
+		}	
+
+		&.active {
+			font-weight: 600;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.formContent {
+	display: flex;
+	flex-direction: column;
+	gap: 50px;
+}
+
+.button {
+	margin-top: 50px;
+}

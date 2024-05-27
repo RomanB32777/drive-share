@@ -22,6 +22,10 @@ export const Navigation: FC<INavigation> = ({
 }) => {
 	const { pathname } = useLocation();
 
+	// TODO соответствие пути открытой страницы роут сущности
+	// useMatch(pathRoutes.car.path);
+	// useMatches();
+
 	const menuItems: ItemType[] = useMemo(
 		() =>
 			links.map(({ path, title }) => ({

@@ -2,15 +2,16 @@ import classNames from "classnames";
 import { FC } from "react";
 
 import { PeriodForm } from "features/period-form";
+import { TPeriodFilterValues } from "entities/car";
 import { SearchIcon } from "shared/assets/icons";
-import { IComponentWithModificator, IPeriodFilterValues } from "shared/interfaces";
+import { IComponentWithModificator } from "shared/interfaces";
 
 import styles from "./CatalogFilter.module.scss";
 
 interface ICatalogFilter extends IComponentWithModificator {
 	isLoading?: boolean;
-	defaultValues?: IPeriodFilterValues;
-	onSubmit: (values: IPeriodFilterValues) => Promise<unknown> | void;
+	defaultValues?: TPeriodFilterValues;
+	onSubmit: (values: TPeriodFilterValues) => Promise<unknown> | void;
 }
 
 export const CatalogFilter: FC<ICatalogFilter> = ({ isLoading, modificator, ...props }) => {

@@ -16,6 +16,10 @@
 	}
 }
 
+@mixin asterisk-styles {
+	color: $primary-color;
+}
+
 @mixin error-styles {
 	margin-top: 10px;
 	color: $primary-color;

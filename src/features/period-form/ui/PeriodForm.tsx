@@ -3,8 +3,7 @@ import dayjs from "dayjs";
 import { FC, ReactNode } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
-import { useFetchAreasQuery } from "entities/car";
-import { IPeriodFilterValues } from "shared/interfaces";
+import { TPeriodFilterValues, useFetchAreasQuery } from "entities/car";
 import { Button, SearchSelect } from "shared/ui";
 import { DatePeriod } from "shared/ui/date-period";
 
@@ -13,7 +12,7 @@ import { validation } from "../model/validation";
 import styles from "./PeriodForm.module.scss";
 
 interface IPeriodForm {
-	defaultValues?: IPeriodFilterValues;
+	defaultValues?: TPeriodFilterValues;
 	disabled?: boolean;
 	classes?: {
 		form?: string;
@@ -23,10 +22,10 @@ interface IPeriodForm {
 		button?: string;
 	};
 	buttonContent?: ReactNode;
-	onSubmit: (values: IPeriodFilterValues) => Promise<unknown> | void;
+	onSubmit: (values: TPeriodFilterValues) => Promise<unknown> | void;
 }
 
-const defaultFormValues: Partial<IPeriodFilterValues> = {
+const defaultFormValues: Partial<TPeriodFilterValues> = {
 	from: dayjs().toISOString(),
 	to: dayjs().add(1, "day").toISOString(),
 };
@@ -50,13 +49,13 @@ export const PeriodForm: FC<IPeriodForm> = ({
 		control,
 		handleSubmit,
 		formState: { isValid },
-	} = useForm<IPeriodFilterValues>({
+	} = useForm<TPeriodFilterValues>({
 		defaultValues,
 		disabled,
 		mode: "onChange",
 	});
 
-	const handleSubmitForm: SubmitHandler<IPeriodFilterValues> = (values) => {
+	const handleSubmitForm: SubmitHandler<TPeriodFilterValues> = (values) => {
 		onSubmit(values);
 	};
 

@@ -1,10 +1,15 @@
-import { EHttpMethods, hhRtkApi, rtkApi } from "shared/api";
+import { EHttpMethods, adapterFormData, hhRtkApi, rtkApi } from "shared/api";
 
-import { ICar, ICarCategory, ICarIncome } from "../model/types";
+import {
+	IArea,
+	ICar,
+	ICarCategory,
+	ICarIncome,
+	ICarsQueryParams,
+	TCarCreateForm,
+} from "../model/types";
 
-import { IArea, ICarsQueryParams, IRentData } from "./types";
-
-const carsApiPath = "todos";
+const carsApiPath = "car";
 
 const areasApi = hhRtkApi.injectEndpoints({
 	endpoints: (build) => ({
@@ -14,9 +19,10 @@ const areasApi = hhRtkApi.injectEndpoints({
 
 export const carsApi = rtkApi.enhanceEndpoints({ addTagTypes: ["cars"] }).injectEndpoints({
 	endpoints: (build) => ({
+		// TODO адаптировать данные под фронт
 		fetchCars: build.query<ICar[], ICarsQueryParams>({
 			query: (query) => ({
-				url: `${carsApiPath}`,
+				url: carsApiPath,
 				params: query,
 			}),
 			providesTags: ["cars"],
@@ -30,12 +36,13 @@ export const carsApi = rtkApi.enhanceEndpoints({ addTagTypes: ["cars"] }).inject
 		fetchIncomeCars: build.query<ICarIncome[], void>({
 			query: () => "income",
 		}),
-		createRent: build.mutation<IRentData, Omit<IRentData, "id">>({
+		createCar: build.mutation<ICar, TCarCreateForm>({
 			query: (data) => ({
-				url: "rent/new",
+				url: carsApiPath,
 				method: EHttpMethods.POST,
-				body: data,
+				body: adapterFormData(data),
 			}),
+			invalidatesTags: ["cars"],
 		}),
 	}),
 });
@@ -49,7 +56,7 @@ export const {
 	useLazyFetchCategoriesQuery,
 	useFetchIncomeCarsQuery,
 	useLazyFetchIncomeCarsQuery,
-	useCreateRentMutation,
+	useCreateCarMutation,
 } = carsApi;
 
 export const { useFetchAreasQuery, useLazyFetchAreasQuery } = areasApi;

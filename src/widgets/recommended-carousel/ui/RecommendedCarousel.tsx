@@ -2,7 +2,8 @@ import { CarouselProps } from "antd";
 import { FC } from "react";
 
 import { EntityCarousel } from "features/entity-carousel";
-import { CarCard, useFetchCarsQuery } from "entities/car";
+import { CarCard, selectCars, useFetchCarsQuery } from "entities/car";
+import { useAppSelector } from "shared/lib/hooks";
 
 const RECOMMENDED_AUTO_NUMBER = 3;
 
@@ -14,11 +15,13 @@ export const RecommendedCarousel: FC<IRecommendedCarousel> = ({
 	title = "Новые предложения в каталоге",
 	...props
 }) => {
-	const { data = [], isLoading } = useFetchCarsQuery({ size: RECOMMENDED_AUTO_NUMBER });
+	const cars = useAppSelector(selectCars);
+
+	const { isLoading } = useFetchCarsQuery({ size: RECOMMENDED_AUTO_NUMBER });
 
 	return (
 		<EntityCarousel
-			items={data}
+			items={cars}
 			isLoading={isLoading}
 			title={title}
 			renderItem={(item) => <CarCard {...item} />}

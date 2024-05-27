@@ -1,6 +1,7 @@
 import { FC } from "react";
 
 import promoImage from "shared/assets/images/phone.png";
+import { getValueCurrency } from "shared/lib/number";
 
 import styles from "./RentBanner.module.scss";
 
@@ -12,7 +13,8 @@ export const RentBanner: FC = () => {
 
 				<div className={styles.content}>
 					<h1 className={styles.title}>
-						Сдавайте свою машину в аренду в Москве и зарабатывайте <span>от 50 000 ₽/мес.</span>
+						Сдавайте свою машину в аренду в Москве и зарабатывайте{" "}
+						<span>от {getValueCurrency(50_000)}/мес.</span>
 					</h1>
 
 					<p className={styles.description}>

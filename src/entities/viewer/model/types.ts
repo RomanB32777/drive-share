@@ -26,7 +26,7 @@ export type TSignUpViewer = Pick<IViewer, "name" | "surname"> & TAuthByEmail;
 export enum EProfileTabs {
 	Account = "account",
 	Documents = "documents",
-	Applications = "applications",
+	Rents = "rents",
 	Cars = "cars",
 }
 

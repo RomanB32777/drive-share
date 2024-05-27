@@ -49,7 +49,7 @@ export const Layout: FC<PropsWithChildren> = ({ children }) => {
 			/>
 
 			<Content className={styles.paddingContent}>
-				{isLoading ? <Loader /> : children || <Outlet />}
+				{isLoading ? <Loader className={styles.loader} /> : children || <Outlet />}
 			</Content>
 
 			<Footer menuLinks={menuLinks} modificator={styles.footer} />

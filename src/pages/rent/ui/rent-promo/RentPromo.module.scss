@@ -7,12 +7,18 @@
 	border-radius: 30px;
 	background-color: $white-color;
 
-	@include media-breakpoint-md {
+	@include media-breakpoint-lg {
 		flex-direction: row;
+	}
+
+	img {
+		width: 100%;
 	}
 }
 
 .content {
+	padding: 25px;
+
 	@include media-breakpoint-xl {
 		padding: 70px;
 	}
@@ -42,6 +48,7 @@
 }
 
 .description {
+	margin-bottom: 20px;
 	color: $grey-color-dark;
 	font-weight: 600;
 

@@ -2,8 +2,16 @@
 
 .banner {
 	position: relative;
-	margin-bottom: 150px;
+	margin-bottom: 25px;
 	background-color: $blue-color-dark-opacity;
+
+	@include media-breakpoint-md {
+		margin-bottom: 75px;
+	}
+
+	@include media-breakpoint-xl {
+		margin-bottom: 150px;
+	}
 }
 
 .wrapper {
@@ -14,14 +22,27 @@
 }
 
 .content {
-	max-width: 50%;
 	padding: 55px 0;
 	margin-left: auto;
+
+	@include media-breakpoint-md {
+		max-width: 50%;
+	}
 }
 
 .image {
 	position: absolute;
 	left: 0;
+	display: none;
+	width: 70%;
+
+	@include media-breakpoint-md {
+		display: block;
+	}
+
+	@include media-breakpoint-xl {
+		width: 60%;
+	}
 }
 
 .title {

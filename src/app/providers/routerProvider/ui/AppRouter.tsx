@@ -1,6 +1,7 @@
 import { FC } from "react";
 import {
 	IndexRouteProps,
+	Outlet,
 	PathRouteProps,
 	Route,
 	RouteObject,
@@ -15,44 +16,64 @@ import { CarPage } from "pages/car";
 import { CatalogPage } from "pages/catalog";
 import { MainPage } from "pages/main";
 import { NotFoundPage } from "pages/not-found";
-import { ProfilePage } from "pages/profile";
+import { ProfileCars, ProfilePage, ProfileRents } from "pages/profile";
 import { RentPage } from "pages/rent";
+import { AccountForm } from "features/account-form";
+import { CarForm } from "features/car-form";
 import { ERoutes, pathRoutes } from "shared/config/routing";
 
 import { AppLayout } from "../../../layout";
 
 import { ProtectedRoute } from "./ProtectedRoute";
 
-export const AppRouter: FC = () => {
-	const routes: Record<ERoutes, RouteObject> = {
-		[ERoutes.Main]: {
-			...pathRoutes.main,
-			index: true,
-			element: <MainPage />,
-		},
-		[ERoutes.Profile]: {
-			...pathRoutes.profile,
-			element: <ProtectedRoute />,
-			children: [
-				{
-					index: true,
-					element: <ProfilePage />,
-				},
-			],
-		},
-		[ERoutes.Auth]: {
-			...pathRoutes.auth,
-			element: <AuthPage />,
-		},
-		[ERoutes.Catalog]: {
-			...pathRoutes.catalog,
-			element: <CatalogPage />,
-		},
-		[ERoutes.Car]: { ...pathRoutes.car, element: <CarPage /> },
-		[ERoutes.Rent]: { ...pathRoutes.rent, element: <RentPage /> },
-		[ERoutes.About]: { ...pathRoutes.about, element: <AboutPage /> },
-	};
+const routes: Record<ERoutes, RouteObject> = {
+	[ERoutes.Main]: {
+		...pathRoutes.main,
+		index: true,
+		element: <MainPage />,
+	},
+	[ERoutes.Profile]: {
+		element: <ProtectedRoute />,
+		children: [
+			{
+				...pathRoutes.profile,
+				element: <ProfilePage />,
+				children: [
+					// TODO не работают подсказки из childRoutes
+					{ ...pathRoutes.profile.childRoutes?.account, element: <AccountForm /> },
+					{ ...pathRoutes.profile.childRoutes?.rents, element: <ProfileRents /> },
+					{
+						...pathRoutes.profile.childRoutes?.cars,
+						element: <Outlet />,
+						children: [
+							{
+								index: true,
+								element: <ProfileCars />,
+							},
+							{
+								...pathRoutes.profile.childRoutes?.cars?.childRoutes?.carForm,
+								element: <CarForm />,
+							},
+						],
+					},
+				],
+			},
+		],
+	},
+	[ERoutes.Auth]: {
+		...pathRoutes.auth,
+		element: <AuthPage />,
+	},
+	[ERoutes.Catalog]: {
+		...pathRoutes.catalog,
+		element: <CatalogPage />,
+	},
+	[ERoutes.Car]: { ...pathRoutes.car, element: <CarPage /> },
+	[ERoutes.Rent]: { ...pathRoutes.rent, element: <RentPage /> },
+	[ERoutes.About]: { ...pathRoutes.about, element: <AboutPage /> },
+};
 
+export const AppRouter: FC = () => {
 	const createElementRoutes = (routesArray: RouteObject[]) =>
 		routesArray.map(({ children = [], index, ...route }, routeIndex) => {
 			const routeProps = { index, ...route };

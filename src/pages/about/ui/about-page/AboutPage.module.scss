@@ -5,5 +5,118 @@
 }
 
 .wrapper {
+	display: flex;
+	overflow: visible !important;
+	flex-direction: column;
+	row-gap: 30px;
+
 	@include container-wrapper;
+
+	@include media-breakpoint-md {
+		row-gap: 50px;
+	}
+
+	@include media-breakpoint-xl {
+		row-gap: 120px;
+	}
+}
+
+.pretitle {
+	color: $primary-color;
+	font-weight: 700;
+	text-transform: uppercase;
+
+	@include text-base;
+}
+
+.title {
+	margin: 15px 0;
+	font-weight: 600;
+
+	@include text-xl;
+
+	@include media-breakpoint-md {
+		margin-bottom: 30px;
+
+		@include text-3xl;
+	}
+
+	@include media-breakpoint-xl {
+		@include text-4xl;
+	}
+}
+
+.description {
+	color: $grey-color-dark;
+	font-weight: 600;
+
+	@include text-base;
+
+	@include media-breakpoint-md {
+		@include text-lg;
+	}
+
+	@include media-breakpoint-xl {
+		line-height: 30px !important;
+
+		@include text-xl;
+	}
+}
+
+.slide {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 20px 40px;
+	border-radius: 30px;
+	background-color: $white-color;
+	column-gap: 130px;
+
+	@include media-breakpoint-xl {
+		flex-direction: row;
+		align-items: center;
+		padding: 40px 80px;
+	}
+
+	img {
+		width: 75%;
+
+		@include media-breakpoint-xl {
+			width: auto
+		}
+	}
+}
+
+.doingItems {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	margin-top: 25px;
+	row-gap: 50px;
+
+	@include media-breakpoint-xl {
+		flex-direction: row;
+		column-gap: 150px;
+	}
+
+	& > div {
+		flex: 1;
+	}
+}
+
+.doingIndex {;
+	color: $primary-color;
+	font-weight: 600;
+
+	@include text-xl;
+
+	@include media-breakpoint-md {
+		@include text-3xl;
+	}
+
+	@include media-breakpoint-xl {
+		line-height: 30px !important;
+
+		@include text-5xl;
+	}
 }

@@ -3,12 +3,13 @@ import { FC } from "react";
 import { Link } from "react-router-dom";
 
 import { PeriodForm } from "features/period-form";
-import { IRentData, selectCar, useCreateRentMutation } from "entities/car";
+import { TPeriodFilterValues, selectCar } from "entities/car";
+import { TRentFormData, useCreateRentMutation } from "entities/rent";
 import { isAuthorizedViewer, selectViewer, signInLink } from "entities/viewer";
 import { handleMutationResult } from "shared/api";
 import { DirectionArrowIcon } from "shared/assets/icons";
-import { IPeriodFilterValues } from "shared/interfaces";
 import { useAppSelector } from "shared/lib/hooks";
+import { getValueCurrency } from "shared/lib/number";
 import { Button } from "shared/ui";
 
 import styles from "./RentForm.module.scss";
@@ -17,19 +18,24 @@ export const RentForm: FC = () => {
 	const viewer = useAppSelector(selectViewer);
 	const isAuthorized = useAppSelector(isAuthorizedViewer);
 
-	const { price, owner } = useAppSelector(selectCar);
+	const {
+		id,
+		price: { basePerDay },
+		owner,
+	} = useAppSelector(selectCar);
 
 	const [createRent, { isLoading }] = useCreateRentMutation();
 
-	const handleSubmit = async ({ from, to }: IPeriodFilterValues) => {
+	const handleSubmit = async ({ from, to }: TPeriodFilterValues) => {
 		const res = await createRent({
+			carId: id,
 			rentBegin: from,
 			rentEnd: to,
 			renter: viewer.id,
 			seller: owner,
 		});
 
-		const data = handleMutationResult<IRentData>(res);
+		const data = handleMutationResult<TRentFormData>(res);
 
 		if (data) {
 			notification.success({ message: "Success" });
@@ -73,7 +79,7 @@ export const RentForm: FC = () => {
 				</div>
 			)}
 			<div className={styles.price}>
-				от {price} ₽ <span>/ сутки</span>
+				от {getValueCurrency(basePerDay)} <span>/ сутки</span>
 			</div>
 		</div>
 	);

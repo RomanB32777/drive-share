@@ -4,17 +4,48 @@ import { carsApi } from "../api/carsApi";
 
 import { ICar, ICarsState } from "./types";
 
-const defaultCar: ICar = {
+export const defaultCar: ICar = {
 	id: 0,
 	category: "",
-	brand: "",
-	model: "",
 	owner: 0,
-	price: 0,
+	description: "",
+	parameters: {
+		brand: "",
+		model: "",
+		bodyType: "",
+		drive: "",
+		engineType: "",
+		engineCapacity: 0,
+		releaseYear: 0,
+		seats: 0,
+		mileage: 0,
+		transmission: "",
+		wheelPosition: "",
+	},
+	price: {
+		basePerDay: 0,
+		minRentPeriod: 0,
+	},
 	produced: "",
 	status: "",
 	rating: 0,
-	photo: "",
+	mainPhono: "",
+	photo: [],
+	rentTerms: {
+		deposit: 0,
+		kilPerDay: 0,
+		additionalPayment: 0,
+		minDriverExperience: 0,
+		minAge: 0,
+	},
+	address: {
+		city: "",
+		street: "",
+	},
+	insurance: {
+		ОСАГО: "",
+		КАСКО: "",
+	},
 };
 
 const initialState: ICarsState = {

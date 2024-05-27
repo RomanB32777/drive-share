@@ -19,6 +19,10 @@
 	}
 }
 
+.asterisk {
+	@include asterisk-styles;
+}
+
 .error {
 	@include error-styles;
 }

@@ -1,0 +1,65 @@
+@import "app/styles/index";
+
+.wrapper {
+	display: flex;
+	width: 100%;
+	flex-direction: column;
+	justify-content: space-between;
+	padding-top: 20px;
+	gap: 75px;
+
+	@include media-breakpoint-xl {
+		flex-direction: row;
+		padding-top: 45px;
+	}
+}
+
+.content {
+	width: 100%;
+}
+
+.title {
+	margin-bottom: 28px;
+	font-weight: 600;
+
+	@include text-xl;
+
+	@include media-breakpoint-md {
+		@include text-3xl;
+	}
+
+	@include media-breakpoint-xl {
+		@include text-4xl;
+	}
+}
+
+.cards > * {
+	margin-bottom: 30px;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.sidebar {
+	display: flex;
+	width: 100%;
+	flex-direction: column;
+	row-gap: 45px;
+
+	@include media-breakpoint-xl {
+		max-width: 420px;
+	}
+}
+
+.linkButton {
+	position: relative;
+	width: 100%;
+	border-radius: 30px;
+}
+
+.arrow {
+	position: absolute;
+	left: 25px;
+	transform: rotate(180deg);
+}

@@ -1,5 +1,7 @@
 import { FC, useMemo } from "react";
 
+import { getValueCurrency } from "shared/lib/number";
+
 import { ICarCategory } from "../../model/types";
 
 import styles from "./CategoryCard.module.scss";
@@ -7,10 +9,10 @@ import styles from "./CategoryCard.module.scss";
 export const CategoryCard: FC<ICarCategory> = ({ name, photo, minPrice, maxPrice }) => {
 	const priceContent = useMemo(() => {
 		if (minPrice && maxPrice) {
-			return `${minPrice} ₽ - ${maxPrice} ₽`;
+			return `${getValueCurrency(minPrice)} - ${getValueCurrency(maxPrice)}`;
 		}
 
-		return `От ${minPrice || 0} ₽`;
+		return `От ${getValueCurrency(minPrice || 0)}`;
 	}, [minPrice, maxPrice]);
 
 	return (

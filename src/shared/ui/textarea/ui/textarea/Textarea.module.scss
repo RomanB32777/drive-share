@@ -1,0 +1,45 @@
+@import "app/styles/index";
+
+.label {
+	display: inline-block;
+	margin-bottom: 5px;
+	color: $black-color;
+	font-weight: 600;
+
+	@include text-xs;
+
+	@include media-breakpoint-md {
+		margin-bottom: 10px;
+
+		@include text-sm;
+	}
+
+	@include media-breakpoint-xl {
+		@include text-base;
+	}
+}
+
+.textarea {
+	&:global(.ant-input-affix-wrapper) {
+		padding: 0;
+	}
+}
+
+.textarea.root {
+	&:global(.ant-input) {
+		display: block;
+		padding: 15px 12px;
+		border-radius: 10px;
+		font-weight: 500;
+
+		@include text-xs;
+
+		@include media-breakpoint-md {
+			@include text-sm;
+		}
+
+		@include media-breakpoint-xl {
+			@include text-base;
+		}
+	}
+}

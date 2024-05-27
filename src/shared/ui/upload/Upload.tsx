@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { message, Upload as AntdUpload, type UploadProps } from "antd";
-import { RcFile } from "antd/es/upload";
+import { RcFile, UploadFile } from "antd/es/upload";
 import { useState } from "react";
 import { Controller, FieldValues } from "react-hook-form";
 
@@ -9,7 +10,9 @@ import { Button } from "../button";
 
 import styles from "./Upload.module.scss";
 
-interface IUpload<TFieldValues extends FieldValues> extends TFormElement<TFieldValues> {
+interface IUpload<TFieldValues extends FieldValues>
+	extends Omit<UploadProps, "name" | "accept" | "fileList">,
+		TFormElement<TFieldValues> {
 	accept?: string[];
 	maxSize?: number; // MB
 }
@@ -20,8 +23,12 @@ export const Upload = <TFieldValues extends FieldValues>({
 	rules,
 	accept,
 	maxSize = 3,
+	children,
+	multiple,
+	...props
 }: IUpload<TFieldValues>) => {
 	const [preview, setPreview] = useState<string>();
+	const [uploadedFileList] = useState<UploadFile[]>([]); // setFileList
 
 	const handleChangePreview = (file: RcFile, onChange: (value: RcFile) => void) => {
 		const reader = new FileReader();
@@ -30,6 +37,7 @@ export const Upload = <TFieldValues extends FieldValues>({
 			setPreview(reader.result as string);
 			onChange(file);
 		});
+
 		reader.readAsDataURL(file);
 	};
 
@@ -39,8 +47,9 @@ export const Upload = <TFieldValues extends FieldValues>({
 			name={name}
 			rules={rules}
 			render={({ field: { value, disabled, onChange }, fieldState: { error } }) => {
-				const handleChange: UploadProps["onChange"] = async ({ file }) => {
+				const handleChange: UploadProps["onChange"] = async ({ file, fileList }) => {
 					const fileObj = file as RcFile;
+
 					const { type, size } = fileObj;
 
 					const isValidSize = size / 1024 / 1024 <= maxSize;
@@ -72,6 +81,8 @@ export const Upload = <TFieldValues extends FieldValues>({
 							accept={accept?.join(",")}
 							className={styles.upload}
 							disabled={disabled}
+							fileList={uploadedFileList}
+							{...props}
 						>
 							{imageUrl ? (
 								<img src={imageUrl} alt="avatar" className={styles.image} />
@@ -80,6 +91,8 @@ export const Upload = <TFieldValues extends FieldValues>({
 									{uploadedFile?.name || <UploadIcon />}
 								</Button>
 							)}
+
+							{children}
 						</AntdUpload>
 
 						{error?.message && <p className={styles.error}>{error.message}</p>}

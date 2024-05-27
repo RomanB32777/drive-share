@@ -1,10 +1,10 @@
 import dayjs from "dayjs";
 import { RegisterOptions } from "react-hook-form";
 
-import { IPeriodFilterValues } from "shared/interfaces";
+import { TPeriodFilterValues } from "entities/car";
 
 export const validation: Partial<
-	Record<keyof IPeriodFilterValues, RegisterOptions<IPeriodFilterValues>>
+	Record<keyof TPeriodFilterValues, RegisterOptions<TPeriodFilterValues>>
 > = {
 	from: {
 		deps: "to",

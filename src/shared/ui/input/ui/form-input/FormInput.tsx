@@ -1,11 +1,11 @@
 import { Controller, FieldValues } from "react-hook-form";
 
 import { TFormElement } from "../../../../interfaces";
-import { type IInput, Input } from "../input";
+import { type IInputProps, Input } from "../input";
 
 import styles from "./FormInput.module.scss";
 
-type TInput<TFieldValues extends FieldValues> = TFormElement<TFieldValues, IInput>;
+type TInputProps<TFieldValues extends FieldValues> = TFormElement<TFieldValues, IInputProps>;
 
 export const FormInput = <TFieldValues extends FieldValues>({
 	control,
@@ -13,7 +13,7 @@ export const FormInput = <TFieldValues extends FieldValues>({
 	rules,
 	modificator,
 	...inputProps
-}: TInput<TFieldValues>) => (
+}: TInputProps<TFieldValues>) => (
 	<Controller
 		control={control}
 		name={name}

@@ -24,7 +24,7 @@ export const Footer: FC<IFooter> = ({ menuLinks, modificator }) => {
 					</ul>
 				</nav>
 
-				<p className={styles.copyright}>© 2023 ООО «Драйвшер»</p>
+				<p className={styles.copyright}>© 2024 ООО «Драйвшер»</p>
 			</div>
 		</footer>
 	);

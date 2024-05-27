@@ -19,6 +19,10 @@
 	}
 }
 
+.asterisk {
+	@include asterisk-styles;
+}
+
 .input {
 	&:global(.ant-input-affix-wrapper) {
 		padding: 0;
