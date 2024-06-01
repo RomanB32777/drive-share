@@ -1,0 +1,36 @@
+@import "app/styles/index";
+
+.status {
+	width: fit-content;
+	padding: 12px 20px;
+	border-radius: 15px;
+	font-weight: 500;
+	text-transform: uppercase;
+
+	@include text-lg;
+
+	&.new {
+		background-color: $white-color;
+		color: $grey-color-dark;
+	}
+
+	&.operation {
+		background-color: $white-color;
+		color: $grey-color-dark;
+	}
+
+	&.confirm {
+		background-color: $white-color;
+		color: $grey-color-dark;}
+
+	&.cancel {
+		background-color: $white-color-dark;
+		color: $grey-color-dark;
+	}
+
+	&.complete {	
+		background-color: $white-color;
+		color: $grey-color-dark;
+	}
+}
+

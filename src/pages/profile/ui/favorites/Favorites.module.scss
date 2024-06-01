@@ -1,0 +1,20 @@
+@import "app/styles/index";
+
+.title {
+	margin-bottom: 28px;
+	font-weight: 600;
+
+	@include text-xl;
+
+	@include media-breakpoint-md {
+		@include text-3xl;
+	}
+
+	@include media-breakpoint-xl {
+		@include text-4xl;
+	}
+}
+
+.card {
+	background-color: $white-color-light;
+}

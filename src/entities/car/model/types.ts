@@ -1,4 +1,7 @@
+import { PropsWithChildren } from "react";
+
 import { IUserIdQueryParam } from "shared/api";
+import { IComponentWithModificator } from "shared/interfaces";
 
 export interface ICarParameters {
 	brand: string;
@@ -94,3 +97,16 @@ export interface ICarsState {
 export type TPeriodFilterValues = Required<Omit<ICarsQueryParams, "size">>;
 
 export type TCarCreateForm = Omit<ICar, "id">;
+
+export interface ICarCardBaseProps extends IComponentWithModificator, PropsWithChildren {
+	isWithBadge?: boolean;
+}
+
+export type TCarFormTypes = "add" | "edit";
+
+export interface ICarFormPathParams extends Record<string, string | undefined> {
+	type: TCarFormTypes;
+	id?: string;
+}
+
+export type TAddCarToFavorites = Pick<ICar, "id"> & Required<IUserIdQueryParam>;

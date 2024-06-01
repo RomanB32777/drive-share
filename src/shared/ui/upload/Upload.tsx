@@ -1,7 +1,7 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { message, Upload as AntdUpload, type UploadProps } from "antd";
 import { RcFile, UploadFile } from "antd/es/upload";
-import { useState } from "react";
+import classNames from "classnames";
+import { useId, useState } from "react";
 import { Controller, FieldValues } from "react-hook-form";
 
 import { UploadIcon } from "../../assets/icons";
@@ -10,12 +10,20 @@ import { Button } from "../button";
 
 import styles from "./Upload.module.scss";
 
+type TUploadSize = "small" | "big";
+
 interface IUpload<TFieldValues extends FieldValues>
 	extends Omit<UploadProps, "name" | "accept" | "fileList">,
 		TFormElement<TFieldValues> {
 	accept?: string[];
 	maxSize?: number; // MB
+	blockSize?: TUploadSize;
 }
+
+const sizeStyles: Record<TUploadSize, string> = {
+	small: styles.small,
+	big: styles.big,
+};
 
 export const Upload = <TFieldValues extends FieldValues>({
 	control,
@@ -24,9 +32,13 @@ export const Upload = <TFieldValues extends FieldValues>({
 	accept,
 	maxSize = 3,
 	children,
-	multiple,
+	// multiple,
+	label,
+	blockSize = "small",
+	className,
 	...props
 }: IUpload<TFieldValues>) => {
+	const id = useId();
 	const [preview, setPreview] = useState<string>();
 	const [uploadedFileList] = useState<UploadFile[]>([]); // setFileList
 
@@ -47,7 +59,8 @@ export const Upload = <TFieldValues extends FieldValues>({
 			name={name}
 			rules={rules}
 			render={({ field: { value, disabled, onChange }, fieldState: { error } }) => {
-				const handleChange: UploadProps["onChange"] = async ({ file, fileList }) => {
+				const handleChange: UploadProps["onChange"] = async ({ file }) => {
+					// fileList
 					const fileObj = file as RcFile;
 
 					const { type, size } = fileObj;
@@ -72,27 +85,37 @@ export const Upload = <TFieldValues extends FieldValues>({
 
 				return (
 					<div>
+						{label && (
+							<label htmlFor={id} className={styles.label}>
+								{label}
+							</label>
+						)}
+
 						<AntdUpload
-							name="avatar"
+							id={id}
 							listType="picture-card"
 							beforeUpload={() => false}
 							onChange={handleChange}
 							showUploadList={false}
 							accept={accept?.join(",")}
-							className={styles.upload}
+							className={classNames(styles.upload, className, sizeStyles[blockSize])}
 							disabled={disabled}
 							fileList={uploadedFileList}
 							{...props}
 						>
-							{imageUrl ? (
-								<img src={imageUrl} alt="avatar" className={styles.image} />
-							) : (
-								<Button style="transparent" type="button" modificator={styles.button}>
-									{uploadedFile?.name || <UploadIcon />}
-								</Button>
-							)}
+							<div className={styles.uploadContent}>
+								{imageUrl ? (
+									<img src={imageUrl} alt="avatar" className={styles.image} />
+								) : (
+									<div>
+										<Button style="transparent" type="button" modificator={styles.button}>
+											{uploadedFile?.name || <UploadIcon />}
+										</Button>
+									</div>
+								)}
 
-							{children}
+								{children}
+							</div>
 						</AntdUpload>
 
 						{error?.message && <p className={styles.error}>{error.message}</p>}

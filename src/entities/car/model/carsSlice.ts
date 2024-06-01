@@ -61,6 +61,12 @@ export const carsSlice = createSlice({
 		builder.addMatcher(carsApi.endpoints.fetchCars.matchFulfilled, (state, { payload }) => {
 			state.items = payload;
 		});
+		builder.addMatcher(
+			carsApi.endpoints.fetchFavoritesCars.matchFulfilled,
+			(state, { payload }) => {
+				state.items = payload;
+			}
+		);
 		builder.addMatcher(carsApi.endpoints.fetchCar.matchFulfilled, (state, { payload }) => {
 			state.car = payload;
 		});

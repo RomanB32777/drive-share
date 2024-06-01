@@ -37,6 +37,7 @@ export const CarPhotos: FC<ICarFormType> = ({ control }) => {
 					control={control}
 					name="mainPhono"
 					accept={["image/*"]}
+					blockSize="big"
 					className={styles.mainUpload}
 				>
 					<div className={styles.tip}>Основное фото</div>

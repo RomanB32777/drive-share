@@ -2,16 +2,18 @@ export { useSignInMutation, useSignUpMutation } from "./api/authApi";
 export {
 	useFetchViewerQuery,
 	useLazyFetchViewerQuery,
+	useFetchViewerDocumentsQuery,
 	useUpdateViewerMutation,
+	useUploadViewerDocumentsMutation,
 } from "./api/viewerApi";
 
 export {
 	EAuthTypes,
-	EProfileTabs,
 	type IViewer,
 	type TAuthByEmail,
 	type TSignUpViewer,
 	type TViewerProfile,
+	type IVewerDocuments,
 } from "./model/types";
 
 export { authTitles, signInLink } from "./config/constants";

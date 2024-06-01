@@ -51,18 +51,19 @@ export const ProfilePage: FC = () => {
 		<div className={styles.wrapper}>
 			<Tabs
 				defaultActiveKey={currentProfileRoute?.path}
-				onChange={handleChangeTabs}
+				onTabClick={handleChangeTabs}
 				items={
 					childRoutes &&
 					Object.values(childRoutes).map((route) => ({
 						key: route.path,
 						label: route.title,
-						// disabled,
 					}))
 				}
 			/>
 
-			<Outlet />
+			<div className={styles.content}>
+				<Outlet />
+			</div>
 		</div>
 	);
 };

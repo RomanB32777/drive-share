@@ -1,0 +1,45 @@
+@import "app/styles/index";
+
+.user {
+	display: flex;
+	align-items: center;
+	margin-bottom: 10px;
+	gap: 12px;
+
+	@include media-breakpoint-md {
+		margin-bottom: 20px;
+		gap: 14px;
+	}
+
+	@include media-breakpoint-xl {
+		gap: 16px;
+	}
+}
+
+.name,
+.comment,
+.date {
+	font-weight: 500;
+
+	@include text-xs;
+
+	@include media-breakpoint-md {
+		@include text-sm;
+	}
+
+	@include media-breakpoint-xl {
+		@include text-xl;
+	}
+}
+
+.comment {
+	margin-bottom: 10px;
+
+	@include media-breakpoint-md {
+		margin-bottom: 20px;
+	}
+}
+
+.date {
+	color: $grey-color-light;
+}

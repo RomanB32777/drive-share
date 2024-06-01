@@ -1,3 +1,4 @@
+export * from "./avatar";
 export * from "./button";
 export * from "./content-layout";
 export * from "./date-picker";
@@ -10,3 +11,4 @@ export * from "./upload";
 export * from "./tabs";
 export * from "./loader";
 export * from "./radio";
+export * from "./rating";

@@ -38,7 +38,7 @@ export const RentForm: FC = () => {
 		const data = handleMutationResult<TRentFormData>(res);
 
 		if (data) {
-			notification.success({ message: "Success" });
+			notification.success({ message: "Заявка успешно создана" });
 		}
 	};
 

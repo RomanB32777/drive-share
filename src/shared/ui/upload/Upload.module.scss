@@ -1,11 +1,49 @@
 @import "app/styles/index";
 
+.label {
+	display: inline-block;
+	margin-bottom: 5px;
+	color: $black-color;
+	font-weight: 500;
+
+	@include text-base;
+
+	@include media-breakpoint-md {
+		margin-bottom: 10px;
+
+		@include text-lg;
+	}
+
+	@include media-breakpoint-xl {
+		@include text-xl;
+	}
+}
+
 .upload {
 	&:global(.ant-upload-wrapper > .ant-upload.ant-upload-select) {
-		width: 150px;
-		height: 150px;
+		position: relative;
+		overflow: hidden;
 		border-radius: 10px;
 	}
+
+	&.small:global(.ant-upload-wrapper > .ant-upload.ant-upload-select) {
+		width: 150px;
+		height: 150px;
+	}
+
+	&.big:global(.ant-upload-wrapper > .ant-upload.ant-upload-select) {
+		width: 100%;
+		height: 450px;
+	}
+}
+
+.uploadContent {
+	display: flex;
+	width: 100%;
+	height: 100%;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
 
 .button {

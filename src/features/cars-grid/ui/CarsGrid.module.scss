@@ -1,0 +1,21 @@
+@import "app/styles/index";
+
+.wrapper {
+  padding: 55px 0;
+}
+
+.cards {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+
+  @include media-breakpoint-md {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @include media-breakpoint-xl {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+

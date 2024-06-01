@@ -12,6 +12,7 @@ export const selectRents = createSelector(
 	({ rents }) =>
 		rents.map((rent) => ({
 			...rent,
+			carId: 4,
 			createdAt: dayjs().add(-14, "day").toISOString(),
 			rentBegin: dayjs().add(-6, "day").toISOString(),
 		}))

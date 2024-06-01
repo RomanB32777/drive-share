@@ -1,8 +1,15 @@
 @import "app/styles/index";
 
 div.wrapper {
-	padding-top: 25px;
+	margin-top: 25px;
 
 	@include container-wrapper;
 }
 
+.content {
+	margin-top: 20px;
+
+	@include media-breakpoint-xl {
+		margin-top: 45px;
+	}
+}

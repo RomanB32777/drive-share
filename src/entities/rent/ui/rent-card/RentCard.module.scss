@@ -6,26 +6,14 @@
 	padding: 30px;
 	border-radius: 20px;
 	background-color: $white-color-light;
-
-	& > div {
-		padding: 30px 0;
-		border-bottom: 1px solid $grey-color-light;
-
-		&:first-child {
-			padding-top: 0;
-		}
-
-		&:last-child {
-			padding-bottom: 0;
-			border-bottom: none;
-		}
-	}
 }
 
 .topContent {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	padding-bottom: 30px ;
+	border-bottom: 1px solid $grey-color-light;
 	row-gap: 20px;
 
 	@include media-breakpoint-md {
@@ -82,21 +70,10 @@
 	}
 }
 
-.status {
-	width: fit-content;
-	padding: 12px 20px;
-	border-radius: 15px;
-	background-color: $white-color-dark;
-	color: $grey-color-dark;
-	font-weight: 500;
-	text-transform: uppercase;
-
-	@include text-lg;
-}
-
 .bottomContent {
 	display: flex;
 	justify-content: space-between;
+	padding-top: 30px;
 }
 
 .details {
@@ -141,4 +118,12 @@
 	font-weight: 500;
 
 	@include text-lg;
+}
+
+.reviewButton {
+	margin-top: 30px;
+
+	button {
+		border-radius: 40px;
+	}
 }

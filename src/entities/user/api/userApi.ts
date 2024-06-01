@@ -1,6 +1,5 @@
 import { rtkApi } from "shared/api";
-
-import { IUser } from "../model/types";
+import { IUser } from "shared/types";
 
 const apiPath = "user";
 

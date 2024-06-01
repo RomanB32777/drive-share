@@ -24,7 +24,7 @@ export const RecommendedCarousel: FC<IRecommendedCarousel> = ({
 			items={cars}
 			isLoading={isLoading}
 			title={title}
-			renderItem={(item) => <CarCard {...item} />}
+			renderItem={(item) => <CarCard {...item} isWithBadge />}
 			{...props}
 		/>
 	);

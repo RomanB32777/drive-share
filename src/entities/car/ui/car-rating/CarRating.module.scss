@@ -1,0 +1,21 @@
+@import "app/styles/index";
+
+.row {
+	display: flex;
+	gap: 18px;
+}
+
+.reviews {
+	color: $grey-color-light;
+	font-weight: 500;
+
+	@include text-xs;
+
+	@include media-breakpoint-md {
+		@include text-sm;
+	}
+
+	@include media-breakpoint-xl {
+		@include text-xl;
+	}
+}

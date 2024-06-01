@@ -1,11 +1,19 @@
 import { IUserIdQueryParam } from "shared/api";
 
+export enum ERentStatus {
+	New = "new",
+	Operation = "operation",
+	Confirm = "confirm",
+	Cancel = "cancel",
+	Complete = "completed",
+}
+
 export interface IRent {
 	id: string;
 	carId: number;
 	rentBegin: string;
 	rentEnd: string;
-	status: string;
+	status: ERentStatus;
 	createdAt: string;
 	model: string;
 	photo: string;
@@ -15,7 +23,7 @@ export interface IRent {
 
 export interface IRentStatus {
 	id: number;
-	value: string;
+	value: ERentStatus;
 	title: string; // TODO переделать на name и потом адаптер прикрутить, чтобы в radio затащить
 }
 

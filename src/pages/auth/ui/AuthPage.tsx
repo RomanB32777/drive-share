@@ -34,6 +34,7 @@ export const AuthPage: FC = () => {
 
 	const handleAuthSuccess = (data: IViewer) => {
 		tokenService.setTokens({ confirmToken: data.confirmationToken, userToken: String(data.id) });
+
 		goBack();
 	};
 

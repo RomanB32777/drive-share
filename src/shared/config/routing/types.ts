@@ -10,9 +10,10 @@ export enum ERoutes {
 
 export enum EProfileRoutes {
 	Account = "account",
-	// Documents = "documents",
+	Documents = "documents",
 	Cars = "cars",
 	Rents = "rents",
+	Favorites = "favorites",
 }
 
 export enum EProfileCarsRoutes {

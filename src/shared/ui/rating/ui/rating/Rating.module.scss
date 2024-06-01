@@ -1,0 +1,88 @@
+@import "app/styles/index";
+
+.rating {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+
+  @include text-xs;
+
+  @include media-breakpoint-md {
+    @include text-sm;
+  }
+
+  @include media-breakpoint-xl {
+    @include text-xl;
+  }
+}
+
+.stars {
+  :global {
+    @include text-xs;
+
+    .ant-rate-star svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .ant-rate-star.ant-rate-star-full,
+    .ant-rate-star.ant-rate-star-half.ant-rate-star-active {
+      color: $primary-color;
+    }
+
+    @include media-breakpoint-md {
+      @include text-sm;
+    }
+
+    @include media-breakpoint-xl {
+      @include text-base;
+    }
+  }
+
+  &.small:global(> .ant-rate-star) {
+    width: 12px;
+    height: 12px;
+
+    @include media-breakpoint-md {
+      width: 14px;
+      height: 14px;
+    }
+
+    @include media-breakpoint-xl {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  &.big:global(> .ant-rate-star) {
+    width: 30px;
+    height: 30px;
+
+    @include media-breakpoint-md {
+      width: 35px;
+      height: 35px;
+    }
+
+    @include media-breakpoint-xl {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  &:global(> .ant-rate-star:not(:last-child)) {
+    margin-inline-end: 2px;
+
+    @include media-breakpoint-md {
+      margin-inline-end: 4px;
+    }
+
+    @include media-breakpoint-xl {
+      margin-inline-end: 8px;
+    }
+  }
+}
+
+.value {
+  margin-right: 8px;
+  color: $primary-color;
+}

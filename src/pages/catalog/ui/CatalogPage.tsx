@@ -2,8 +2,8 @@ import { FC } from "react";
 import { useSearchParams } from "react-router-dom";
 
 import { CatalogFilter } from "widgets/catalog-filter";
+import { CarsGrid } from "features/cars-grid";
 import {
-	CarCard,
 	TPeriodFilterValues,
 	selectCars,
 	useFetchCarsQuery,
@@ -11,7 +11,6 @@ import {
 } from "entities/car";
 import { pathRoutes } from "shared/config/routing";
 import { useAppSelector, usePageTitle } from "shared/lib/hooks";
-import { ContentLayout } from "shared/ui";
 
 import styles from "./CatalogPage.module.scss";
 
@@ -43,11 +42,7 @@ export const CatalogPage: FC = () => {
 					onSubmit={fetchCars}
 				/>
 
-				<ContentLayout isLoading={isLoading} isPageContent>
-					<div className={styles.cards}>
-						{items?.map((item) => <CarCard key={item.id} {...item} />)}
-					</div>
-				</ContentLayout>
+				<CarsGrid items={items} isLoading={isLoading} cardProps={{ isWithBadge: true }} />
 			</div>
 		</div>
 	);

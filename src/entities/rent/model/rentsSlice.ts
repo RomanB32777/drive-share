@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 import { rentsApi } from "../api/rentsApi";
 
-import { IRentsState } from "./types";
+import { ERentStatus, IRentsState } from "./types";
 
 const initialState: IRentsState = {
 	rents: [],
@@ -10,18 +10,28 @@ const initialState: IRentsState = {
 	statuses: [
 		{
 			id: 1,
-			value: "all",
-			title: "Все заявки",
-		},
-		{
-			id: 2,
-			value: "new",
+			value: ERentStatus.New,
 			title: "Новые",
 		},
 		{
-			id: 3,
-			value: "exploitation",
+			id: 2,
+			value: ERentStatus.Operation,
 			title: "Эксплуатация",
+		},
+		{
+			id: 3,
+			value: ERentStatus.Confirm,
+			title: "Подтвержденные",
+		},
+		{
+			id: 4,
+			value: ERentStatus.Complete,
+			title: "Завершенные",
+		},
+		{
+			id: 4,
+			value: ERentStatus.Cancel,
+			title: "Отмененные",
 		},
 	],
 };

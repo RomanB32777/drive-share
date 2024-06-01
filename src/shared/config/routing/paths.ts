@@ -29,6 +29,7 @@ export const pathRoutes: TRoutes = {
 		title: "Профиль",
 		childRoutes: {
 			[EProfileRoutes.Account]: { path: "account", title: "Аккаунт" },
+			[EProfileRoutes.Documents]: { path: "documents", title: "Документы" },
 			[EProfileRoutes.Rents]: { path: "rents", title: "Заявки" },
 			[EProfileRoutes.Cars]: {
 				path: "cars",
@@ -40,6 +41,7 @@ export const pathRoutes: TRoutes = {
 					},
 				},
 			},
+			[EProfileRoutes.Favorites]: { path: "favorites", title: "Избранное" },
 		},
 	},
 	[ERoutes.Auth]: { path: "/auth/:type", title: "Авторизация/Регистрация" },

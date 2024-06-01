@@ -1,12 +1,19 @@
 import { FC } from "react";
 
 import { diffDates, getDateDuration, getFromNow, reformatDate } from "shared/lib/datetime";
+import { Button } from "shared/ui";
 
-import { IRent } from "../../model/types";
+import { rentStatusTitles } from "../../config/constants";
+import { ERentStatus, IRent } from "../../model/types";
+import { RentStatus } from "../rent-status";
 
 import styles from "./RentCard.module.scss";
 
-export const RentCard: FC<IRent> = ({
+interface IRentCard extends IRent {
+	onReviewClick: (carId: number) => void;
+}
+
+export const RentCard: FC<IRentCard> = ({
 	id,
 	model,
 	photo,
@@ -14,7 +21,11 @@ export const RentCard: FC<IRent> = ({
 	createdAt,
 	rentBegin,
 	rentEnd,
+	carId,
+	onReviewClick,
 }) => {
+	const handleReviewClick = () => onReviewClick(carId);
+
 	return (
 		<div className={styles.card}>
 			<div className={styles.topContent}>
@@ -30,7 +41,7 @@ export const RentCard: FC<IRent> = ({
 				</div>
 
 				<div>
-					<p className={styles.status}>{status}</p>
+					<RentStatus status={status} />
 				</div>
 			</div>
 			<div className={styles.bottomContent}>
@@ -45,12 +56,20 @@ export const RentCard: FC<IRent> = ({
 
 					<div>
 						<p className={styles.label}>Статус</p>
-						<p className={styles.value}>{status}:</p>
+						<p className={styles.value}>{rentStatusTitles[status]}:</p>
 						<p className={styles.description}>17.04.2024, в 21:36</p>
 					</div>
 				</div>
 				<p className={styles.ago}>{getFromNow(createdAt)}</p>
 			</div>
+
+			{status === ERentStatus.Complete && (
+				<div className={styles.reviewButton}>
+					<Button style="outlinePrimary" onClick={handleReviewClick}>
+						Оставить отзыв
+					</Button>
+				</div>
+			)}
 		</div>
 	);
 };

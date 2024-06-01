@@ -16,10 +16,11 @@ import { CarPage } from "pages/car";
 import { CatalogPage } from "pages/catalog";
 import { MainPage } from "pages/main";
 import { NotFoundPage } from "pages/not-found";
-import { ProfileCars, ProfilePage, ProfileRents } from "pages/profile";
+import { FavoritesCars, ProfileCars, ProfilePage, ProfileRents } from "pages/profile";
 import { RentPage } from "pages/rent";
 import { AccountForm } from "features/account-form";
 import { CarForm } from "features/car-form";
+import { DocumentsForm } from "features/documents-form";
 import { ERoutes, pathRoutes } from "shared/config/routing";
 
 import { AppLayout } from "../../../layout";
@@ -41,6 +42,7 @@ const routes: Record<ERoutes, RouteObject> = {
 				children: [
 					// TODO не работают подсказки из childRoutes
 					{ ...pathRoutes.profile.childRoutes?.account, element: <AccountForm /> },
+					{ ...pathRoutes.profile.childRoutes?.documents, element: <DocumentsForm /> },
 					{ ...pathRoutes.profile.childRoutes?.rents, element: <ProfileRents /> },
 					{
 						...pathRoutes.profile.childRoutes?.cars,
@@ -56,6 +58,7 @@ const routes: Record<ERoutes, RouteObject> = {
 							},
 						],
 					},
+					{ ...pathRoutes.profile.childRoutes?.favorites, element: <FavoritesCars /> },
 				],
 			},
 		],

@@ -6,6 +6,7 @@ export {
 } from "./api/rentsApi";
 
 export {
+	ERentStatus,
 	type IRent,
 	type TRentFormData,
 	type IRentsQueryParams,
@@ -15,5 +16,6 @@ export {
 
 export { rentsActions, rentsReducer } from "./model/rentsSlice";
 export { selectRents, selectStatuses } from "./model/selectors";
+export { rentStatusTitles } from "./config/constants";
 
 export { RentCard } from "./ui/rent-card";

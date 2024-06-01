@@ -23,13 +23,6 @@ export enum EAuthTypes {
 export type TAuthByEmail = Pick<IViewer, "email" | "password">;
 export type TSignUpViewer = Pick<IViewer, "name" | "surname"> & TAuthByEmail;
 
-export enum EProfileTabs {
-	Account = "account",
-	Documents = "documents",
-	Rents = "rents",
-	Cars = "cars",
-}
-
 export type TViewerProfile = Pick<
 	IViewer,
 	| "id"
@@ -50,3 +43,10 @@ export interface IAuthTokens {
 }
 
 export type TAuthTokenTypes = keyof IAuthTokens;
+
+export interface IVewerDocuments<T = string> {
+	passport1: T;
+	passport2: T;
+	driverLicense1: T;
+	driverLicense2: T;
+}

@@ -6,17 +6,36 @@
 	flex-direction: column;
 	justify-content: space-between;
 	padding-top: 20px;
-	gap: 50px;
+	gap: 20px;
 
 	@include container-wrapper;
 
 	@include media-breakpoint-md {
 		flex-direction: row;
+		gap: 50px;
 	}
 
 	@include media-breakpoint-xl {
 		padding-top: 45px;
 	}
+}
+
+.sliderWrapper {
+	position: relative;
+	min-height: 148px;
+}
+
+.sliderContent {
+	position: absolute;
+	overflow: hidden;
+	inset: 0;
+
+	@include container-wrapper;
+}
+
+button.likeButton {
+	padding: 12px;
+	margin-left: auto;
 }
 
 .slide {
@@ -170,6 +189,16 @@
 .dotted {
 	width: 100%;
 	border-bottom: 1px dashed $grey-color-dark;
+}
+
+.reviewsHead {
+	padding-bottom: 30px;
+	border-bottom: 1px solid $grey-color-light;
+}
+
+.reviews {
+	padding: 30px 0;
+	row-gap: 30px;
 }
 
 .sidebar {

@@ -1,9 +1,5 @@
 @import "app/styles/index";
 
-.wrapper {
-	padding: 55px 0;
-}
-
 .head {
 	display: flex;
 
@@ -12,20 +8,24 @@
 	}
 }
 
-.button {
+button.button {
 	border-radius: 40px;
 }
 
-.cards {
-	display: grid;
-	gap: 30px;
-	grid-template-columns: repeat(1, minmax(0, 1fr));
+.card {
+	background-color: $white-color-light;
+}
 
-	@include media-breakpoint-md {
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-	}
+.actions {
+	display: flex;
+	margin-top: 28px;
+	gap: 20px;
 
-	@include media-breakpoint-xl {
-		grid-template-columns: repeat(3, minmax(0, 1fr));
+	& > button {
+		width: 100%;
+
+		p {
+			margin-top: 5px;
+		}
 	}
 }

@@ -36,7 +36,7 @@
 	justify-content: space-between;
 	gap: 20px;
 
-	@include media-breakpoint-lg {
+	@include media-breakpoint-xl {
 		flex-direction: row;
 	}
 
@@ -62,13 +62,6 @@
 
 .mainUpload {
 	margin-bottom: 25px;
-	
-	// TODO избавиться от глобала
-	&:global(.ant-upload-wrapper > .ant-upload.ant-upload-select) {
-		position: relative;
-		width: 100%;
-		height: 450px;
-	}
 }
 
 .tip {
@@ -85,7 +78,8 @@
 }
 
 .descriptionSection {
-	p, li {
+	p,
+	li {
 		font-weight: 500;
 
 		@include text-sm;
@@ -93,7 +87,7 @@
 		@include media-breakpoint-md {
 			@include text-base;
 		}
-	
+
 		@include media-breakpoint-xl {
 			@include text-lg;
 		}
